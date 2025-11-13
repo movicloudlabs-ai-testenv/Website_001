@@ -10,7 +10,7 @@ const ContactUs: React.FC = () => {
       <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Contact Snowflake-Style Support
+            Get touch and support
           </h1>
           <p className="text-lg text-gray-600 mb-12">
             Have a question about our services? We’d love to hear from you.
