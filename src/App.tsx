@@ -15,7 +15,7 @@ import Hotel from "./pages/products/Hotel";
 import Survey from "./pages/products/Survey";
 import Marketing from "./pages/products/Marketing";
 import NotFound from "./pages/NotFound";
-import ContactUs from "./pages/ContactUs"; // ✅ NEW PAGE
+import ContactUs from "./pages/contactUs";// ✅ NEW PAGE
 
 const queryClient = new QueryClient();
 
