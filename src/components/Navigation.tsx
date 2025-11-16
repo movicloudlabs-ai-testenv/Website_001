@@ -13,7 +13,6 @@ const Item = ({ name, desc, link }: { name: string; desc: string; link: string }
   </div>
 );
 
-
 /* ----------------------------- SOLUTION COMPONENT ----------------------------- */
 const Solution = ({
   icon,

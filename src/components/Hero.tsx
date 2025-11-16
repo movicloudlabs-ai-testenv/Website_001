@@ -23,12 +23,13 @@ export const Hero = () => {
 
   return (
     <>
-      {/* 🧠 Hero Section */}
+      {/* 🧠 HERO SECTION */}
       <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between overflow-hidden pt-20 bg-background">
-        {/* Soft Gradient Overlay */}
+        
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none"></div>
 
-        {/* Left Side — Text */}
+        {/* LEFT TEXT */}
         <div className="relative md:w-1/2 flex flex-col justify-center px-6 md:px-16 z-20 text-center md:text-left space-y-6 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             Building{" "}
@@ -38,9 +39,8 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto md:mx-0">
-            MoviCloud Labs delivers cutting-edge mobile and web applications
-            powered by advanced AI and analytics, transforming how businesses
-            operate and grow.
+            MoviCloud Labs delivers cutting-edge mobile and web applications powered by advanced
+            AI and analytics, transforming how businesses operate and grow.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-4 pt-4">
@@ -53,6 +53,7 @@ export const Hero = () => {
                 <ArrowRight className="ml-2" />
               </Button>
             </Link>
+
             <Button
               size="lg"
               variant="outline"
@@ -63,7 +64,7 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Right Side — Hero Image */}
+        {/* RIGHT IMAGE */}
         <div className="relative md:w-1/2 flex justify-end z-10 px-6 md:px-16 pointer-events-none">
           <img
             src="/Hero.jpg"
@@ -71,41 +72,106 @@ export const Hero = () => {
             className="w-full max-w-lg md:max-w-xl object-contain mix-blend-lighten opacity-90 animate-fade-in"
           />
         </div>
+      </section>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
+      {/* 🔵 DIVIDER LINE */}
+      <div className="w-full h-[1px] bg-blue-400/40 mt-2 mb-4"></div>
+
+      {/* 🌟 PRODUCT SHOWCASE + LAUNCHING 2026 */}
+      <section className="relative w-full pt-2 pb-8 bg-background">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
+          {/* LEFT SIDE */}
+          <div>
+            <h2 className="text-2xl font-bold text-foreground mb-4">
+              Product Showcase: <span className="text-primary">Launching 2026</span>
+            </h2>
+
+            {/* ICON GRID */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+
+              <div className="flex flex-col items-center space-y-2">
+                <img src="/icons/products/hospital.jpg" className="w-16 h-16 rounded-full" />
+                <p className="text-sm font-medium">Hospital Management</p>
+              </div>
+
+              <div className="flex flex-col items-center space-y-2">
+                <img src="/icons/products/transport.jpg" className="w-16 h-16 rounded-full" />
+                <p className="text-sm font-medium">Transport Management</p>
+              </div>
+
+              <div className="flex flex-col items-center space-y-2">
+                <img src="/icons/products/office.jpg" className="w-16 h-16 rounded-full" />
+                <p className="text-sm font-medium">Office / Work Management</p>
+              </div>
+
+              <div className="flex flex-col items-center space-y-2">
+                <img src="/icons/products/school.jpg" className="w-16 h-16 rounded-full" />
+                <p className="text-sm font-medium">School & Alumni</p>
+              </div>
+
+              <div className="flex flex-col items-center space-y-2">
+                <img src="/icons/products/ecommerce.jpg" className="w-16 h-16 rounded-full" />
+                <p className="text-sm font-medium">E-commerce Inventory</p>
+              </div>
+
+              <div className="flex flex-col items-center space-y-2">
+                <img src="/icons/products/hotel.jpg" className="w-16 h-16 rounded-full" />
+                <p className="text-sm font-medium">Hotel & Hospitality</p>
+              </div>
+
+              <div className="flex flex-col items-center space-y-2">
+                <img src="/icons/products/survey.jpg" className="w-16 h-16 rounded-full" />
+                <p className="text-sm font-medium">Survey System</p>
+              </div>
+
+              <div className="flex flex-col items-center space-y-2">
+                <img src="/icons/products/marketing.jpg" className="w-16 h-16 rounded-full" />
+                <p className="text-sm font-medium">Marketing Suite</p>
+              </div>
+
+            </div>
           </div>
+
+          {/* RIGHT SIDE — LAUNCHING 2026 */}
+          <div className="relative flex items-center justify-center">
+            <img
+              src="/launch-bg.png"
+              alt="Launching 2026"
+              className="w-[380px] h-[380px] object-contain opacity-90"
+            />
+          </div>
+
         </div>
       </section>
 
-      {/* ✅ Feature Cards Section (Flip Cards) */}
-      <section className="relative z-10 bg-background py-20">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+      {/* 🔵 SECOND DIVIDER */}
+      <div className="w-full h-[1px] bg-blue-400/40 mt-6 mb-8"></div>
+
+      {/* 🎴 FEATURE CARDS SECTION */}
+      <section className="relative z-10 bg-background pt-16 pb-10">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+
           {cards.map((card, index) => (
             <div key={index} className="flip-card w-full h-64">
               <div className="flip-inner w-full h-full">
-                {/* Front — Logo */}
+
+                {/* Front */}
                 <div className="flip-front bg-card rounded-2xl shadow-md flex items-center justify-center border border-border">
-                  <img
-                    src="/logo1.jpg"
-                    alt="Company Logo"
-                    className="w-28 h-28 object-contain"
-                  />
+                  <img src="/logo1.jpg" className="w-28 h-28 object-contain" />
                 </div>
 
-                {/* Back — Feature Info */}
+                {/* Back */}
                 <div className="flip-back bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl shadow-xl flex flex-col items-center justify-center text-center border border-border">
                   {card.icon}
                   <h3 className="text-xl font-semibold mt-2">{card.title}</h3>
-                  <p className="text-muted-foreground mt-2 px-4">
-                    {card.description}
-                  </p>
+                  <p className="text-muted-foreground mt-2 px-4">{card.description}</p>
                 </div>
+
               </div>
             </div>
           ))}
+
         </div>
       </section>
     </>
