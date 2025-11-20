@@ -14,37 +14,37 @@ const steps = [
     icon: ClipboardList,
     step: "STEP 01",
     title: "Requirements Gathering",
-    description: "We deeply understand your vision, goals, and technical needs.",
+    description: "We understand your vision, goals, and technical needs with clarity.",
   },
   {
     icon: Palette,
     step: "STEP 02",
     title: "UI/UX Design",
-    description: "Crafting beautiful and intuitive interfaces for your users.",
+    description: " We design beautiful and intuitive user experiences.",
   },
   {
     icon: Code,
     step: "STEP 03",
     title: "Development",
-    description: "Building robust and scalable digital solutions.",
+    description: "We build robust and scalable digital solutions.",
   },
   {
     icon: TestTube,
     step: "STEP 04",
     title: "Testing & QA",
-    description: "Ensuring quality through rigorous testing.",
+    description: "We ensure top-tier quality through rigorous testing.",
   },
   {
     icon: Rocket,
     step: "STEP 05",
     title: "Phased Deployments",
-    description: "Smooth and stable rollouts.",
+    description: "We deliver smooth and stable rollouts.",
   },
   {
     icon: Settings,
     step: "STEP 06",
     title: "Production & Support",
-    description: "Monitoring, maintenance and continuous improvements.",
+    description: "We provide continuous monitoring, maintenance, and improvements..",
   },
 ];
 
@@ -105,12 +105,14 @@ export const ProcessFlow = () => {
               </p>
 
               {/* Title */}
-              <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+            <h3 className="text-xl font-bold mb-2 line-clamp-1 h-[30px]">
+  {step.title}
+</h3>
 
-              {/* Description */}
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {step.description}
-              </p>
+{/* Description */}
+<p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 h-[40px]">
+  {step.description}
+</p>
 
               {/* Clean Line Wipe Animation */}
               {index < steps.length - 1 && (

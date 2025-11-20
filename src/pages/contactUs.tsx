@@ -1,22 +1,8 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Mail, Phone, MapPin } from "lucide-react";
 
 const ContactUs = () => {
-  const { toast } = useToast();
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -30,237 +16,205 @@ const ContactUs = () => {
     comments: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Form submitted!",
-      description: "We'll get back to you as soon as possible.",
-    });
-  };
-
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Form submitted!");
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white text-[#0d152e]">
       <Navigation />
 
-      <div className="container mx-auto px-4 pt-24 pb-12 md:pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start max-w-7xl mx-auto">
+      {/* MAIN WRAPPER */}
+      <div className="pt-28 pb-20">
+        {/* Perfect centered container with left/right gap */}
+        <div className="max-w-[1250px] mx-auto px-6 grid lg:grid-cols-[1fr_540px] gap-16">
 
-          {/* LEFT SIDE */}
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+          {/* LEFT SIDE — FULL WIDTH */}
+          <div className="w-full">
+            <h1 className="text-[40px] font-bold tracking-tight mb-6">
               GETTING IN TOUCH
             </h1>
 
-            <div className="space-y-4 text-muted-foreground text-base md:text-lg">
+            <div className="space-y-6 text-[17px] leading-[26px] text-[#304266]">
               <p>
                 Do you have a question or need more info? Please enter your
-                information and describe your inquiry, and we'll get back to you
-                as soon as possible.
+                information and describe your inquiry, and we’ll get back to you
+                as soon as possible. Thanks!
               </p>
 
               <p>
-                We do not accept job applications from this form. Please visit{" "}
-                <a href="#" className="text-accent hover:underline font-medium">
-                  our careers page
-                </a>
-                .
+                We do not accept job applications from this form. Please visit our{" "}
+                <a href="#" className="text-blue-600 font-medium hover:underline">
+                  careers page
+                </a>{" "}
+                for opportunities.
               </p>
 
               <p>
-                Looking for product support?{" "}
-                <a href="#" className="text-accent hover:underline font-medium">
-                  Open a support ticket
-                </a>
-                .
+                Looking for product support? To get the fastest response,{" "}
+                <a href="#" className="text-blue-600 font-medium hover:underline">
+                  please open a ticket within our support portal
+                </a>.
               </p>
 
               <p>
-                Need an <strong>Employment Verification</strong>?{" "}
-                <a href="#" className="text-accent hover:underline font-medium">
+                Need an <strong className="text-black">Employment Verification</strong>{" "}
+                for one of our employees?{" "}
+                <a href="#" className="text-blue-600 font-medium hover:underline">
                   Click here
-                </a>
-                .
+                </a>.
               </p>
-            </div>
-
-            {/* OFFICES */}
-            <div className="bg-card border border-border rounded-lg p-6 md:p-8 shadow-sm">
-              <h3 className="text-lg font-semibold">Our Offices</h3>
-              <p className="text-sm text-muted-foreground mt-2">
-                Pick a location to view details.
-              </p>
-
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-
-                {/* Canada */}
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Toronto"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-background rounded-md p-4 border border-border hover:shadow-lg hover:-translate-y-1 transition-all"
-                >
-                  <h4 className="font-semibold">Canada</h4>
-                  <p className="text-sm text-muted-foreground mt-1">Toronto, ON</p>
-
-                  <div className="mt-3 space-y-2 text-sm text-muted-foreground">
-                    <div className="flex items-center space-x-2">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span>123 King St W</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Phone className="w-4 h-4 text-primary" />
-                      <span>+1 (416) 000-0000</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4 text-primary" />
-                      <span>canada@movicloud.com</span>
-                    </div>
-                  </div>
-                </a>
-
-                {/* Dubai */}
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Dubai"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-background rounded-md p-4 border border-border hover:shadow-lg hover:-translate-y-1 transition-all"
-                >
-                  <h4 className="font-semibold">Dubai</h4>
-                  <p className="text-sm text-muted-foreground mt-1">UAE</p>
-                  <div className="mt-3 space-y-2 text-sm text-muted-foreground">
-                    <div className="flex items-center space-x-2">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span>DIFC, Dubai</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Phone className="w-4 h-4 text-primary" />
-                      <span>+971 4 000 000</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4 text-primary" />
-                      <span>dubai@movicloud.com</span>
-                    </div>
-                  </div>
-                </a>
-
-                {/* India */}
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Bengaluru"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-background rounded-md p-4 border border-border hover:shadow-lg hover:-translate-y-1 transition-all"
-                >
-                  <h4 className="font-semibold">India</h4>
-                  <p className="text-sm text-muted-foreground mt-1">Bengaluru</p>
-                  <div className="mt-3 space-y-2 text-sm text-muted-foreground">
-                    <div className="flex items-center space-x-2">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span>Whitefield</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Phone className="w-4 h-4 text-primary" />
-                      <span>+91 00000 00000</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4 text-primary" />
-                      <span>india@movicloud.com</span>
-                    </div>
-                  </div>
-                </a>
-
-              </div>
             </div>
           </div>
 
-          {/* RIGHT SIDE FORM */}
-          <div className="bg-card rounded-lg p-6 md:p-10 shadow-sm border border-border">
+          {/* RIGHT SIDE FORM — PLACEHOLDER DESIGN */}
+          <div className="bg-white border shadow-sm rounded-2xl p-10 w-[540px]">
             <form onSubmit={handleSubmit} className="space-y-6">
 
-              {/* NORMAL INPUT FIELD */}
+              {/* SIMPLE PLACEHOLDER INPUT FIELDS */}
               {[
                 ["First Name *", "firstName"],
                 ["Last Name *", "lastName"],
                 ["Company Name *", "companyName"],
-                ["Job Function", "jobFunction"],
-                ["Job Title *", "jobTitle"],
                 ["Email Address *", "email"],
                 ["Phone Number *", "phone"],
               ].map(([label, field]) => (
-                <div key={field} className="space-y-2">
-                  <label className="text-sm font-medium text-accent">{label}</label>
-                  <Input
+                <div key={field}>
+                  <input
+                    type="text"
                     required={label.includes("*")}
-                    value={(formData as any)[field]}
+                    placeholder={label}
+                    value={formData[field]}
                     onChange={(e) => handleInputChange(field, e.target.value)}
-                    className="border-0 border-b-2 rounded-none px-0 focus:border-accent focus-visible:ring-0"
+                    className="
+                      w-full 
+                      bg-transparent 
+                      border-b 
+                      border-blue-500 
+                      focus:border-blue-700 
+                      text-[15px] 
+                      py-2 
+                      focus:outline-none 
+                      placeholder:text-gray-500
+                    "
                   />
                 </div>
               ))}
 
-              {/* COUNTRY */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-accent">Country *</label>
-                <Select onValueChange={(value) => handleInputChange("country", value)}>
-                  <SelectTrigger className="border-0 border-b-2 rounded-none px-0 focus:border-accent focus-visible:ring-0">
-                    <SelectValue placeholder="Select country" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="us">United States</SelectItem>
-                    <SelectItem value="uk">United Kingdom</SelectItem>
-                    <SelectItem value="ca">Canada</SelectItem>
-                    <SelectItem value="in">India</SelectItem>
-                    <SelectItem value="au">Australia</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+              {/* COUNTRY DROPDOWN */}
+              <div>
+  <select
+    required
+    value={formData.country}
+    onChange={(e) => handleInputChange("country", e.target.value)}
+    className="
+      w-full
+      bg-transparent
+      border-0
+      border-b
+      border-blue-500
+      focus:border-blue-700
+      text-[15px]
+      py-2
+      focus:outline-none
+      appearance-none
+    "
+  >
+    <option value="" disabled>Country *</option>
+    <option>United States</option>
+    <option>Canada</option>
+    <option>United Kingdom</option>
+    <option>Germany</option>
+    <option>France</option>
+    <option>Australia</option>
+    <option>Japan</option>
+  </select>
+</div>
+
 
               {/* INQUIRY TYPE */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-accent">Inquiry Type *</label>
-                <Select onValueChange={(value) => handleInputChange("inquiryType", value)}>
-                  <SelectTrigger className="border-0 border-b-2 rounded-none px-0 focus:border-accent focus-visible:ring-0">
-                    <SelectValue placeholder="Select inquiry type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="general">General Inquiry</SelectItem>
-                    <SelectItem value="sales">Sales</SelectItem>
-                    <SelectItem value="support">Support</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+              <div>
+  <select
+    required
+    value={formData.inquiryType}
+    onChange={(e) => handleInputChange("inquiryType", e.target.value)}
+    className="
+      w-full
+      bg-transparent
+      border-0
+      border-b
+      border-blue-500
+      focus:border-blue-700
+      text-[15px]
+      py-2
+      focus:outline-none
+      appearance-none
+    "
+  >
+    <option value="" disabled>Inquiry Type *</option>
+    <option>General Inquiry</option>
+    <option>Sales</option>
+    <option>Support</option>
+  </select>
+</div>
 
               {/* COMMENTS */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-accent">Comments</label>
-                <Textarea
+              <div>
+                <textarea
+                  placeholder="Comments"
                   value={formData.comments}
                   onChange={(e) => handleInputChange("comments", e.target.value)}
-                  className="border border-border rounded-md min-h-[120px]"
-                  placeholder="Describe your inquiry..."
+                  className="
+                    w-full 
+                    bg-transparent 
+                    border 
+                    border-blue-500 
+                    focus:border-blue-700 
+                    rounded-md
+                    text-[15px] 
+                    p-3 
+                    focus:outline-none 
+                    placeholder:text-gray-500
+                    min-h-[120px]
+                  "
                 />
               </div>
 
-              {/* SUBMIT */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
-                <div className="text-sm text-muted-foreground">
-                  Prefer to speak directly? Call{" "}
-                  <strong className="text-foreground">+91 00000 00000</strong>
-                </div>
+              {/* CONSENT TEXT */}
+              <p className="text-[13px] text-[#304266] leading-[20px]">
+                By submitting this form, I understand MOVICLOUD will process my personal 
+                information in accordance with their Privacy Notice. I understand I may 
+                withdraw my consent or update my preferences here at any time.
+              </p>
 
-                <Button
+              {/* SUBMIT BUTTON CENTERED */}
+              <div className="flex justify-center pt-2">
+                <button
                   type="submit"
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground px-12 py-6 text-lg font-medium rounded-full transition-all hover:scale-105"
+                  className="
+                    px-10 
+                    py-3 
+                    bg-blue-600 
+                    text-white 
+                    rounded-full 
+                    hover:bg-blue-700 
+                    transition-all 
+                    text-[15px]
+                    font-medium
+                  "
                 >
                   SUBMIT
-                </Button>
+                </button>
               </div>
 
             </form>
           </div>
+
         </div>
       </div>
 
