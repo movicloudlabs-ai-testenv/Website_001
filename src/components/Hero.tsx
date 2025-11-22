@@ -55,7 +55,7 @@ export const Hero = () => {
               </span>
 
               <span className="block text-[#21C4A3] text-2xl md:text-3xl font-semibold mt-2">
-                with AI analytics
+                with  AI Advance analytics
               </span>
             </motion.h1>
 
