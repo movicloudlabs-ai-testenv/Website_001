@@ -117,8 +117,8 @@ export const Hero = () => {
             className="flex justify-center md:justify-end"
           >
            <img
-  src="/Hero.png"
-  className="w-full max-w-3xl object-contain"
+  src="/Hero2.png"
+  className="w-full max-w-3xl"
   alt="Hero"
 />
           </motion.div>
