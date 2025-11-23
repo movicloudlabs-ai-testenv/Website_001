@@ -2,25 +2,25 @@ import { useState, useEffect, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, X, GraduationCap, Users2, BookOpen, ArrowRight, Play, Award } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Check, X, GraduationCap, BookOpen, Users, ArrowRight, Play, Shield } from "lucide-react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import schoolImg from "@/assets/school-dashboard.jpg";
 
 const features = [
   {
     icon: <GraduationCap className="w-12 h-12 text-orange-400 mb-4" />,
-    title: "Student Management",
-    desc: "Complete student lifecycle management from admission to graduation with AI-powered academic insights."
+    title: "Student Performance",
+    desc: "AI analyzes learning patterns to identify at-risk students and suggest personalized interventions."
   },
   {
     icon: <BookOpen className="w-12 h-12 text-yellow-400 mb-4" />,
-    title: "Academic Analytics",
-    desc: "Track performance trends, identify at-risk students, and optimize curriculum with intelligent analytics."
+    title: "Curriculum Management",
+    desc: "Streamline lesson planning and resource allocation with intelligent scheduling tools."
   },
   {
-    icon: <Users2 className="w-12 h-12 text-orange-400 mb-4" />,
-    title: "Alumni Network",
-    desc: "Build lasting relationships with graduates through integrated alumni management and networking features."
+    icon: <Users className="w-12 h-12 text-orange-400 mb-4" />,
+    title: "Parent Engagement",
+    desc: "Automated communication tools keep parents informed about their child's progress and school events."
   }
 ];
 
@@ -35,7 +35,6 @@ const SchoolParticlesBackground = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -44,7 +43,6 @@ const SchoolParticlesBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Particle class
     class Particle {
       x: number;
       y: number;
@@ -60,7 +58,7 @@ const SchoolParticlesBackground = () => {
         this.size = Math.random() * 2 + 0.5;
         this.speedX = Math.random() * 0.5 - 0.25;
         this.speedY = Math.random() * 0.5 - 0.25;
-        this.color = `rgba(${Math.random() * 100 + 200}, ${Math.random() * 100 + 150}, ${Math.random() * 100 + 100}, ${Math.random() * 0.3 + 0.1})`;
+        this.color = `rgba(${Math.random() * 100 + 200}, ${Math.random() * 100 + 100}, ${Math.random() * 50}, ${Math.random() * 0.3 + 0.1})`;
         this.opacity = Math.random() * 0.6 + 0.2;
       }
 
@@ -84,7 +82,6 @@ const SchoolParticlesBackground = () => {
       }
     }
 
-    // Create particles
     const particles: Particle[] = [];
     const particleCount = Math.min(100, Math.floor((window.innerWidth * window.innerHeight) / 15000));
 
@@ -92,12 +89,10 @@ const SchoolParticlesBackground = () => {
       particles.push(new Particle());
     }
 
-    // Animation loop
     const animate = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw gradient background
       const gradient = ctx.createRadialGradient(
         canvas.width / 2,
         canvas.height / 2,
@@ -106,14 +101,13 @@ const SchoolParticlesBackground = () => {
         canvas.height / 2,
         Math.max(canvas.width, canvas.height) / 2
       );
-      gradient.addColorStop(0, 'rgba(255, 251, 235, 0.8)');
-      gradient.addColorStop(0.5, 'rgba(254, 249, 195, 0.6)');
+      gradient.addColorStop(0, 'rgba(255, 247, 237, 0.8)');
+      gradient.addColorStop(0.5, 'rgba(254, 243, 199, 0.6)');
       gradient.addColorStop(1, 'rgba(253, 230, 138, 0.4)');
-      
+
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
       particles.forEach(particle => {
         particle.update();
         particle.draw();
@@ -137,7 +131,7 @@ const SchoolParticlesBackground = () => {
   );
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -148,9 +142,9 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
     y: 80,
     scale: 0.9
   },
@@ -159,7 +153,7 @@ const itemVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 80,
       damping: 15,
       mass: 1.2
@@ -167,14 +161,14 @@ const itemVariants = {
   }
 };
 
-const cardHoverVariants = {
+const cardHoverVariants: Variants = {
   rest: {
     scale: 1,
     y: 0,
     rotateX: 0,
     rotateY: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 25
     }
@@ -185,7 +179,7 @@ const cardHoverVariants = {
     rotateX: 3,
     rotateY: 2,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 30
     }
@@ -194,14 +188,14 @@ const cardHoverVariants = {
     scale: 0.95,
     y: -5,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 600,
       damping: 35
     }
   }
 };
 
-const buttonHoverVariants = {
+const buttonHoverVariants: Variants = {
   rest: {
     scale: 1,
     boxShadow: "0 8px 25px -5px rgba(249, 115, 22, 0.15), 0 4px 10px -4px rgba(234, 179, 8, 0.1)"
@@ -210,7 +204,7 @@ const buttonHoverVariants = {
     scale: 1.08,
     boxShadow: "0 25px 50px -12px rgba(249, 115, 22, 0.35), 0 12px 24px -8px rgba(234, 179, 8, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 20
     }
@@ -219,14 +213,14 @@ const buttonHoverVariants = {
     scale: 0.92,
     boxShadow: "0 4px 12px -2px rgba(249, 115, 22, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 700,
       damping: 40
     }
   }
 };
 
-const secondaryButtonVariants = {
+const secondaryButtonVariants: Variants = {
   rest: {
     scale: 1,
     backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -241,7 +235,7 @@ const secondaryButtonVariants = {
     borderColor: "rgba(249, 115, 22, 0.5)",
     boxShadow: "0 25px 50px -12px rgba(249, 115, 22, 0.25), 0 12px 24px -8px rgba(234, 179, 8, 0.15)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 20
     }
@@ -251,7 +245,7 @@ const secondaryButtonVariants = {
     backgroundColor: "rgba(249, 115, 22, 0.08)",
     boxShadow: "0 4px 12px -2px rgba(249, 115, 22, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 700,
       damping: 40
     }
@@ -284,16 +278,13 @@ const School = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      {/* Enhanced Particles Background */}
       <SchoolParticlesBackground />
-      
-      {/* Additional Background Effects */}
+
       <div className="fixed inset-0 -z-5 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-yellow-300/20 rounded-full blur-3xl animate-pulse-slower"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-amber-300/15 rounded-full blur-3xl animate-pulse-medium"></div>
-        
-        {/* Floating elements */}
+        <div className="absolute top-1/4 -left-20 w-64 h-64 md:w-96 md:h-96 bg-orange-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/3 -right-20 w-64 h-64 md:w-80 md:h-80 bg-yellow-300/20 rounded-full blur-3xl animate-pulse-slower"></div>
+        <div className="absolute top-1/2 left-1/3 w-48 h-48 md:w-64 md:h-64 bg-amber-300/15 rounded-full blur-3xl animate-pulse-medium"></div>
+
         <motion.div
           className="absolute top-20 right-20 w-4 h-4 bg-orange-400/40 rounded-full"
           animate={{
@@ -322,11 +313,9 @@ const School = () => {
 
       <Navigation />
 
-      {/* Hero Section */}
       <section className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-yellow-500/5 to-amber-500/10"></div>
-        
-        {/* Animated overlay elements */}
+
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
           animate={{
@@ -338,59 +327,59 @@ const School = () => {
             ease: "linear"
           }}
         />
-        
+
         <div className="container mx-auto px-4 py-20">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <div className="space-y-8">
-              <motion.div 
+              <motion.div
                 className="inline-flex items-center px-6 py-3 bg-orange-500/15 backdrop-blur-md rounded-2xl border border-orange-500/30"
                 variants={itemVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   backgroundColor: "rgba(249, 115, 22, 0.2)",
                   transition: { type: "spring", stiffness: 400 }
                 }}
               >
                 <GraduationCap className="w-4 h-4 text-orange-500 mr-2" />
-                <span className="text-sm text-orange-600 font-semibold tracking-wide">Educational Excellence</span>
+                <span className="text-sm text-orange-600 font-semibold tracking-wide">Smart Education Management</span>
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 className="text-6xl md:text-8xl font-black text-slate-800 leading-tight"
                 variants={itemVariants}
               >
                 School{" "}
-                <motion.span 
+                <motion.span
                   className="bg-gradient-to-r from-orange-500 via-yellow-500 to-amber-500 bg-clip-text text-transparent"
-                  animate={{ 
+                  animate={{
                     backgroundPosition: ["0%", "100%"],
                   }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    repeatType: "reverse" 
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse"
                   }}
-                  style={{ 
+                  style={{
                     backgroundSize: "200% 100%",
                   }}
                 >
-                  Administration
+                  Management
                 </motion.span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-light"
                 variants={itemVariants}
               >
-                Comprehensive educational management platform with <span className="font-semibold text-orange-500">student records</span>, attendance tracking, academic analytics, and alumni networking.
+                Empower educators and students with <span className="font-semibold text-orange-500">AI-driven learning analytics</span>, streamlined administration, and enhanced parent engagement.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex flex-col sm:flex-row gap-6"
                 variants={itemVariants}
               >
@@ -401,11 +390,11 @@ const School = () => {
                   whileTap="tap"
                 >
                   <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-10 py-7 rounded-2xl shadow-2xl">
-                    <span className="mr-3">Schedule Demo</span>
+                    <span className="mr-3">Request a Demo</span>
                     <ArrowRight className="w-5 h-5" />
                   </Button>
                 </motion.div>
-                
+
                 <motion.div
                   variants={secondaryButtonVariants}
                   initial="rest"
@@ -425,32 +414,31 @@ const School = () => {
                         delay: Math.random() * 2
                       }}
                     />
-                    <BookOpen className="w-5 h-5 mr-3" />
-                    <span className="relative z-10">Learn More</span>
+                    <Play className="w-5 h-5 mr-3" />
+                    <span className="relative z-10">View Case Studies</span>
                   </Button>
                 </motion.div>
               </motion.div>
             </div>
-            
-            <motion.div 
+
+            <motion.div
               className="relative"
               variants={itemVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 transition: { type: "spring", stiffness: 300 }
               }}
             >
-              <motion.img 
-                src={schoolImg} 
-                alt="School Dashboard" 
+              <motion.img
+                src={schoolImg}
+                alt="School Dashboard"
                 className="rounded-3xl shadow-2xl border border-orange-200/50 backdrop-blur-sm"
                 whileHover={{
                   boxShadow: "0 35px 60px -15px rgba(249, 115, 22, 0.3)",
                   transition: { type: "spring", stiffness: 400 }
                 }}
               />
-              
-              {/* Floating badges around image */}
+
               <motion.div
                 className="absolute -top-4 -left-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-orange-200"
                 animate={{
@@ -463,11 +451,11 @@ const School = () => {
                 }}
               >
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-orange-500" />
-                  <span className="text-sm font-semibold text-orange-600">95% Success Rate</span>
+                  <Shield className="w-4 h-4 text-orange-500" />
+                  <span className="text-sm font-semibold text-orange-600">Secure Data</span>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-yellow-200"
                 animate={{
@@ -481,15 +469,14 @@ const School = () => {
                 }}
               >
                 <div className="flex items-center gap-2">
-                  <Users2 className="w-4 h-4 text-yellow-500" />
-                  <span className="text-sm font-semibold text-yellow-600">10K+ Alumni</span>
+                  <Users className="w-4 h-4 text-yellow-500" />
+                  <span className="text-sm font-semibold text-yellow-600">Better Engagement</span>
                 </div>
               </motion.div>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Floating particles in hero */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(15)].map((_, i) => (
             <motion.div
@@ -516,22 +503,21 @@ const School = () => {
       </section>
 
       <main className="pt-20 pb-16 relative z-10">
-        {/* Features Section */}
         <section className="py-24 bg-gradient-to-br from-orange-500/5 via-yellow-500/5 to-amber-500/5">
-          <motion.h2 
+          <motion.h2
             className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-orange-700 to-slate-800 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
+            transition={{
+              type: "spring",
               stiffness: 80,
-              damping: 15 
+              damping: 15
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Complete Education Ecosystem
+            AI-Powered Education
           </motion.h2>
-          
+
           <motion.div
             className="relative w-full flex justify-center items-center h-96 mb-12"
             onMouseEnter={() => setHovered(true)}
@@ -551,7 +537,7 @@ const School = () => {
                 return (
                   <motion.div
                     key={idx}
-                    className="absolute w-96 h-[420px] bg-white/95 backdrop-blur-lg rounded-3xl p-10 border border-orange-100/60 shadow-2xl cursor-pointer flex flex-col items-center justify-center relative overflow-hidden"
+                    className="absolute w-full max-w-sm h-[420px] bg-white/95 backdrop-blur-lg rounded-3xl p-10 border border-orange-100/60 shadow-2xl cursor-pointer flex flex-col items-center justify-center relative overflow-hidden"
                     variants={cardHoverVariants}
                     initial="rest"
                     whileHover="hover"
@@ -561,66 +547,63 @@ const School = () => {
                       scale: isActive ? 1.08 : 1,
                       y: isActive ? -20 : 0,
                     }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 200, 
+                    transition={{
+                      type: "spring" as const,
+                      stiffness: 200,
                       damping: 25,
                       duration: 0.8
                     }}
-                    style={{ 
+                    style={{
                       zIndex,
-                      boxShadow: isActive 
-                        ? "0 35px 60px -15px rgba(249, 115, 22, 0.4), 0 20px 40px -20px rgba(234, 179, 8, 0.3)" 
+                      boxShadow: isActive
+                        ? "0 35px 60px -15px rgba(249, 115, 22, 0.4), 0 20px 40px -20px rgba(234, 179, 8, 0.3)"
                         : "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
                     }}
                     onClick={() => setActiveIndex(idx)}
                   >
-                    {/* Card background effect */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-yellow-50/30"
                       whileHover={{ opacity: 1 }}
                       initial={{ opacity: 0.5 }}
                     />
-                    
+
                     <motion.div
                       className="relative z-10"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.15,
                         rotate: [0, -5, 5, 0],
-                        transition: { 
-                          type: "spring", 
+                        transition: {
+                          type: "spring" as const,
                           stiffness: 500,
-                          duration: 0.6 
+                          duration: 0.6
                         }
                       }}
                     >
                       {feature.icon}
                     </motion.div>
-                    
-                    <motion.h3 
+
+                    <motion.h3
                       className="text-3xl font-bold mb-6 text-slate-800 text-center relative z-10"
                       whileHover={{ scale: 1.05 }}
                     >
                       {feature.title}
                     </motion.h3>
-                    
-                    <motion.p 
+
+                    <motion.p
                       className="text-slate-600 text-center leading-relaxed text-xl font-light relative z-10"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1 }}
                     >
                       {feature.desc}
                     </motion.p>
-                    
-                    {/* Active indicator */}
+
                     <motion.div
-                      className={`absolute bottom-6 w-3 h-3 rounded-full ${
-                        isActive ? 'bg-gradient-to-r from-orange-400 to-yellow-400' : 'bg-slate-300'
-                      }`}
+                      className={`absolute bottom-6 w-3 h-3 rounded-full ${isActive ? 'bg-gradient-to-r from-orange-400 to-yellow-400' : 'bg-slate-300'
+                        }`}
                       animate={{
                         scale: isActive ? [1, 1.8, 1] : 1,
-                        boxShadow: isActive ? 
-                          "0 0 20px rgba(249, 115, 22, 0.5)" : 
+                        boxShadow: isActive ?
+                          "0 0 20px rgba(249, 115, 22, 0.5)" :
                           "none"
                       }}
                       transition={{
@@ -636,23 +619,22 @@ const School = () => {
           </motion.div>
         </section>
 
-        {/* Comparison Section */}
         <section className="container mx-auto px-4 mb-24">
-          <motion.h2 
+          <motion.h2
             className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-orange-700 to-slate-800 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
+            transition={{
+              type: "spring",
               stiffness: 80,
-              damping: 15 
+              damping: 15
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Transform Your Institution
+            Traditional vs. MoviCloud
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="max-w-6xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -660,43 +642,42 @@ const School = () => {
             viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              {/* Traditional Systems */}
-              <motion.div 
+              <motion.div
                 className="bg-white/90 backdrop-blur-lg rounded-3xl p-10 border border-red-200 shadow-2xl relative overflow-hidden"
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
                   boxShadow: "0 35px 60px -15px rgba(239, 68, 68, 0.25)"
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-pink-400"></div>
-                
+
                 <h3 className="text-3xl font-bold mb-8 text-red-500 flex items-center gap-4">
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       rotate: 180,
                       scale: 1.2
                     }}
-                    transition={{ type: "spring", stiffness: 500 }}
+                    transition={{ type: "spring" as const, stiffness: 500 }}
                   >
                     <X className="w-8 h-8" />
                   </motion.div>
-                  Traditional Systems
+                  Legacy Systems
                 </h3>
                 <ul className="space-y-5">
                   {[
-                    "Paper-based administrative processes",
-                    "Fragmented data management systems",
-                    "Limited parent communication channels",
-                    "No alumni engagement platform"
+                    "Paper-based record keeping",
+                    "Disconnected communication channels",
+                    "Manual grading and reporting",
+                    "Limited visibility into student progress"
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-start gap-4 text-slate-600 text-lg"
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, type: "spring" }}
+                      transition={{ delay: index * 0.15, type: "spring" as const }}
                       viewport={{ once: true }}
                       whileHover={{ x: 5 }}
                     >
@@ -707,18 +688,16 @@ const School = () => {
                 </ul>
               </motion.div>
 
-              {/* MoviCloud School */}
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-br from-orange-500/15 to-yellow-500/10 backdrop-blur-lg rounded-3xl p-10 border border-orange-300 shadow-2xl relative overflow-hidden"
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
                   boxShadow: "0 35px 60px -15px rgba(249, 115, 22, 0.35)"
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
-                {/* Animated background elements */}
-                <motion.div 
+                <motion.div
                   className="absolute top-0 right-0 w-40 h-40 bg-orange-400/20 rounded-full -translate-y-20 translate-x-20 blur-3xl"
                   animate={{
                     scale: [1, 1.2, 1],
@@ -731,14 +710,14 @@ const School = () => {
                   }}
                 />
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-yellow-400"></div>
-                
+
                 <h3 className="text-3xl font-bold mb-8 text-orange-600 flex items-center gap-4 relative z-10">
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.3,
-                      rotate: 360 
+                      rotate: 360
                     }}
-                    transition={{ type: "spring", stiffness: 500 }}
+                    transition={{ type: "spring" as const, stiffness: 500 }}
                   >
                     <Check className="w-8 h-8" />
                   </motion.div>
@@ -746,17 +725,17 @@ const School = () => {
                 </h3>
                 <ul className="space-y-5 relative z-10">
                   {[
-                    "100% digital administrative workflows",
-                    "Unified data management platform",
-                    "Real-time parent communication portal",
-                    "Integrated alumni networking system"
+                    "Digital student records & portfolios",
+                    "Unified parent-teacher communication",
+                    "AI-assisted grading & insights",
+                    "Real-time performance tracking"
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-start gap-4 text-slate-700 text-lg font-medium"
                       initial={{ opacity: 0, x: 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, type: "spring" }}
+                      transition={{ delay: index * 0.15, type: "spring" as const }}
                       viewport={{ once: true }}
                       whileHover={{ x: 5 }}
                     >
@@ -770,16 +749,14 @@ const School = () => {
           </motion.div>
         </section>
 
-        {/* CTA Section */}
         <section className="py-24 container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="bg-gradient-to-br from-orange-500/20 via-yellow-500/15 to-amber-500/10 backdrop-blur-xl rounded-3xl p-16 text-center border border-orange-300/50 shadow-2xl max-w-6xl mx-auto relative overflow-hidden"
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
             viewport={{ once: true }}
           >
-            {/* Animated background elements */}
             <motion.div
               className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 via-yellow-400 to-amber-400"
               animate={{
@@ -792,30 +769,30 @@ const School = () => {
                 ease: "easeInOut"
               }}
             />
-            
+
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-orange-400/20 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-yellow-400/20 rounded-full blur-3xl"></div>
-            
-            <motion.h2 
+
+            <motion.h2
               className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-slate-800 via-orange-700 to-slate-800 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, type: "spring" }}
               viewport={{ once: true }}
             >
-              Modernize Your School Today
+              Transform Your School Today
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, type: "spring" }}
               viewport={{ once: true }}
             >
-              Join progressive educational institutions using MoviCloud to enhance learning outcomes, streamline operations, and build lasting alumni relationships with comprehensive AI-powered educational management.
+              Join leading educational institutions using MoviCloud to improve student outcomes, streamline operations, and foster a better learning environment.
             </motion.p>
-            
+
             <motion.div
               variants={buttonHoverVariants}
               initial="rest"
@@ -824,14 +801,14 @@ const School = () => {
             >
               <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-black text-xl px-14 py-8 rounded-2xl shadow-2xl">
                 <motion.span
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.1,
                     x: 5
                   }}
-                  transition={{ type: "spring", stiffness: 500 }}
+                  transition={{ type: "spring" as const, stiffness: 500 }}
                   className="flex items-center"
                 >
-                  Request Demo
+                  Request a Demo
                   <ArrowRight className="w-6 h-6 ml-3" />
                 </motion.span>
               </Button>

@@ -2,25 +2,25 @@ import { useState, useEffect, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, X, Users, Target, BarChart3, ArrowRight, Play, TrendingUp } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Check, X, Users, Building2, Play, ArrowRight, Target, TrendingUp } from "lucide-react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import officeImg from "@/assets/office-dashboard.jpg";
 
 const features = [
   {
     icon: <Users className="w-12 h-12 text-purple-400 mb-4" />,
     title: "Team Collaboration",
-    desc: "Real-time collaboration tools with AI-powered task assignments and smart notifications."
+    desc: "Real-time workspaces where teams can chat, share files, and manage projects seamlessly."
   },
   {
     icon: <Target className="w-12 h-12 text-pink-400 mb-4" />,
     title: "Goal Tracking",
-    desc: "Set and track team goals with automated progress monitoring and milestone alerts."
+    desc: "Set, track, and achieve company goals with automated progress monitoring and visual dashboards."
   },
   {
-    icon: <BarChart3 className="w-12 h-12 text-purple-400 mb-4" />,
-    title: "Performance Analytics",
-    desc: "Comprehensive insights into team productivity, bottlenecks, and optimization opportunities."
+    icon: <Building2 className="w-12 h-12 text-purple-400 mb-4" />,
+    title: "Resource Management",
+    desc: "Optimize office resources, meeting rooms, and equipment allocation with AI-driven scheduling."
   }
 ];
 
@@ -60,7 +60,7 @@ const OfficeParticlesBackground = () => {
         this.size = Math.random() * 2 + 0.5;
         this.speedX = Math.random() * 0.5 - 0.25;
         this.speedY = Math.random() * 0.5 - 0.25;
-        this.color = `rgba(${Math.random() * 100 + 150}, ${Math.random() * 100 + 100}, ${Math.random() * 100 + 200}, ${Math.random() * 0.3 + 0.1})`;
+        this.color = `rgba(${Math.random() * 100 + 140}, ${Math.random() * 50 + 50}, ${Math.random() * 100 + 200}, ${Math.random() * 0.3 + 0.1})`;
         this.opacity = Math.random() * 0.6 + 0.2;
       }
 
@@ -109,7 +109,7 @@ const OfficeParticlesBackground = () => {
       gradient.addColorStop(0, 'rgba(250, 245, 255, 0.8)');
       gradient.addColorStop(0.5, 'rgba(243, 232, 255, 0.6)');
       gradient.addColorStop(1, 'rgba(233, 213, 255, 0.4)');
-      
+
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -137,7 +137,7 @@ const OfficeParticlesBackground = () => {
   );
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -148,9 +148,9 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
     y: 80,
     scale: 0.9
   },
@@ -159,7 +159,7 @@ const itemVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 80,
       damping: 15,
       mass: 1.2
@@ -167,14 +167,14 @@ const itemVariants = {
   }
 };
 
-const cardHoverVariants = {
+const cardHoverVariants: Variants = {
   rest: {
     scale: 1,
     y: 0,
     rotateX: 0,
     rotateY: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 25
     }
@@ -185,7 +185,7 @@ const cardHoverVariants = {
     rotateX: 3,
     rotateY: 2,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 30
     }
@@ -194,14 +194,14 @@ const cardHoverVariants = {
     scale: 0.95,
     y: -5,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 600,
       damping: 35
     }
   }
 };
 
-const buttonHoverVariants = {
+const buttonHoverVariants: Variants = {
   rest: {
     scale: 1,
     boxShadow: "0 8px 25px -5px rgba(168, 85, 247, 0.15), 0 4px 10px -4px rgba(236, 72, 153, 0.1)"
@@ -210,7 +210,7 @@ const buttonHoverVariants = {
     scale: 1.08,
     boxShadow: "0 25px 50px -12px rgba(168, 85, 247, 0.35), 0 12px 24px -8px rgba(236, 72, 153, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 20
     }
@@ -219,14 +219,14 @@ const buttonHoverVariants = {
     scale: 0.92,
     boxShadow: "0 4px 12px -2px rgba(168, 85, 247, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 700,
       damping: 40
     }
   }
 };
 
-const secondaryButtonVariants = {
+const secondaryButtonVariants: Variants = {
   rest: {
     scale: 1,
     backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -241,7 +241,7 @@ const secondaryButtonVariants = {
     borderColor: "rgba(168, 85, 247, 0.5)",
     boxShadow: "0 25px 50px -12px rgba(168, 85, 247, 0.25), 0 12px 24px -8px rgba(236, 72, 153, 0.15)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 20
     }
@@ -251,7 +251,7 @@ const secondaryButtonVariants = {
     backgroundColor: "rgba(168, 85, 247, 0.08)",
     boxShadow: "0 4px 12px -2px rgba(168, 85, 247, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 700,
       damping: 40
     }
@@ -286,13 +286,13 @@ const Office = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Enhanced Particles Background */}
       <OfficeParticlesBackground />
-      
+
       {/* Additional Background Effects */}
       <div className="fixed inset-0 -z-5 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-pink-300/20 rounded-full blur-3xl animate-pulse-slower"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-violet-300/15 rounded-full blur-3xl animate-pulse-medium"></div>
-        
+        <div className="absolute top-1/4 -left-20 w-64 h-64 md:w-96 md:h-96 bg-purple-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/3 -right-20 w-64 h-64 md:w-80 md:h-80 bg-pink-300/20 rounded-full blur-3xl animate-pulse-slower"></div>
+        <div className="absolute top-1/2 left-1/3 w-48 h-48 md:w-64 md:h-64 bg-violet-300/15 rounded-full blur-3xl animate-pulse-medium"></div>
+
         {/* Floating elements */}
         <motion.div
           className="absolute top-20 right-20 w-4 h-4 bg-purple-400/40 rounded-full"
@@ -325,7 +325,7 @@ const Office = () => {
       {/* Hero Section */}
       <section className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-purple-50 via-pink-50 to-violet-50 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/5 to-violet-500/10"></div>
-        
+
         {/* Animated overlay elements */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
@@ -338,59 +338,59 @@ const Office = () => {
             ease: "linear"
           }}
         />
-        
+
         <div className="container mx-auto px-4 py-20">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <div className="space-y-8">
-              <motion.div 
+              <motion.div
                 className="inline-flex items-center px-6 py-3 bg-purple-500/15 backdrop-blur-md rounded-2xl border border-purple-500/30"
                 variants={itemVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   backgroundColor: "rgba(168, 85, 247, 0.2)",
-                  transition: { type: "spring", stiffness: 400 }
+                  transition: { type: "spring" as const, stiffness: 400 }
                 }}
               >
                 <Users className="w-4 h-4 text-purple-500 mr-2" />
                 <span className="text-sm text-purple-600 font-semibold tracking-wide">Workplace Excellence</span>
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 className="text-6xl md:text-8xl font-black text-slate-800 leading-tight"
                 variants={itemVariants}
               >
                 Office &{" "}
-                <motion.span 
+                <motion.span
                   className="bg-gradient-to-r from-purple-500 via-pink-500 to-violet-500 bg-clip-text text-transparent"
-                  animate={{ 
+                  animate={{
                     backgroundPosition: ["0%", "100%"],
                   }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    repeatType: "reverse" 
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse"
                   }}
-                  style={{ 
+                  style={{
                     backgroundSize: "200% 100%",
                   }}
                 >
                   Work
                 </motion.span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-light"
                 variants={itemVariants}
               >
                 Empower your team with <span className="font-semibold text-purple-500">intelligent task management</span>, seamless collaboration, and AI-driven productivity insights.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex flex-col sm:flex-row gap-6"
                 variants={itemVariants}
               >
@@ -405,7 +405,7 @@ const Office = () => {
                     <ArrowRight className="w-5 h-5" />
                   </Button>
                 </motion.div>
-                
+
                 <motion.div
                   variants={secondaryButtonVariants}
                   initial="rest"
@@ -431,25 +431,25 @@ const Office = () => {
                 </motion.div>
               </motion.div>
             </div>
-            
-            <motion.div 
+
+            <motion.div
               className="relative"
               variants={itemVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
-                transition: { type: "spring", stiffness: 300 }
+                transition: { type: "spring" as const, stiffness: 300 }
               }}
             >
-              <motion.img 
-                src={officeImg} 
-                alt="Office Dashboard" 
+              <motion.img
+                src={officeImg}
+                alt="Office Dashboard"
                 className="rounded-3xl shadow-2xl border border-purple-200/50 backdrop-blur-sm"
                 whileHover={{
                   boxShadow: "0 35px 60px -15px rgba(168, 85, 247, 0.3)",
-                  transition: { type: "spring", stiffness: 400 }
+                  transition: { type: "spring" as const, stiffness: 400 }
                 }}
               />
-              
+
               {/* Floating badges around image */}
               <motion.div
                 className="absolute -top-4 -left-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-purple-200"
@@ -467,7 +467,7 @@ const Office = () => {
                   <span className="text-sm font-semibold text-purple-600">+47% Productivity</span>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-pink-200"
                 animate={{
@@ -518,20 +518,20 @@ const Office = () => {
       <main className="pt-20 pb-16 relative z-10">
         {/* Features Section */}
         <section className="py-24 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-violet-500/5">
-          <motion.h2 
+          <motion.h2
             className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-purple-700 to-slate-800 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
+            transition={{
+              type: "spring" as const,
               stiffness: 80,
-              damping: 15 
+              damping: 15
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Productivity Powerhouse
+            Intelligent Workspace Solutions
           </motion.h2>
-          
+
           <motion.div
             className="relative w-full flex justify-center items-center h-96 mb-12"
             onMouseEnter={() => setHovered(true)}
@@ -551,7 +551,7 @@ const Office = () => {
                 return (
                   <motion.div
                     key={idx}
-                    className="absolute w-96 h-[420px] bg-white/95 backdrop-blur-lg rounded-3xl p-10 border border-purple-100/60 shadow-2xl cursor-pointer flex flex-col items-center justify-center relative overflow-hidden"
+                    className="absolute w-full max-w-sm h-[420px] bg-white/95 backdrop-blur-lg rounded-3xl p-10 border border-purple-100/60 shadow-2xl cursor-pointer flex flex-col items-center justify-center relative overflow-hidden"
                     variants={cardHoverVariants}
                     initial="rest"
                     whileHover="hover"
@@ -561,16 +561,16 @@ const Office = () => {
                       scale: isActive ? 1.08 : 1,
                       y: isActive ? -20 : 0,
                     }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 200, 
+                    transition={{
+                      type: "spring" as const,
+                      stiffness: 200,
                       damping: 25,
                       duration: 0.8
                     }}
-                    style={{ 
+                    style={{
                       zIndex,
-                      boxShadow: isActive 
-                        ? "0 35px 60px -15px rgba(168, 85, 247, 0.4), 0 20px 40px -20px rgba(236, 72, 153, 0.3)" 
+                      boxShadow: isActive
+                        ? "0 35px 60px -15px rgba(168, 85, 247, 0.4), 0 20px 40px -20px rgba(168, 85, 247, 0.3)"
                         : "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
                     }}
                     onClick={() => setActiveIndex(idx)}
@@ -581,46 +581,45 @@ const Office = () => {
                       whileHover={{ opacity: 1 }}
                       initial={{ opacity: 0.5 }}
                     />
-                    
+
                     <motion.div
                       className="relative z-10"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.15,
                         rotate: [0, -5, 5, 0],
-                        transition: { 
-                          type: "spring", 
+                        transition: {
+                          type: "spring" as const,
                           stiffness: 500,
-                          duration: 0.6 
+                          duration: 0.6
                         }
                       }}
                     >
                       {feature.icon}
                     </motion.div>
-                    
-                    <motion.h3 
+
+                    <motion.h3
                       className="text-3xl font-bold mb-6 text-slate-800 text-center relative z-10"
                       whileHover={{ scale: 1.05 }}
                     >
                       {feature.title}
                     </motion.h3>
-                    
-                    <motion.p 
+
+                    <motion.p
                       className="text-slate-600 text-center leading-relaxed text-xl font-light relative z-10"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1 }}
                     >
                       {feature.desc}
                     </motion.p>
-                    
+
                     {/* Active indicator */}
                     <motion.div
-                      className={`absolute bottom-6 w-3 h-3 rounded-full ${
-                        isActive ? 'bg-gradient-to-r from-purple-400 to-pink-400' : 'bg-slate-300'
-                      }`}
+                      className={`absolute bottom-6 w-3 h-3 rounded-full ${isActive ? 'bg-gradient-to-r from-purple-400 to-pink-400' : 'bg-slate-300'
+                        }`}
                       animate={{
                         scale: isActive ? [1, 1.8, 1] : 1,
-                        boxShadow: isActive ? 
-                          "0 0 20px rgba(168, 85, 247, 0.5)" : 
+                        boxShadow: isActive ?
+                          "0 0 20px rgba(168, 85, 247, 0.5)" :
                           "none"
                       }}
                       transition={{
@@ -638,21 +637,21 @@ const Office = () => {
 
         {/* Comparison Section */}
         <section className="container mx-auto px-4 mb-24">
-          <motion.h2 
+          <motion.h2
             className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-purple-700 to-slate-800 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
+            transition={{
+              type: "spring" as const,
               stiffness: 80,
-              damping: 15 
+              damping: 15
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Why Teams Choose MoviCloud
+            Why Modern Teams Choose Us
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="max-w-6xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -660,43 +659,43 @@ const Office = () => {
             viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              {/* Generic Tools */}
-              <motion.div 
+              {/* Basic Solutions */}
+              <motion.div
                 className="bg-white/90 backdrop-blur-lg rounded-3xl p-10 border border-red-200 shadow-2xl relative overflow-hidden"
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
                   boxShadow: "0 35px 60px -15px rgba(239, 68, 68, 0.25)"
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-pink-400"></div>
-                
+
                 <h3 className="text-3xl font-bold mb-8 text-red-500 flex items-center gap-4">
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       rotate: 180,
                       scale: 1.2
                     }}
-                    transition={{ type: "spring", stiffness: 500 }}
+                    transition={{ type: "spring" as const, stiffness: 500 }}
                   >
                     <X className="w-8 h-8" />
                   </motion.div>
-                  Generic Tools
+                  Basic Solutions
                 </h3>
                 <ul className="space-y-5">
                   {[
-                    "Separate tools for different tasks",
-                    "Manual progress tracking processes",
-                    "Limited customization options",
-                    "Basic reporting features only"
+                    "Disconnected communication tools",
+                    "Manual project tracking",
+                    "Inefficient resource allocation",
+                    "Limited visibility into team performance"
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-start gap-4 text-slate-600 text-lg"
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, type: "spring" }}
+                      transition={{ delay: index * 0.15, type: "spring" as const }}
                       viewport={{ once: true }}
                       whileHover={{ x: 5 }}
                     >
@@ -708,17 +707,17 @@ const Office = () => {
               </motion.div>
 
               {/* MoviCloud Office */}
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-br from-purple-500/15 to-pink-500/10 backdrop-blur-lg rounded-3xl p-10 border border-purple-300 shadow-2xl relative overflow-hidden"
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
                   boxShadow: "0 35px 60px -15px rgba(168, 85, 247, 0.35)"
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
                 {/* Animated background elements */}
-                <motion.div 
+                <motion.div
                   className="absolute top-0 right-0 w-40 h-40 bg-purple-400/20 rounded-full -translate-y-20 translate-x-20 blur-3xl"
                   animate={{
                     scale: [1, 1.2, 1],
@@ -731,14 +730,14 @@ const Office = () => {
                   }}
                 />
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-pink-400"></div>
-                
+
                 <h3 className="text-3xl font-bold mb-8 text-purple-600 flex items-center gap-4 relative z-10">
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.3,
-                      rotate: 360 
+                      rotate: 360
                     }}
-                    transition={{ type: "spring", stiffness: 500 }}
+                    transition={{ type: "spring" as const, stiffness: 500 }}
                   >
                     <Check className="w-8 h-8" />
                   </motion.div>
@@ -746,17 +745,17 @@ const Office = () => {
                 </h3>
                 <ul className="space-y-5 relative z-10">
                   {[
-                    "All-in-one unified platform",
-                    "AI-powered progress insights",
-                    "Fully customizable workflows",
-                    "Advanced analytics dashboard"
+                    "Unified collaboration platform",
+                    "Automated workflow management",
+                    "AI-optimized resource scheduling",
+                    "Real-time productivity analytics"
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-start gap-4 text-slate-700 text-lg font-medium"
                       initial={{ opacity: 0, x: 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, type: "spring" }}
+                      transition={{ delay: index * 0.15, type: "spring" as const }}
                       viewport={{ once: true }}
                       whileHover={{ x: 5 }}
                     >
@@ -772,11 +771,11 @@ const Office = () => {
 
         {/* CTA Section */}
         <section className="py-24 container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="bg-gradient-to-br from-purple-500/20 via-pink-500/15 to-violet-500/10 backdrop-blur-xl rounded-3xl p-16 text-center border border-purple-300/50 shadow-2xl max-w-6xl mx-auto relative overflow-hidden"
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 80, damping: 20 }}
+            transition={{ type: "spring" as const, stiffness: 80, damping: 20 }}
             viewport={{ once: true }}
           >
             {/* Animated background elements */}
@@ -792,30 +791,30 @@ const Office = () => {
                 ease: "easeInOut"
               }}
             />
-            
+
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-purple-400/20 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-pink-400/20 rounded-full blur-3xl"></div>
-            
-            <motion.h2 
+
+            <motion.h2
               className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-slate-800 via-purple-700 to-slate-800 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, type: "spring" }}
+              transition={{ delay: 0.3, type: "spring" as const }}
               viewport={{ once: true }}
             >
-              Supercharge Your Team's Productivity
+              Revolutionize Your Workspace
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, type: "spring" }}
+              transition={{ delay: 0.5, type: "spring" as const }}
               viewport={{ once: true }}
             >
-              Join thousands of teams using MoviCloud to work smarter, collaborate better, and achieve more with AI-powered productivity insights and seamless workflow management.
+              Join thousands of forward-thinking companies using MoviCloud to boost collaboration, efficiency, and employee satisfaction.
             </motion.p>
-            
+
             <motion.div
               variants={buttonHoverVariants}
               initial="rest"
@@ -824,14 +823,14 @@ const Office = () => {
             >
               <Button size="lg" className="bg-purple-500 hover:bg-purple-600 text-white font-black text-xl px-14 py-8 rounded-2xl shadow-2xl">
                 <motion.span
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.1,
                     x: 5
                   }}
-                  transition={{ type: "spring", stiffness: 500 }}
+                  transition={{ type: "spring" as const, stiffness: 500 }}
                   className="flex items-center"
                 >
-                  Try It Free
+                  Start Free Trial
                   <ArrowRight className="w-6 h-6 ml-3" />
                 </motion.span>
               </Button>

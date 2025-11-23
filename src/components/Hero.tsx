@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
-  
+
   /*
   const cards = [
     {
@@ -55,7 +55,7 @@ export const Hero = () => {
               </span>
 
               <span className="block text-[#21C4A3] text-2xl md:text-3xl font-semibold mt-2">
-                with AI analytics
+                with  AI Advance analytics
               </span>
             </motion.h1>
 
@@ -66,8 +66,8 @@ export const Hero = () => {
               transition={{ duration: 1, delay: 0.3 }}
               className="font-inter text-lg md:text-xl text-[#6B7280] max-w-xl leading-relaxed"
             >
-              MoviCloud Labs specializes in building powerful cloud-based enterprise systems 
-              that boost efficiency across industries. With strong predictive analytics & AI, 
+              MoviCloud Labs specializes in building powerful cloud-based enterprise systems
+              that boost efficiency across industries. With strong predictive analytics & AI,
               we deliver solutions that intelligently optimize your operations.
             </motion.p>
 
@@ -185,7 +185,7 @@ export const Hero = () => {
             <img
               src="/launch-bg.png"
               alt="Launching 2026"
-              className="w-[380px] h-[380px] object-contain opacity-90"
+              className="w-full max-w-[380px] h-auto object-contain opacity-90"
             />
           </motion.div>
         </div>
@@ -193,7 +193,7 @@ export const Hero = () => {
 
       {/* Divider */}
       <div className="w-full h-[1px] bg-blue-400/40 mt-6 mb-8"></div>
-    
+
     </>
   );
 };

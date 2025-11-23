@@ -3,7 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check, X, BarChart, Brain, MessageSquare, ArrowRight, Play, TrendingUp } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import surveyImg from "@/assets/survey-dashboard.jpg";
 
 const features = [
@@ -104,7 +104,7 @@ const SurveyParticlesBackground = () => {
       gradient.addColorStop(0, 'rgba(238, 242, 255, 0.8)');
       gradient.addColorStop(0.5, 'rgba(224, 231, 255, 0.6)');
       gradient.addColorStop(1, 'rgba(199, 210, 254, 0.4)');
-      
+
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -131,7 +131,7 @@ const SurveyParticlesBackground = () => {
   );
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -142,9 +142,9 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
     y: 80,
     scale: 0.9
   },
@@ -153,7 +153,7 @@ const itemVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 80,
       damping: 15,
       mass: 1.2
@@ -161,14 +161,14 @@ const itemVariants = {
   }
 };
 
-const cardHoverVariants = {
+const cardHoverVariants: Variants = {
   rest: {
     scale: 1,
     y: 0,
     rotateX: 0,
     rotateY: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 25
     }
@@ -179,7 +179,7 @@ const cardHoverVariants = {
     rotateX: 3,
     rotateY: 2,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 30
     }
@@ -188,14 +188,14 @@ const cardHoverVariants = {
     scale: 0.95,
     y: -5,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 600,
       damping: 35
     }
   }
 };
 
-const buttonHoverVariants = {
+const buttonHoverVariants: Variants = {
   rest: {
     scale: 1,
     boxShadow: "0 8px 25px -5px rgba(99, 102, 241, 0.15), 0 4px 10px -4px rgba(59, 130, 246, 0.1)"
@@ -204,7 +204,7 @@ const buttonHoverVariants = {
     scale: 1.08,
     boxShadow: "0 25px 50px -12px rgba(99, 102, 241, 0.35), 0 12px 24px -8px rgba(59, 130, 246, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 20
     }
@@ -213,14 +213,14 @@ const buttonHoverVariants = {
     scale: 0.92,
     boxShadow: "0 4px 12px -2px rgba(99, 102, 241, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 700,
       damping: 40
     }
   }
 };
 
-const secondaryButtonVariants = {
+const secondaryButtonVariants: Variants = {
   rest: {
     scale: 1,
     backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -235,7 +235,7 @@ const secondaryButtonVariants = {
     borderColor: "rgba(99, 102, 241, 0.5)",
     boxShadow: "0 25px 50px -12px rgba(99, 102, 241, 0.25), 0 12px 24px -8px rgba(59, 130, 246, 0.15)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 20
     }
@@ -245,7 +245,7 @@ const secondaryButtonVariants = {
     backgroundColor: "rgba(99, 102, 241, 0.08)",
     boxShadow: "0 4px 12px -2px rgba(99, 102, 241, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 700,
       damping: 40
     }
@@ -279,12 +279,12 @@ const Survey = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <SurveyParticlesBackground />
-      
+
       <div className="fixed inset-0 -z-5 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl animate-pulse-slower"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-violet-300/15 rounded-full blur-3xl animate-pulse-medium"></div>
-        
+        <div className="absolute top-1/4 -left-20 w-64 h-64 md:w-96 md:h-96 bg-indigo-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/3 -right-20 w-64 h-64 md:w-80 md:h-80 bg-blue-300/20 rounded-full blur-3xl animate-pulse-slower"></div>
+        <div className="absolute top-1/2 left-1/3 w-48 h-48 md:w-64 md:h-64 bg-violet-300/15 rounded-full blur-3xl animate-pulse-medium"></div>
+
         <motion.div
           className="absolute top-20 right-20 w-4 h-4 bg-indigo-400/40 rounded-full"
           animate={{
@@ -315,7 +315,7 @@ const Survey = () => {
 
       <section className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-indigo-50 via-blue-50 to-violet-50 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-blue-500/5 to-violet-500/10"></div>
-        
+
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
           animate={{
@@ -327,19 +327,19 @@ const Survey = () => {
             ease: "linear"
           }}
         />
-        
+
         <div className="container mx-auto px-4 py-20">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <div className="space-y-8">
-              <motion.div 
+              <motion.div
                 className="inline-flex items-center px-6 py-3 bg-indigo-500/15 backdrop-blur-md rounded-2xl border border-indigo-500/30"
                 variants={itemVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   backgroundColor: "rgba(99, 102, 241, 0.2)",
                   transition: { type: "spring", stiffness: 400 }
@@ -348,38 +348,38 @@ const Survey = () => {
                 <Brain className="w-4 h-4 text-indigo-500 mr-2" />
                 <span className="text-sm text-indigo-600 font-semibold tracking-wide">Intelligent Insights</span>
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 className="text-6xl md:text-8xl font-black text-slate-800 leading-tight"
                 variants={itemVariants}
               >
                 Survey &{" "}
-                <motion.span 
+                <motion.span
                   className="bg-gradient-to-r from-indigo-500 via-blue-500 to-violet-500 bg-clip-text text-transparent"
-                  animate={{ 
+                  animate={{
                     backgroundPosition: ["0%", "100%"],
                   }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    repeatType: "reverse" 
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse"
                   }}
-                  style={{ 
+                  style={{
                     backgroundSize: "200% 100%",
                   }}
                 >
                   Feedback
                 </motion.span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-light"
                 variants={itemVariants}
               >
                 Intelligent feedback collection with <span className="font-semibold text-indigo-500">AI-powered sentiment analysis</span>, real-time analytics, and actionable insights.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex flex-col sm:flex-row gap-6"
                 variants={itemVariants}
               >
@@ -394,7 +394,7 @@ const Survey = () => {
                     <ArrowRight className="w-5 h-5" />
                   </Button>
                 </motion.div>
-                
+
                 <motion.div
                   variants={secondaryButtonVariants}
                   initial="rest"
@@ -420,25 +420,25 @@ const Survey = () => {
                 </motion.div>
               </motion.div>
             </div>
-            
-            <motion.div 
+
+            <motion.div
               className="relative"
               variants={itemVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 transition: { type: "spring", stiffness: 300 }
               }}
             >
-              <motion.img 
-                src={surveyImg} 
-                alt="Survey Dashboard" 
+              <motion.img
+                src={surveyImg}
+                alt="Survey Dashboard"
                 className="rounded-3xl shadow-2xl border border-indigo-200/50 backdrop-blur-sm"
                 whileHover={{
                   boxShadow: "0 35px 60px -15px rgba(99, 102, 241, 0.3)",
                   transition: { type: "spring", stiffness: 400 }
                 }}
               />
-              
+
               <motion.div
                 className="absolute -top-4 -left-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-indigo-200"
                 animate={{
@@ -455,7 +455,7 @@ const Survey = () => {
                   <span className="text-sm font-semibold text-indigo-600">94% Accuracy</span>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-blue-200"
                 animate={{
@@ -504,20 +504,20 @@ const Survey = () => {
 
       <main className="pt-20 pb-16 relative z-10">
         <section className="py-24 bg-gradient-to-br from-indigo-500/5 via-blue-500/5 to-violet-500/5">
-          <motion.h2 
+          <motion.h2
             className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-indigo-700 to-slate-800 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
+            transition={{
+              type: "spring",
               stiffness: 80,
-              damping: 15 
+              damping: 15
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
             AI-Powered Feedback Analysis
           </motion.h2>
-          
+
           <motion.div
             className="relative w-full flex justify-center items-center h-96 mb-12"
             onMouseEnter={() => setHovered(true)}
@@ -537,7 +537,7 @@ const Survey = () => {
                 return (
                   <motion.div
                     key={idx}
-                    className="absolute w-96 h-[420px] bg-white/95 backdrop-blur-lg rounded-3xl p-10 border border-indigo-100/60 shadow-2xl cursor-pointer flex flex-col items-center justify-center relative overflow-hidden"
+                    className="absolute w-full max-w-sm h-[420px] bg-white/95 backdrop-blur-lg rounded-3xl p-10 border border-indigo-100/60 shadow-2xl cursor-pointer flex flex-col items-center justify-center relative overflow-hidden"
                     variants={cardHoverVariants}
                     initial="rest"
                     whileHover="hover"
@@ -547,16 +547,16 @@ const Survey = () => {
                       scale: isActive ? 1.08 : 1,
                       y: isActive ? -20 : 0,
                     }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 200, 
+                    transition={{
+                      type: "spring" as const,
+                      stiffness: 200,
                       damping: 25,
                       duration: 0.8
                     }}
-                    style={{ 
+                    style={{
                       zIndex,
-                      boxShadow: isActive 
-                        ? "0 35px 60px -15px rgba(99, 102, 241, 0.4), 0 20px 40px -20px rgba(59, 130, 246, 0.3)" 
+                      boxShadow: isActive
+                        ? "0 35px 60px -15px rgba(99, 102, 241, 0.4), 0 20px 40px -20px rgba(59, 130, 246, 0.3)"
                         : "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
                     }}
                     onClick={() => setActiveIndex(idx)}
@@ -566,45 +566,44 @@ const Survey = () => {
                       whileHover={{ opacity: 1 }}
                       initial={{ opacity: 0.5 }}
                     />
-                    
+
                     <motion.div
                       className="relative z-10"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.15,
                         rotate: [0, -5, 5, 0],
-                        transition: { 
-                          type: "spring", 
+                        transition: {
+                          type: "spring" as const,
                           stiffness: 500,
-                          duration: 0.6 
+                          duration: 0.6
                         }
                       }}
                     >
                       {feature.icon}
                     </motion.div>
-                    
-                    <motion.h3 
+
+                    <motion.h3
                       className="text-3xl font-bold mb-6 text-slate-800 text-center relative z-10"
                       whileHover={{ scale: 1.05 }}
                     >
                       {feature.title}
                     </motion.h3>
-                    
-                    <motion.p 
+
+                    <motion.p
                       className="text-slate-600 text-center leading-relaxed text-xl font-light relative z-10"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1 }}
                     >
                       {feature.desc}
                     </motion.p>
-                    
+
                     <motion.div
-                      className={`absolute bottom-6 w-3 h-3 rounded-full ${
-                        isActive ? 'bg-gradient-to-r from-indigo-400 to-blue-400' : 'bg-slate-300'
-                      }`}
+                      className={`absolute bottom-6 w-3 h-3 rounded-full ${isActive ? 'bg-gradient-to-r from-indigo-400 to-blue-400' : 'bg-slate-300'
+                        }`}
                       animate={{
                         scale: isActive ? [1, 1.8, 1] : 1,
-                        boxShadow: isActive ? 
-                          "0 0 20px rgba(99, 102, 241, 0.5)" : 
+                        boxShadow: isActive ?
+                          "0 0 20px rgba(99, 102, 241, 0.5)" :
                           "none"
                       }}
                       transition={{
@@ -621,21 +620,21 @@ const Survey = () => {
         </section>
 
         <section className="container mx-auto px-4 mb-24">
-          <motion.h2 
+          <motion.h2
             className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-indigo-700 to-slate-800 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
+            transition={{
+              type: "spring",
               stiffness: 80,
-              damping: 15 
+              damping: 15
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
             Beyond Traditional Surveys
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="max-w-6xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -643,24 +642,24 @@ const Survey = () => {
             viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <motion.div 
+              <motion.div
                 className="bg-white/90 backdrop-blur-lg rounded-3xl p-10 border border-red-200 shadow-2xl relative overflow-hidden"
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
                   boxShadow: "0 35px 60px -15px rgba(239, 68, 68, 0.25)"
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-pink-400"></div>
-                
+
                 <h3 className="text-3xl font-bold mb-8 text-red-500 flex items-center gap-4">
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       rotate: 180,
                       scale: 1.2
                     }}
-                    transition={{ type: "spring", stiffness: 500 }}
+                    transition={{ type: "spring" as const, stiffness: 500 }}
                   >
                     <X className="w-8 h-8" />
                   </motion.div>
@@ -673,12 +672,12 @@ const Survey = () => {
                     "Limited question types available",
                     "Static reporting features only"
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-start gap-4 text-slate-600 text-lg"
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, type: "spring" }}
+                      transition={{ delay: index * 0.15, type: "spring" as const }}
                       viewport={{ once: true }}
                       whileHover={{ x: 5 }}
                     >
@@ -689,16 +688,16 @@ const Survey = () => {
                 </ul>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-br from-indigo-500/15 to-blue-500/10 backdrop-blur-lg rounded-3xl p-10 border border-indigo-300 shadow-2xl relative overflow-hidden"
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
                   boxShadow: "0 35px 60px -15px rgba(99, 102, 241, 0.35)"
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
-                <motion.div 
+                <motion.div
                   className="absolute top-0 right-0 w-40 h-40 bg-indigo-400/20 rounded-full -translate-y-20 translate-x-20 blur-3xl"
                   animate={{
                     scale: [1, 1.2, 1],
@@ -711,14 +710,14 @@ const Survey = () => {
                   }}
                 />
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-400 to-blue-400"></div>
-                
+
                 <h3 className="text-3xl font-bold mb-8 text-indigo-600 flex items-center gap-4 relative z-10">
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.3,
-                      rotate: 360 
+                      rotate: 360
                     }}
-                    transition={{ type: "spring", stiffness: 500 }}
+                    transition={{ type: "spring" as const, stiffness: 500 }}
                   >
                     <Check className="w-8 h-8" />
                   </motion.div>
@@ -731,12 +730,12 @@ const Survey = () => {
                     "Dynamic question logic systems",
                     "Interactive live dashboards"
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-start gap-4 text-slate-700 text-lg font-medium"
                       initial={{ opacity: 0, x: 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, type: "spring" }}
+                      transition={{ delay: index * 0.15, type: "spring" as const }}
                       viewport={{ once: true }}
                       whileHover={{ x: 5 }}
                     >
@@ -751,7 +750,7 @@ const Survey = () => {
         </section>
 
         <section className="py-24 container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="bg-gradient-to-br from-indigo-500/20 via-blue-500/15 to-violet-500/10 backdrop-blur-xl rounded-3xl p-16 text-center border border-indigo-300/50 shadow-2xl max-w-6xl mx-auto relative overflow-hidden"
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -770,11 +769,11 @@ const Survey = () => {
                 ease: "easeInOut"
               }}
             />
-            
+
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-indigo-400/20 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl"></div>
-            
-            <motion.h2 
+
+            <motion.h2
               className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-slate-800 via-indigo-700 to-slate-800 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -783,8 +782,8 @@ const Survey = () => {
             >
               Start Collecting Smarter Feedback
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -793,7 +792,7 @@ const Survey = () => {
             >
               Join organizations using MoviCloud to gain deeper insights from their audience feedback with AI-powered sentiment analysis and real-time analytics.
             </motion.p>
-            
+
             <motion.div
               variants={buttonHoverVariants}
               initial="rest"
@@ -802,14 +801,14 @@ const Survey = () => {
             >
               <Button size="lg" className="bg-indigo-500 hover:bg-indigo-600 text-white font-black text-xl px-14 py-8 rounded-2xl shadow-2xl">
                 <motion.span
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.1,
                     x: 5
                   }}
-                  transition={{ type: "spring", stiffness: 500 }}
+                  transition={{ type: "spring" as const, stiffness: 500 }}
                   className="flex items-center"
                 >
-                  Try It Free
+                  Start Free Trial
                   <ArrowRight className="w-6 h-6 ml-3" />
                 </motion.span>
               </Button>

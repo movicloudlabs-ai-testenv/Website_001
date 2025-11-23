@@ -3,7 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check, X, Hotel as HotelIcon, Star, DollarSign, ArrowRight, Calendar, Users } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import hotelImg from "@/assets/hotel-dashboard.jpg";
 
 const features = [
@@ -109,7 +109,7 @@ const HotelParticlesBackground = () => {
       gradient.addColorStop(0, 'rgba(254, 252, 232, 0.8)');
       gradient.addColorStop(0.5, 'rgba(254, 249, 195, 0.6)');
       gradient.addColorStop(1, 'rgba(253, 230, 138, 0.4)');
-      
+
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -137,7 +137,7 @@ const HotelParticlesBackground = () => {
   );
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -148,9 +148,9 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
     y: 80,
     scale: 0.9
   },
@@ -159,7 +159,7 @@ const itemVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 80,
       damping: 15,
       mass: 1.2
@@ -167,14 +167,14 @@ const itemVariants = {
   }
 };
 
-const cardHoverVariants = {
+const cardHoverVariants: Variants = {
   rest: {
     scale: 1,
     y: 0,
     rotateX: 0,
     rotateY: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 25
     }
@@ -185,7 +185,7 @@ const cardHoverVariants = {
     rotateX: 3,
     rotateY: 2,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 30
     }
@@ -194,14 +194,14 @@ const cardHoverVariants = {
     scale: 0.95,
     y: -5,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 600,
       damping: 35
     }
   }
 };
 
-const buttonHoverVariants = {
+const buttonHoverVariants: Variants = {
   rest: {
     scale: 1,
     boxShadow: "0 8px 25px -5px rgba(245, 158, 11, 0.15), 0 4px 10px -4px rgba(245, 158, 11, 0.1)"
@@ -210,7 +210,7 @@ const buttonHoverVariants = {
     scale: 1.08,
     boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.35), 0 12px 24px -8px rgba(245, 158, 11, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 20
     }
@@ -219,14 +219,14 @@ const buttonHoverVariants = {
     scale: 0.92,
     boxShadow: "0 4px 12px -2px rgba(245, 158, 11, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 700,
       damping: 40
     }
   }
 };
 
-const secondaryButtonVariants = {
+const secondaryButtonVariants: Variants = {
   rest: {
     scale: 1,
     backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -241,7 +241,7 @@ const secondaryButtonVariants = {
     borderColor: "rgba(245, 158, 11, 0.5)",
     boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.25), 0 12px 24px -8px rgba(245, 158, 11, 0.15)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 500,
       damping: 20
     }
@@ -251,7 +251,7 @@ const secondaryButtonVariants = {
     backgroundColor: "rgba(245, 158, 11, 0.08)",
     boxShadow: "0 4px 12px -2px rgba(245, 158, 11, 0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 700,
       damping: 40
     }
@@ -286,13 +286,13 @@ const Hotel = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Enhanced Particles Background */}
       <HotelParticlesBackground />
-      
+
       {/* Additional Background Effects */}
       <div className="fixed inset-0 -z-5 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-amber-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl animate-pulse-slower"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-yellow-300/15 rounded-full blur-3xl animate-pulse-medium"></div>
-        
+        <div className="absolute top-1/4 -left-20 w-64 h-64 md:w-96 md:h-96 bg-amber-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/3 -right-20 w-64 h-64 md:w-80 md:h-80 bg-orange-300/20 rounded-full blur-3xl animate-pulse-slower"></div>
+        <div className="absolute top-1/2 left-1/3 w-48 h-48 md:w-64 md:h-64 bg-yellow-300/15 rounded-full blur-3xl animate-pulse-medium"></div>
+
         {/* Floating elements */}
         <motion.div
           className="absolute top-20 right-20 w-4 h-4 bg-amber-400/40 rounded-full"
@@ -325,7 +325,7 @@ const Hotel = () => {
       {/* Hero Section */}
       <section className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-yellow-500/10"></div>
-        
+
         {/* Animated overlay elements */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
@@ -338,59 +338,59 @@ const Hotel = () => {
             ease: "linear"
           }}
         />
-        
+
         <div className="container mx-auto px-4 py-20">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <div className="space-y-8">
-              <motion.div 
+              <motion.div
                 className="inline-flex items-center px-6 py-3 bg-amber-500/15 backdrop-blur-md rounded-2xl border border-amber-500/30"
                 variants={itemVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   backgroundColor: "rgba(245, 158, 11, 0.2)",
-                  transition: { type: "spring", stiffness: 400 }
+                  transition: { type: "spring" as const, stiffness: 400 }
                 }}
               >
                 <Star className="w-4 h-4 text-amber-500 mr-2" />
                 <span className="text-sm text-amber-600 font-semibold tracking-wide">Luxury Hospitality</span>
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 className="text-6xl md:text-8xl font-black text-slate-800 leading-tight"
                 variants={itemVariants}
               >
                 Hotel &{" "}
-                <motion.span 
+                <motion.span
                   className="bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent"
-                  animate={{ 
+                  animate={{
                     backgroundPosition: ["0%", "100%"],
                   }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    repeatType: "reverse" 
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse"
                   }}
-                  style={{ 
+                  style={{
                     backgroundSize: "200% 100%",
                   }}
                 >
                   Hospitality
                 </motion.span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-light"
                 variants={itemVariants}
               >
                 Premium hospitality platform with <span className="font-semibold text-amber-500">booking management</span>, guest services, revenue optimization, and AI-driven guest experience.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex flex-col sm:flex-row gap-6"
                 variants={itemVariants}
               >
@@ -405,7 +405,7 @@ const Hotel = () => {
                     <Calendar className="w-5 h-5" />
                   </Button>
                 </motion.div>
-                
+
                 <motion.div
                   variants={secondaryButtonVariants}
                   initial="rest"
@@ -431,25 +431,25 @@ const Hotel = () => {
                 </motion.div>
               </motion.div>
             </div>
-            
-            <motion.div 
+
+            <motion.div
               className="relative"
               variants={itemVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
-                transition: { type: "spring", stiffness: 300 }
+                transition: { type: "spring" as const, stiffness: 300 }
               }}
             >
-              <motion.img 
-                src={hotelImg} 
-                alt="Hotel Dashboard" 
+              <motion.img
+                src={hotelImg}
+                alt="Hotel Dashboard"
                 className="rounded-3xl shadow-2xl border border-amber-200/50 backdrop-blur-sm"
                 whileHover={{
                   boxShadow: "0 35px 60px -15px rgba(245, 158, 11, 0.3)",
-                  transition: { type: "spring", stiffness: 400 }
+                  transition: { type: "spring" as const, stiffness: 400 }
                 }}
               />
-              
+
               {/* Floating badges around image */}
               <motion.div
                 className="absolute -top-4 -left-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-amber-200"
@@ -467,7 +467,7 @@ const Hotel = () => {
                   <span className="text-sm font-semibold text-amber-600">+35% Revenue</span>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-orange-200"
                 animate={{
@@ -518,20 +518,20 @@ const Hotel = () => {
       <main className="pt-20 pb-16 relative z-10">
         {/* Features Section */}
         <section className="py-24 bg-gradient-to-br from-amber-500/5 via-orange-500/5 to-yellow-500/5">
-          <motion.h2 
+          <motion.h2
             className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-amber-700 to-slate-800 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
+            transition={{
+              type: "spring" as const,
               stiffness: 80,
-              damping: 15 
+              damping: 15
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
             Elevate Guest Experience
           </motion.h2>
-          
+
           <motion.div
             className="relative w-full flex justify-center items-center h-96 mb-12"
             onMouseEnter={() => setHovered(true)}
@@ -551,7 +551,7 @@ const Hotel = () => {
                 return (
                   <motion.div
                     key={idx}
-                    className="absolute w-96 h-[420px] bg-white/95 backdrop-blur-lg rounded-3xl p-10 border border-amber-100/60 shadow-2xl cursor-pointer flex flex-col items-center justify-center relative overflow-hidden"
+                    className="absolute w-full max-w-sm h-[420px] bg-white/95 backdrop-blur-lg rounded-3xl p-10 border border-amber-100/60 shadow-2xl cursor-pointer flex flex-col items-center justify-center relative overflow-hidden"
                     variants={cardHoverVariants}
                     initial="rest"
                     whileHover="hover"
@@ -561,16 +561,16 @@ const Hotel = () => {
                       scale: isActive ? 1.08 : 1,
                       y: isActive ? -20 : 0,
                     }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 200, 
+                    transition={{
+                      type: "spring" as const,
+                      stiffness: 200,
                       damping: 25,
                       duration: 0.8
                     }}
-                    style={{ 
+                    style={{
                       zIndex,
-                      boxShadow: isActive 
-                        ? "0 35px 60px -15px rgba(245, 158, 11, 0.4), 0 20px 40px -20px rgba(245, 158, 11, 0.3)" 
+                      boxShadow: isActive
+                        ? "0 35px 60px -15px rgba(245, 158, 11, 0.4), 0 20px 40px -20px rgba(245, 158, 11, 0.3)"
                         : "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
                     }}
                     onClick={() => setActiveIndex(idx)}
@@ -581,46 +581,45 @@ const Hotel = () => {
                       whileHover={{ opacity: 1 }}
                       initial={{ opacity: 0.5 }}
                     />
-                    
+
                     <motion.div
                       className="relative z-10"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.15,
                         rotate: [0, -5, 5, 0],
-                        transition: { 
-                          type: "spring", 
+                        transition: {
+                          type: "spring" as const,
                           stiffness: 500,
-                          duration: 0.6 
+                          duration: 0.6
                         }
                       }}
                     >
                       {feature.icon}
                     </motion.div>
-                    
-                    <motion.h3 
+
+                    <motion.h3
                       className="text-3xl font-bold mb-6 text-slate-800 text-center relative z-10"
                       whileHover={{ scale: 1.05 }}
                     >
                       {feature.title}
                     </motion.h3>
-                    
-                    <motion.p 
+
+                    <motion.p
                       className="text-slate-600 text-center leading-relaxed text-xl font-light relative z-10"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1 }}
                     >
                       {feature.desc}
                     </motion.p>
-                    
+
                     {/* Active indicator */}
                     <motion.div
-                      className={`absolute bottom-6 w-3 h-3 rounded-full ${
-                        isActive ? 'bg-gradient-to-r from-amber-400 to-orange-400' : 'bg-slate-300'
-                      }`}
+                      className={`absolute bottom-6 w-3 h-3 rounded-full ${isActive ? 'bg-gradient-to-r from-amber-400 to-orange-400' : 'bg-slate-300'
+                        }`}
                       animate={{
                         scale: isActive ? [1, 1.8, 1] : 1,
-                        boxShadow: isActive ? 
-                          "0 0 20px rgba(245, 158, 11, 0.5)" : 
+                        boxShadow: isActive ?
+                          "0 0 20px rgba(245, 158, 11, 0.5)" :
                           "none"
                       }}
                       transition={{
@@ -638,21 +637,21 @@ const Hotel = () => {
 
         {/* Comparison Section */}
         <section className="container mx-auto px-4 mb-24">
-          <motion.h2 
+          <motion.h2
             className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-amber-700 to-slate-800 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
+            transition={{
+              type: "spring" as const,
               stiffness: 80,
-              damping: 15 
+              damping: 15
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
             Premium Hospitality Solution
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="max-w-6xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -661,24 +660,24 @@ const Hotel = () => {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               {/* Traditional PMS */}
-              <motion.div 
+              <motion.div
                 className="bg-white/90 backdrop-blur-lg rounded-3xl p-10 border border-red-200 shadow-2xl relative overflow-hidden"
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
                   boxShadow: "0 35px 60px -15px rgba(239, 68, 68, 0.25)"
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-pink-400"></div>
-                
+
                 <h3 className="text-3xl font-bold mb-8 text-red-500 flex items-center gap-4">
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       rotate: 180,
                       scale: 1.2
                     }}
-                    transition={{ type: "spring", stiffness: 500 }}
+                    transition={{ type: "spring" as const, stiffness: 500 }}
                   >
                     <X className="w-8 h-8" />
                   </motion.div>
@@ -691,12 +690,12 @@ const Hotel = () => {
                     "Manual channel updates",
                     "Basic reporting features"
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-start gap-4 text-slate-600 text-lg"
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, type: "spring" }}
+                      transition={{ delay: index * 0.15, type: "spring" as const }}
                       viewport={{ once: true }}
                       whileHover={{ x: 5 }}
                     >
@@ -708,17 +707,17 @@ const Hotel = () => {
               </motion.div>
 
               {/* MoviCloud Hotel */}
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-br from-amber-500/15 to-orange-500/10 backdrop-blur-lg rounded-3xl p-10 border border-amber-300 shadow-2xl relative overflow-hidden"
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
                   boxShadow: "0 35px 60px -15px rgba(245, 158, 11, 0.35)"
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
                 {/* Animated background elements */}
-                <motion.div 
+                <motion.div
                   className="absolute top-0 right-0 w-40 h-40 bg-amber-400/20 rounded-full -translate-y-20 translate-x-20 blur-3xl"
                   animate={{
                     scale: [1, 1.2, 1],
@@ -731,14 +730,14 @@ const Hotel = () => {
                   }}
                 />
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-400"></div>
-                
+
                 <h3 className="text-3xl font-bold mb-8 text-amber-600 flex items-center gap-4 relative z-10">
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.3,
-                      rotate: 360 
+                      rotate: 360
                     }}
-                    transition={{ type: "spring", stiffness: 500 }}
+                    transition={{ type: "spring" as const, stiffness: 500 }}
                   >
                     <Check className="w-8 h-8" />
                   </motion.div>
@@ -751,12 +750,12 @@ const Hotel = () => {
                     "Automated channel management",
                     "Advanced revenue analytics"
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-start gap-4 text-slate-700 text-lg font-medium"
                       initial={{ opacity: 0, x: 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, type: "spring" }}
+                      transition={{ delay: index * 0.15, type: "spring" as const }}
                       viewport={{ once: true }}
                       whileHover={{ x: 5 }}
                     >
@@ -772,11 +771,11 @@ const Hotel = () => {
 
         {/* CTA Section */}
         <section className="py-24 container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="bg-gradient-to-br from-amber-500/20 via-orange-500/15 to-yellow-500/10 backdrop-blur-xl rounded-3xl p-16 text-center border border-amber-300/50 shadow-2xl max-w-6xl mx-auto relative overflow-hidden"
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 80, damping: 20 }}
+            transition={{ type: "spring" as const, stiffness: 80, damping: 20 }}
             viewport={{ once: true }}
           >
             {/* Animated background elements */}
@@ -792,30 +791,30 @@ const Hotel = () => {
                 ease: "easeInOut"
               }}
             />
-            
+
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-amber-400/20 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-orange-400/20 rounded-full blur-3xl"></div>
-            
-            <motion.h2 
+
+            <motion.h2
               className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-slate-800 via-amber-700 to-slate-800 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, type: "spring" }}
+              transition={{ delay: 0.3, type: "spring" as const }}
               viewport={{ once: true }}
             >
-              Transform Your Hospitality Business
+              Transform Your Hotel Business
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, type: "spring" }}
+              transition={{ delay: 0.5, type: "spring" as const }}
               viewport={{ once: true }}
             >
-              Join luxury hotels using MoviCloud to deliver exceptional guest experiences, maximize revenue, and streamline operations with intelligent AI-driven hospitality solutions.
+              Join thousands of hotels using MoviCloud to increase bookings, optimize revenue, and deliver unforgettable guest experiences.
             </motion.p>
-            
+
             <motion.div
               variants={buttonHoverVariants}
               initial="rest"
@@ -824,15 +823,15 @@ const Hotel = () => {
             >
               <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white font-black text-xl px-14 py-8 rounded-2xl shadow-2xl">
                 <motion.span
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.1,
                     x: 5
                   }}
-                  transition={{ type: "spring", stiffness: 500 }}
+                  transition={{ type: "spring" as const, stiffness: 500 }}
                   className="flex items-center"
                 >
-                  Schedule Demo
-                  <Calendar className="w-6 h-6 ml-3" />
+                  Start Free Trial
+                  <ArrowRight className="w-6 h-6 ml-3" />
                 </motion.span>
               </Button>
             </motion.div>

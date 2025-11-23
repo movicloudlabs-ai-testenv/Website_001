@@ -32,15 +32,15 @@ const ContactUs = () => {
             {/* MAIN WRAPPER */}
             <div className="pt-28 pb-20">
                 {/* Perfect centered container with left/right gap */}
-                <div className="max-w-[1250px] mx-auto px-6 grid lg:grid-cols-[1fr_540px] gap-16">
+                <div className="container mx-auto px-6 grid lg:grid-cols-2 xl:grid-cols-[1fr_540px] gap-16">
 
                     {/* LEFT SIDE — FULL WIDTH */}
                     <div className="w-full">
-                        <h1 className="text-[40px] font-bold tracking-tight mb-6">
+                        <h1 className="text-3xl md:text-[40px] font-bold tracking-tight mb-6">
                             GETTING IN TOUCH
                         </h1>
 
-                        <div className="space-y-6 text-[17px] leading-[26px] text-[#304266]">
+                        <div className="space-y-6 text-base md:text-[17px] leading-[26px] text-[#304266]">
                             <p>
                                 Do you have a question or need more info? Please enter your
                                 information and describe your inquiry, and we’ll get back to you
@@ -73,7 +73,7 @@ const ContactUs = () => {
                     </div>
 
                     {/* RIGHT SIDE FORM — PLACEHOLDER DESIGN */}
-                    <div className="bg-white border shadow-sm rounded-2xl p-10 w-[540px]">
+                    <div className="bg-white border shadow-sm rounded-2xl p-6 md:p-10 w-full max-w-lg mx-auto lg:mx-0">
                         <form onSubmit={handleSubmit} className="space-y-6">
 
                             {/* SIMPLE PLACEHOLDER INPUT FIELDS */}

@@ -14,15 +14,7 @@ const Item = ({ name, desc, link }: { name: string; desc: string; link: string }
 );
 
 /* ----------------------------- SOLUTION COMPONENT ----------------------------- */
-const Solution = ({
-  icon,
-  title,
-  desc,
-}: {
-  icon: any;
-  title: string;
-  desc: string;
-}) => (
+const Solution = ({ icon, title, desc }: { icon: any; title: string; desc: string }) => (
   <div className="flex items-start space-x-3 hover:bg-gray-100 p-3 rounded-lg cursor-pointer">
     <div className="w-11 h-11 bg-gray-200 rounded-md flex items-center justify-center">
       {icon}
@@ -38,17 +30,12 @@ const Solution = ({
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  /* PRODUCT DROPDOWN STATE */
   const [productsOpen, setProductsOpen] = useState(false);
-
-  /* SOLUTIONS DROPDOWN STATE */
   const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   const panelRef = useRef<HTMLDivElement | null>(null);
   const solutionRef = useRef<HTMLDivElement | null>(null);
 
-  /* CLOSE PANELS ON OUTSIDE CLICK */
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -84,7 +71,6 @@ export const Navigation = () => {
 
           {/* DESKTOP MENU */}
           <div className="hidden md:flex items-center space-x-8">
-
             <Link to="/" className="hover:text-primary">Home</Link>
 
             {/* PRODUCTS BUTTON */}
@@ -146,16 +132,14 @@ export const Navigation = () => {
         </div>
       </div>
 
-      {/* ---------------------- PRODUCTS MEGA PANEL ---------------------- */}
+      {/* ---------------------- PRODUCTS MEGA PANEL (DESKTOP ONLY) ---------------------- */}
       {productsOpen && (
         <div
           ref={panelRef}
-          className="absolute left-0 w-full z-40"
+          className="hidden md:block absolute left-0 w-full z-40"
           style={{ top: "64px" }}
         >
           <div className="w-full bg-[#F7FAFC] border-t border-gray-200">
-
-            {/* FULL SCREEN HEIGHT - NAVBAR */}
             <div className="h-[calc(100vh-64px)] overflow-y-auto">
               <div className="mx-auto max-w-7xl px-10 py-14">
 
@@ -173,18 +157,14 @@ export const Navigation = () => {
                       View all products →
                     </Link>
 
-                    {/* THIN LINE */}
                     <div className="border-b border-gray-200 my-5" />
 
-                    {/* NEW TITLE */}
                     <h4 className="text-sm font-semibold text-[#0E224B] mb-2">
                       Building Intelligent Enterprise Solutions
                     </h4>
 
-                    {/* THIN LINE */}
                     <div className="border-b border-gray-200 my-4" />
 
-                    {/* CATEGORIES */}
                     <ul className="text-sm text-gray-600 space-y-2">
                       <li>Analytics</li>
                       <li>AI</li>
@@ -197,29 +177,13 @@ export const Navigation = () => {
                   <div className="col-span-6 px-8">
                     <div className="grid grid-cols-2 gap-y-8 gap-x-12">
 
-                      <Item
-                        name="Hospital Management"
-                        desc="Transform healthcare delivery with AI-powered patient management."
-                        link="/products/hospital"
-                      />
+                      <Item name="Hospital Management" desc="Transform healthcare delivery with AI-powered patient management." link="/products/hospital" />
 
-                      <Item
-                        name="Transport Management"
-                        desc="Optimize fleet operations with GPS tracking, route planning, and predictive AI."
-                        link="/products/transport"
-                      />
+                      <Item name="Transport Management" desc="Optimize fleet operations with GPS tracking, route planning, and predictive AI." link="/products/transport" />
 
-                      <Item
-                        name="Office / Work Management"
-                        desc="Empower teams with intelligent task management and collaboration tools."
-                        link="/products/office"
-                      />
+                      <Item name="Office / Work Management" desc="Empower teams with intelligent task management and collaboration tools." link="/products/office" />
 
-                      <Item
-                        name="School & Alumni"
-                        desc="Educational management system with analytics, records, and alumni networking."
-                        link="/products/school"
-                      />
+                      <Item name="School & Alumni" desc="Educational management system with analytics, records, and alumni networking." link="/products/school" />
 
                     </div>
                   </div>
@@ -227,29 +191,13 @@ export const Navigation = () => {
                   {/* RIGHT PRODUCTS */}
                   <div className="col-span-3 pl-8 space-y-8">
 
-                    <Item
-                      name="E-commerce Inventory"
-                      desc="AI-powered inventory tracking, demand forecasting, and automated stock control."
-                      link="/products/ecommerce"
-                    />
+                    <Item name="E-commerce Inventory" desc="AI-powered inventory tracking, demand forecasting, and automated stock control." link="/products/ecommerce" />
 
-                    <Item
-                      name="Hotel & Hospitality"
-                      desc="Complete hospitality platform with bookings, guest services, and analytics."
-                      link="/products/hotel"
-                    />
+                    <Item name="Hotel & Hospitality" desc="Complete hospitality platform with bookings, guest services, and analytics." link="/products/hotel" />
 
-                    <Item
-                      name="Survey System"
-                      desc="AI-enabled feedback collection with sentiment analysis and insights."
-                      link="/products/survey"
-                    />
+                    <Item name="Survey System" desc="AI-enabled feedback collection with sentiment analysis and insights." link="/products/survey" />
 
-                    <Item
-                      name="Marketing Suite"
-                      desc="AI-powered SEO, social media management, content creation & campaign analytics."
-                      link="/products/marketing"
-                    />
+                    <Item name="Marketing Suite" desc="AI-powered SEO, social media management, content creation & campaign analytics." link="/products/marketing" />
 
                   </div>
 
@@ -257,16 +205,15 @@ export const Navigation = () => {
 
               </div>
             </div>
-
           </div>
         </div>
       )}
 
-      {/* ---------------------- SOLUTIONS MEGA PANEL (YOUR ORIGINAL) ---------------------- */}
+      {/* ---------------------- SOLUTIONS MEGA PANEL (DESKTOP ONLY) ---------------------- */}
       {solutionsOpen && (
         <div
           ref={solutionRef}
-          className="absolute left-0 w-full z-40"
+          className="hidden md:block absolute left-0 w-full z-40"
           style={{ top: "64px" }}
         >
           <div className="w-full bg-white border-t border-gray-200 shadow-xl">
@@ -295,23 +242,9 @@ export const Navigation = () => {
                   Enablement Solutions
                 </h3>
 
-                <Solution
-                  icon={<Code className="w-6 h-6 text-[#2C6BED]" />}
-                  title="Web Development"
-                  desc="Custom full-stack solutions"
-                />
-
-                <Solution
-                  icon={<Smartphone className="w-6 h-6 text-[#2C6BED]" />}
-                  title="Mobile Development"
-                  desc="Cross-platform mobile apps"
-                />
-
-                <Solution
-                  icon={<Cloud className="w-6 h-6 text-[#2C6BED]" />}
-                  title="Cloud Solutions"
-                  desc="Infrastructure & deployments"
-                />
+                <Solution icon={<Code className="w-6 h-6 text-[#2C6BED]" />} title="Web Development" desc="Custom full-stack solutions" />
+                <Solution icon={<Smartphone className="w-6 h-6 text-[#2C6BED]" />} title="Mobile Development" desc="Cross-platform mobile apps" />
+                <Solution icon={<Cloud className="w-6 h-6 text-[#2C6BED]" />} title="Cloud Solutions" desc="Infrastructure & deployments" />
               </div>
 
               {/* PLATFORM SOLUTIONS */}
@@ -320,24 +253,9 @@ export const Navigation = () => {
                   Platform Solutions
                 </h3>
 
-                <Solution
-                  icon={<ShieldCheck className="w-6 h-6 text-[#2C6BED]" />}
-                  title="Security Solutions"
-                  desc="End-to-end protection"
-                />
-
-                <Solution
-                  icon={<Wrench className="w-6 h-6 text-[#2C6BED]" />}
-                  title="Maintenance & Support"
-                  desc="Ongoing tech help"
-                />
-
-                <Solution
-                  icon={<Cpu className="w-6 h-6 text-[#2C6BED]" />}
-                  title="AI & Automation"
-                  desc="Smart workflow intelligence"
-                />
-
+                <Solution icon={<ShieldCheck className="w-6 h-6 text-[#2C6BED]" />} title="Security Solutions" desc="End-to-end protection" />
+                <Solution icon={<Wrench className="w-6 h-6 text-[#2C6BED]" />} title="Maintenance & Support" desc="Ongoing tech help" />
+                <Solution icon={<Cpu className="w-6 h-6 text-[#2C6BED]" />} title="AI & Automation" desc="Smart workflow intelligence" />
               </div>
 
             </div>
@@ -347,16 +265,19 @@ export const Navigation = () => {
 
       {/* ---------------------- MOBILE MENU ---------------------- */}
       {isOpen && (
-        <div className="md:hidden pb-4 space-y-4 bg-background animate-fade-in">
+        <div className="md:hidden pb-4 space-y-4 bg-background animate-fade-in px-4">
           <Link to="/" onClick={() => setIsOpen(false)} className="block hover:text-primary">
             Home
           </Link>
+
           <Link to="/products" onClick={() => setIsOpen(false)} className="block hover:text-primary">
             Products
           </Link>
+
           <Button variant="outline" size="sm" className="w-full">Get a Demo</Button>
+
           <Link to="/contact" onClick={() => setIsOpen(false)}>
-            <Button size="sm" className="bg-gradient-primary">Contact Us</Button>
+            <Button size="sm" className="bg-gradient-primary w-full">Contact Us</Button>
           </Link>
         </div>
       )}
