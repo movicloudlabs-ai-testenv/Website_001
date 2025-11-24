@@ -26,6 +26,7 @@ export default {
       // Optional utility class
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        heading: ["Plus Jakarta Sans", "sans-serif"],
       },
 
       colors: {
@@ -68,6 +69,10 @@ export default {
         "scale-in": { from: { opacity: "0", transform: "scale(0.9)" }, to: { opacity: "1", transform: "scale(1)" } },
         "slide-in-right": { from: { transform: "translateX(100%)" }, to: { transform: "translateX(0)" } },
         glow: { "0%, 100%": { boxShadow: "0 0 20px #00CED133" }, "50%": { boxShadow: "0 0 40px #00CED166" } },
+        wiggle: { "0%, 100%": { transform: "rotate(-3deg)" }, "50%": { transform: "rotate(3deg)" } },
+        tada: { "0%": { transform: "scale(1)" }, "10%, 20%": { transform: "scale(0.9) rotate(-3deg)" }, "30%, 50%, 70%, 90%": { transform: "scale(1.1) rotate(3deg)" }, "40%, 60%, 80%": { transform: "scale(1.1) rotate(-3deg)" }, "100%": { transform: "scale(1) rotate(0)" } },
+        "slide-right": { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(5px)" } },
+        "pulse-scale": { "0%, 100%": { transform: "scale(1)" }, "50%": { transform: "scale(1.1)" } },
       },
 
       animation: {
@@ -78,6 +83,10 @@ export default {
         "scale-in": "scale-in 0.5s ease-out",
         "slide-in-right": "slide-in-right 0.4s ease-out",
         glow: "glow 3s ease-in-out infinite",
+        wiggle: "wiggle 1s ease-in-out infinite",
+        tada: "tada 1s ease-in-out",
+        "slide-right": "slide-right 0.5s ease-in-out alternate infinite",
+        "pulse-scale": "pulse-scale 2s ease-in-out infinite",
       },
     },
   },
