@@ -43,9 +43,9 @@ export const Footer = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link to="/" className="hover:text-primary transition-colors">About Us</Link></li>
                 <li><Link to="/products" className="hover:text-primary transition-colors">Our Products</Link></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-                {/* ✅ Link updated to scroll to footer */}
-                <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
+                <li><Link to="/career" className="hover:text-primary transition-colors">Careers</Link></li>
+                {/* ✅ Link updated to point to contact page */}
+                <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               </ul>
             </div>
 

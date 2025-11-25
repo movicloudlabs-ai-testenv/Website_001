@@ -35,12 +35,13 @@ import { cn } from "@/lib/utils";
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a"> & { icon?: React.ReactNode }
->(({ className, title, children, icon, ...props }, ref) => {
+>(({ className, title, children, icon, href, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
-          ref={ref}
+        <Link
+          ref={ref as any}
+          to={href || "#"}
           className={cn(
             "block select-none space-y-1 rounded-xl p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-slate-50 hover:shadow-sm group border border-transparent hover:border-slate-100",
             className
@@ -60,7 +61,7 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-3 text-xs leading-relaxed text-slate-500 font-medium pl-[3.25rem]">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
@@ -49,9 +50,9 @@ const ContactUs = () => {
 
               <p>
                 We do not accept job applications from this form. Please visit our{" "}
-                <a href="#" className="text-blue-600 font-medium hover:underline">
+                <Link to="/career" className="text-blue-600 font-medium hover:underline">
                   careers page
-                </a>{" "}
+                </Link>{" "}
                 for opportunities.
               </p>
 
@@ -108,11 +109,11 @@ const ContactUs = () => {
 
               {/* COUNTRY DROPDOWN */}
               <div>
-  <select
-    required
-    value={formData.country}
-    onChange={(e) => handleInputChange("country", e.target.value)}
-    className="
+                <select
+                  required
+                  value={formData.country}
+                  onChange={(e) => handleInputChange("country", e.target.value)}
+                  className="
       w-full
       bg-transparent
       border-0
@@ -124,26 +125,26 @@ const ContactUs = () => {
       focus:outline-none
       appearance-none
     "
-  >
-    <option value="" disabled>Country *</option>
-    <option>United States</option>
-    <option>Canada</option>
-    <option>United Kingdom</option>
-    <option>Germany</option>
-    <option>France</option>
-    <option>Australia</option>
-    <option>Japan</option>
-  </select>
-</div>
+                >
+                  <option value="" disabled>Country *</option>
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>United Kingdom</option>
+                  <option>Germany</option>
+                  <option>France</option>
+                  <option>Australia</option>
+                  <option>Japan</option>
+                </select>
+              </div>
 
 
               {/* INQUIRY TYPE */}
               <div>
-  <select
-    required
-    value={formData.inquiryType}
-    onChange={(e) => handleInputChange("inquiryType", e.target.value)}
-    className="
+                <select
+                  required
+                  value={formData.inquiryType}
+                  onChange={(e) => handleInputChange("inquiryType", e.target.value)}
+                  className="
       w-full
       bg-transparent
       border-0
@@ -155,13 +156,13 @@ const ContactUs = () => {
       focus:outline-none
       appearance-none
     "
-  >
-    <option value="" disabled>Inquiry Type *</option>
-    <option>General Inquiry</option>
-    <option>Sales</option>
-    <option>Support</option>
-  </select>
-</div>
+                >
+                  <option value="" disabled>Inquiry Type *</option>
+                  <option>General Inquiry</option>
+                  <option>Sales</option>
+                  <option>Support</option>
+                </select>
+              </div>
 
               {/* COMMENTS */}
               <div>
@@ -187,8 +188,8 @@ const ContactUs = () => {
 
               {/* CONSENT TEXT */}
               <p className="text-[13px] text-[#304266] leading-[20px]">
-                By submitting this form, I understand MOVICLOUD will process my personal 
-                information in accordance with their Privacy Notice. I understand I may 
+                By submitting this form, I understand MOVICLOUD will process my personal
+                information in accordance with their Privacy Notice. I understand I may
                 withdraw my consent or update my preferences here at any time.
               </p>
 

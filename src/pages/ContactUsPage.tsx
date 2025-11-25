@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
@@ -49,9 +50,9 @@ const ContactUs = () => {
 
                             <p>
                                 We do not accept job applications from this form. Please visit our{" "}
-                                <a href="#" className="text-blue-600 font-medium hover:underline">
+                                <Link to="/career" className="text-blue-600 font-medium hover:underline">
                                     careers page
-                                </a>{" "}
+                                </Link>{" "}
                                 for opportunities.
                             </p>
 
