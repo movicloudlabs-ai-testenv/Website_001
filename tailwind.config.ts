@@ -17,16 +17,11 @@ export default {
       },
     },
 
-    // GLOBAL FONT FOR ENTIRE WEBSITE
-    fontFamily: {
-      sans: ["Inter", "sans-serif"],
-    },
-
     extend: {
-      // Optional utility class
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        heading: ["Plus Jakarta Sans", "sans-serif"],
+        sans: ["DM Sans", "sans-serif"],
+        heading: ["Outfit", "sans-serif"],
+        display: ["Playfair Display", "serif"],
       },
 
       colors: {
@@ -73,6 +68,7 @@ export default {
         tada: { "0%": { transform: "scale(1)" }, "10%, 20%": { transform: "scale(0.9) rotate(-3deg)" }, "30%, 50%, 70%, 90%": { transform: "scale(1.1) rotate(3deg)" }, "40%, 60%, 80%": { transform: "scale(1.1) rotate(-3deg)" }, "100%": { transform: "scale(1) rotate(0)" } },
         "slide-right": { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(5px)" } },
         "pulse-scale": { "0%, 100%": { transform: "scale(1)" }, "50%": { transform: "scale(1.1)" } },
+        shimmer: { "0%": { transform: "translateX(-100%)" }, "100%": { transform: "translateX(100%)" } },
       },
 
       animation: {
@@ -87,6 +83,7 @@ export default {
         tada: "tada 1s ease-in-out",
         "slide-right": "slide-right 0.5s ease-in-out alternate infinite",
         "pulse-scale": "pulse-scale 2s ease-in-out infinite",
+        shimmer: "shimmer 3s linear infinite",
       },
     },
   },

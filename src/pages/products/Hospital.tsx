@@ -1,128 +1,23 @@
-import { useState, useEffect, useRef } from "react";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Check, X, Activity, Heart, Stethoscope, ArrowRight, Play, ShieldPlus } from "lucide-react";
-import { motion, AnimatePresence, Variants, Transition } from "framer-motion"; // Ensure Transition is imported
-import hospitalImg from "@/assets/hospital-dashboard.jpg";
+import React, { useEffect, useState } from 'react';
+import { motion, Variants, Transition, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Play, Check, ShieldPlus, Heart, Activity } from 'lucide-react';
+import Navigation from '../../components/Navigation';
+import { Footer } from '../../components/Footer';
+import hms1 from '../../assets/hms1.png';
+import hms2 from '../../assets/hms2.png';
+import hms3 from '../../assets/hms3.png';
+import hms4 from '../../assets/hms4.png';
 
-// Particle system component for Hospital
-const HospitalParticlesBackground = () => {
-    const canvasRef = useRef(null);
+const heroImages = [hms1, hms2, hms3, hms4];
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
-        const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        class Particle {
-            x;
-            y;
-            size;
-            speedX;
-            speedY;
-            color;
-            opacity;
-
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-                this.color = `rgba(${Math.random() * 100 + 100}, ${Math.random() * 100 + 200}, ${Math.random() * 100 + 200}, ${Math.random() * 0.3 + 0.1})`;
-                this.opacity = Math.random() * 0.6 + 0.2;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width) this.x = 0;
-                else if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                else if (this.y < 0) this.y = canvas.height;
-            }
-
-            draw() {
-                if (!ctx) return;
-                ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.opacity;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        const particles = [];
-        const particleCount = Math.min(100, Math.floor((window.innerWidth * window.innerHeight) / 15000));
-
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-
-        const animate = () => {
-            if (!ctx) return;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            const gradient = ctx.createRadialGradient(
-                canvas.width / 2,
-                canvas.height / 2,
-                0,
-                canvas.width / 2,
-                canvas.height / 2,
-                Math.max(canvas.width, canvas.height) / 2
-            );
-            gradient.addColorStop(0, 'rgba(239, 246, 255, 0.8)');
-            gradient.addColorStop(0.5, 'rgba(219, 234, 254, 0.6)');
-            gradient.addColorStop(1, 'rgba(191, 219, 254, 0.4)');
-
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
-            requestAnimationFrame(animate);
-        };
-
-        animate();
-
-        return () => {
-            window.removeEventListener('resize', resizeCanvas);
-        };
-    }, []);
-
-    return (
-        <canvas
-            ref={canvasRef}
-            className="fixed inset-0 -z-10 w-full h-full pointer-events-none"
-        />
-    );
-};
-
-// Framer Motion Variant Definitions (TypeScript fix applied)
 const itemTransition: Transition = {
-    type: "spring" as const,
-    stiffness: 80,
-    damping: 15,
-    mass: 1.2
+    type: "spring",
+    stiffness: 50,
+    damping: 20
 };
 
 const buttonTransition: Transition = {
-    type: "spring" as const,
+    type: "spring",
     stiffness: 500,
     damping: 20
 };
@@ -166,10 +61,10 @@ const buttonHoverVariants: Variants = {
         scale: 0.92,
         boxShadow: "0 4px 12px -2px rgba(59, 130, 246, 0.2)",
         transition: {
-            type: "spring" as const,
+            type: "spring",
             stiffness: 700,
             damping: 40
-        } as Transition
+        }
     }
 };
 
@@ -194,26 +89,34 @@ const secondaryButtonVariants: Variants = {
         backgroundColor: "rgba(59, 130, 246, 0.08)",
         boxShadow: "0 4px 12px -2px rgba(59, 130, 246, 0.2)",
         transition: {
-            type: "spring" as const,
+            type: "spring",
             stiffness: 700,
             damping: 40
-        } as Transition
+        }
     }
 };
 
-// End Framer Motion Variant Definitions
-// ----------------------------------------------------
-
 const Hospital = () => {
     const [mounted, setMounted] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
+    useEffect(() => {
+        if (!isHovered) {
+            const interval = setInterval(() => {
+                setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+            }, 3000);
+            return () => clearInterval(interval);
+        }
+    }, [isHovered]);
+
     if (!mounted) {
         return (
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-blue-50/50">
                 <Navigation />
                 <div className="flex items-center justify-center min-h-screen">
                     <motion.div
@@ -227,754 +130,342 @@ const Hospital = () => {
     }
 
     return (
-        <div className="min-h-screen bg-background overflow-hidden">
-            <HospitalParticlesBackground />
-
-            {/* Background Animations and Blurs */}
-            <div className="fixed inset-0 -z-5 overflow-hidden">
-                <div className="absolute top-1/4 -left-10 w-48 h-48 md:w-72 md:h-72 bg-blue-300/10 rounded-full blur-3xl animate-pulse-slow"></div>
-                <div className="absolute bottom-1/4 -right-10 w-64 h-64 md:w-96 md:h-96 bg-cyan-300/10 rounded-full blur-3xl animate-pulse-slower"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 bg-indigo-300/5 rounded-full blur-3xl animate-pulse-medium"></div>
-
-                <motion.div
-                    className="absolute top-20 right-20 w-4 h-4 bg-blue-400/40 rounded-full"
-                    animate={{ y: [0, -30, 0], opacity: [0.3, 0.8, 0.3] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                    className="absolute bottom-40 left-20 w-6 h-6 bg-cyan-400/30 rounded-full"
-                    animate={{ y: [0, 40, 0], x: [0, 10, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                />
-            </div>
-            {/* End Background Animations */}
-
+        <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-blue-100 selection:text-blue-900">
             <Navigation />
 
             {/* Hero Section */}
-            <section className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-50 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-cyan-500/5 to-indigo-500/10"></div>
-                <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-                    animate={{ x: [-100, 100] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                />
+            <section className="relative w-full min-h-screen flex items-center pt-16 pb-12 lg:pt-12">
+                {/* Background Elements */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    {/* Main Gradient Mesh */}
+                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-blue-200/40 via-blue-50/20 to-transparent" />
+                    <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-blue-200/40 via-indigo-50/20 to-transparent" />
 
-                <div className="container mx-auto px-4 py-20">
-                    <motion.div
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <div className="space-y-8">
-                            <motion.div
-                                className="relative inline-flex items-center justify-center mb-2"
-                                variants={itemVariants}
-                                initial={{ scale: 0, rotate: -20, opacity: 0 }}
-                                animate={{ scale: [0, 1.4, 0.92, 1], rotate: [-20, 4, -2, 0], opacity: 1 }}
-                                transition={{ duration: 0.75, ease: "easeOut", times: [0, 0.45, 0.75, 1] }}
-                            >
-                                {/* STAMP */}
-                                <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center rounded-full border-4 border-blue-600 text-blue-700 bg-white/60 backdrop-blur-xl shadow-2xl rotate-[-8deg]">
-                                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-blue-500 flex items-center justify-center bg-white/80">
-                                        <Activity className="w-8 h-8 text-blue-600" />
-                                    </div>
-                                    <p className="absolute top-1 w-full text-center text-[8px] sm:text-[10px] font-bold tracking-widest text-blue-700 uppercase">
-                                        MOVICLOUD SOLUTION
-                                    </p>
+                    {/* Subtle Overlay Pattern */}
+                    <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
+                </div>
+
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        {/* Left Content */}
+                        <motion.div
+                            className="space-y-8"
+                            initial="hidden"
+                            animate="visible"
+                            variants={containerVariants}
+                        >
+                            {/* Stamp + Header Flex Container */}
+                            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-8">
+                                {/* Royal Blue Rubber Stamp */}
+                                <div className="relative group">
+                                    <motion.div
+                                        initial={{ scale: 2, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 200,
+                                            damping: 20,
+                                            mass: 1,
+                                            delay: 0.2
+                                        }}
+                                        className="relative w-40 h-40 flex items-center justify-center"
+                                    >
+                                        {/* Ink Splatter Background Effect */}
+                                        <div className="absolute inset-0 bg-blue-900/5 blur-2xl rounded-full transform scale-90" />
+
+                                        {/* Oscillating Container */}
+                                        <motion.div
+                                            animate={{ rotate: [-10, 10] }}
+                                            transition={{
+                                                duration: 4,
+                                                repeat: Infinity,
+                                                repeatType: "reverse",
+                                                ease: "easeInOut"
+                                            }}
+                                            className="w-full h-full"
+                                        >
+                                            <svg viewBox="0 0 200 200" className="w-full h-full text-[#1e3a8a] opacity-95 mix-blend-multiply">
+                                                <defs>
+                                                    {/* Refined Grunge Filter - Clearer Text */}
+                                                    <filter id="royal-grunge" x="-20%" y="-20%" width="140%" height="140%">
+                                                        <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise" />
+                                                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" />
+                                                    </filter>
+                                                </defs>
+
+                                                <g filter="url(#royal-grunge)">
+                                                    {/* Outer Double Border */}
+                                                    <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" strokeWidth="3" />
+                                                    <circle cx="100" cy="100" r="86" fill="none" stroke="currentColor" strokeWidth="1" />
+
+                                                    {/* Inner Border */}
+                                                    <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" strokeWidth="1.5" />
+
+                                                    {/* Text Path - Top (Centered between r=86 and r=62 -> r=74) */}
+                                                    <path id="curve" d="M 26,100 A 74,74 0 1,1 174,100" fill="none" />
+
+                                                    {/* Text Path - Bottom (Centered at r=74) */}
+                                                    <path id="curve-bottom" d="M 26,100 A 74,74 0 0,0 174,100" fill="none" />
+
+                                                    <text className="font-black uppercase fill-current font-display tracking-widest" style={{ fontSize: '14px', fontWeight: 900 }}>
+                                                        <textPath href="#curve" startOffset="50%" textAnchor="middle">
+                                                            MoviCloud Labs Hospital
+                                                        </textPath>
+                                                    </text>
+
+                                                    <text className="font-black uppercase fill-current font-display tracking-[0.3em]" style={{ fontSize: '12px', fontWeight: 900 }}>
+                                                        <textPath href="#curve-bottom" startOffset="50%" textAnchor="middle">
+                                                            ★ OFFICIAL ★
+                                                        </textPath>
+                                                    </text>
+
+                                                    {/* Center Icon */}
+                                                    <g transform="translate(76, 76) scale(1.5)">
+                                                        <Activity className="w-16 h-16" strokeWidth={2.5} />
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </motion.div>
+                                    </motion.div>
                                 </div>
-                                {/* punch ripple */}
-                                <motion.div
-                                    className="absolute inset-0 rounded-full border-4 border-blue-300/30"
-                                    initial={{ scale: 0.2, opacity: 0 }}
-                                    animate={{ scale: [0.2, 1.6, 1.1], opacity: [0.8, 0.4, 0] }}
-                                    transition={{ duration: 0.45, delay: 0.1 }}
-                                />
+
+                                {/* Header Text */}
+                                <div className="text-center sm:text-left py-4">
+                                    <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight pb-2">
+                                        Hospital{" "}
+                                        <motion.span
+                                            animate={{ backgroundPosition: ["200% center", "-200% center"] }}
+                                            transition={{
+                                                repeat: Infinity,
+                                                duration: 3,
+                                                ease: "linear"
+                                            }}
+                                            className="pb-2 inline-block"
+                                            style={{
+                                                backgroundImage: "linear-gradient(110deg, #1d4ed8 45%, #93c5fd 50%, #1d4ed8 55%)",
+                                                backgroundSize: "250% auto",
+                                                WebkitBackgroundClip: "text",
+                                                WebkitTextFillColor: "transparent",
+                                            }}
+                                        >
+                                            Management
+                                        </motion.span>
+                                    </h1>
+                                </div>
                             </motion.div>
 
-                            <motion.h1
-                                className="text-6xl md:text-8xl font-black text-slate-800 leading-tight"
-                                variants={itemVariants}
-                            >
-                                Hospital{" "}
-                                <motion.span
-                                    className="bg-gradient-to-r from-blue-500 via-cyan-500 to-indigo-500 bg-clip-text text-transparent"
-                                    animate={{ backgroundPosition: ["0%", "100%"] }}
-                                    transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-                                    style={{ backgroundSize: "200% 100%" }}
-                                >
-                                    Management
-                                </motion.span>
-                            </motion.h1>
-
                             <motion.p
-                                className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-light"
                                 variants={itemVariants}
+                                className="text-lg sm:text-xl text-slate-600 max-w-lg leading-relaxed font-medium"
                             >
-                                Elevate patient care with <span className="font-semibold text-blue-500">AI-driven diagnostics</span>, streamlined administration, and integrated health records.
+                                Transform healthcare delivery with an AI-driven HMS that elevates clinical decision-making, simplifies hospital workflows, and unifies patient records. Deliver faster diagnosis, operational excellence, and a fully connected care ecosystem designed for modern, data-intelligent healthcare institutions.
                             </motion.p>
 
-                            <motion.div
-                                className="flex flex-col sm:flex-row gap-6"
-                                variants={itemVariants}
-                            >
-                                <motion.div
+                            {/* Buttons */}
+                            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+                                <motion.button
                                     variants={buttonHoverVariants}
                                     initial="rest"
                                     whileHover="hover"
                                     whileTap="tap"
+                                    className="flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20"
                                 >
-                                    <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg px-10 py-7 rounded-2xl shadow-2xl">
-                                        <span className="mr-3">Request a Demo</span>
-                                        <ArrowRight className="w-5 h-5" />
-                                    </Button>
-                                </motion.div>
+                                    Request a Demo
+                                    <ArrowRight className="w-5 h-5" />
+                                </motion.button>
 
-                                <motion.div
+                                <motion.button
                                     variants={secondaryButtonVariants}
                                     initial="rest"
                                     whileHover="hover"
                                     whileTap="tap"
+                                    className="flex items-center gap-2 px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-semibold hover:bg-slate-50"
                                 >
-                                    <Button size="lg" variant="outline" className="border-2 font-bold text-lg px-10 py-7 rounded-2xl backdrop-blur-md relative overflow-hidden">
-                                        <motion.div
-                                            className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/20 to-transparent"
-                                            animate={{ x: [-100, 100] }}
-                                            transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: Math.random() * 2 }}
-                                        />
-                                        <Play className="w-5 h-5 mr-3" />
-                                        <span className="relative z-10">View Case Studies</span>
-                                    </Button>
+                                    <Play className="w-5 h-5 fill-current" />
+                                    View Case Studies
+                                </motion.button>
+                                <motion.div variants={itemVariants} className="pt-8 flex items-center gap-6 text-slate-500">
+                                    <div className="flex items-center gap-2">
+                                        <Check className="w-5 h-5 text-blue-500" />
+                                        <span className="text-sm font-medium">HIPAA Compliant</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <Check className="w-5 h-5 text-blue-500" />
+                                        <span className="text-sm font-medium">24/7 Support</span>
+                                    </div>
                                 </motion.div>
                             </motion.div>
-                        </div>
 
-                        <motion.div
-                            className="relative"
-                            variants={itemVariants}
-                            whileHover={{ scale: 1.02, transition: { type: "spring", stiffness: 300 } }}
-                        >
-                            <motion.img
-                                src={hospitalImg}
-                                alt="Hospital Dashboard"
-                                className="rounded-3xl shadow-2xl border border-blue-200/50 backdrop-blur-sm"
-                                whileHover={{ boxShadow: "0 35px 60px -15px rgba(59, 130, 246, 0.3)", transition: { type: "spring", stiffness: 400 } }}
-                            />
+                            {/* Trust Indicators */}
 
-                            <motion.div
-                                className="absolute -top-4 -left-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-blue-200"
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                                <div className="flex items-center gap-2">
-                                    <ShieldPlus className="w-4 h-4 text-blue-500" />
-                                    <span className="text-sm font-semibold text-blue-600">HIPAA Compliant</span>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-cyan-200"
-                                animate={{ y: [0, 10, 0] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            >
-                                <div className="flex items-center gap-2">
-                                    <Heart className="w-4 h-4 text-rose-500" />
-                                    <span className="text-sm font-semibold text-rose-600">Patient Centric</span>
-                                </div>
-                            </motion.div>
                         </motion.div>
-                    </motion.div>
+
+                        {/* Right Image */}
+                        <motion.div
+                            className="relative lg:h-[600px] flex items-center justify-center lg:justify-end"
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                        >
+                            <div className="relative w-full max-w-2xl">
+                                {/* Main Image Container */}
+                                <div
+                                    className="relative rounded-3xl shadow-2xl shadow-blue-900/10 border-4 border-white aspect-[4/3] w-full p-3 bg-white"
+                                    onMouseEnter={() => setIsHovered(true)}
+                                    onMouseLeave={() => setIsHovered(false)}
+                                >
+                                    <div className="relative w-full h-full rounded-2xl overflow-hidden isolation-isolate transform-gpu">
+                                        <AnimatePresence mode="sync">
+                                            <motion.img
+                                                key={currentImageIndex}
+                                                src={heroImages[currentImageIndex]}
+                                                alt={`Hospital Dashboard Interface ${currentImageIndex + 1}`}
+                                                initial={{ opacity: 0 }}
+                                                animate={{
+                                                    opacity: 1,
+                                                    scale: isHovered ? 1.25 : 1.1
+                                                }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{
+                                                    opacity: { duration: 1.8, ease: "easeInOut" },
+                                                    scale: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }
+                                                }}
+                                                className="absolute inset-0 w-full h-full object-cover"
+                                                style={{ objectPosition: '60% -70px' }}
+                                            />
+                                        </AnimatePresence>
+
+                                        {/* Overlay Gradient */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 to-transparent pointer-events-none z-10" />
+                                    </div>
+                                </div>
+
+                                {/* Floating Badge 1 - Security */}
+                                <motion.div
+                                    className="absolute -top-6 -left-6 md:-left-12 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 flex items-center gap-3 z-20"
+                                    animate={{ y: [0, -10, 0] }}
+                                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                    <div className="p-2.5 bg-blue-100 rounded-xl">
+                                        <ShieldPlus className="w-6 h-6 text-blue-600" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Security</p>
+                                        <p className="text-sm font-bold text-slate-900">Enterprise Grade</p>
+                                    </div>
+                                </motion.div>
+
+                                {/* Floating Badge 2 - Care */}
+                                <motion.div
+                                    className="absolute -bottom-8 -right-4 md:-right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 flex items-center gap-3 z-20"
+                                    animate={{ y: [0, 10, 0] }}
+                                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                >
+                                    <div className="p-2.5 bg-rose-100 rounded-xl">
+                                        <Heart className="w-6 h-6 text-rose-500" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Patient Care</p>
+                                        <p className="text-sm font-bold text-slate-900">Top Priority</p>
+                                    </div>
+                                </motion.div>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
-            {/* End Hero Section */}
 
-            <main className="pt-20 pb-16 relative z-10">
-                {/* AI-Powered Healthcare Section (Flip Cards) */}
-                <section className="py-24 bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-50 relative overflow-hidden">
-                    {/* Floating particles background */}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        <motion.div
-                            className="absolute w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"
-                            animate={{
-                                x: [0, 100, 0],
-                                y: [0, -100, 0],
-                                scale: [1, 1.2, 1],
-                            }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-                            style={{ top: '10%', left: '10%' }}
-                        />
-                        <motion.div
-                            className="absolute w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"
-                            animate={{
-                                x: [0, -100, 0],
-                                y: [0, 100, 0],
-                                scale: [1, 1.3, 1],
-                            }}
-                            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-                            style={{ bottom: '10%', right: '10%' }}
-                        />
+            {/* Features Section (Frame 2) */}
+            <section className="py-24 bg-white relative overflow-hidden">
+                <div className="container mx-auto px-6">
+                    <div className="mb-16 text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Comprehensive Care Suite</h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto">Everything you need to run a modern medical facility, integrated into one seamless platform.</p>
                     </div>
 
-                    <motion.h2
-                        className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800 bg-clip-text text-transparent relative z-10"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ type: "spring", stiffness: 80, damping: 15 }}
-                    >
-                        AI-Powered Healthcare
-                    </motion.h2>
-
-                    <div className="container mx-auto px-4 relative z-10">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
-
-                            {/* 1. Pharmacy Card 💊 - MYTHIC 3D */}
-                            <motion.div
-                                className="group relative cursor-pointer"
-                                initial={{ opacity: 0, y: 100, rotateX: -15 }}
-                                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                                transition={{ delay: 0.1, duration: 0.8, type: "spring" }}
-                                style={{ perspective: 1000 }}
+                    {/* Expanding Cards Container */}
+                    <div className="flex flex-col lg:flex-row gap-2 h-[800px] lg:h-[500px] w-full max-w-7xl mx-auto">
+                        {[
+                            {
+                                title: "Patient Records",
+                                icon: <Activity className="w-8 h-8" />,
+                                desc: "Complete digital history tracking with AI insights.",
+                                color: "from-blue-600 via-indigo-700 to-slate-900",
+                                img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2070"
+                            },
+                            {
+                                title: "Smart Scheduling",
+                                icon: <Check className="w-8 h-8" />,
+                                desc: "AI-powered appointment management system.",
+                                color: "from-indigo-500 via-purple-600 to-slate-900",
+                                img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2053"
+                            },
+                            {
+                                title: "Billing & Insurance",
+                                icon: <ShieldPlus className="w-8 h-8" />,
+                                desc: "Automated claims processing and revenue cycle.",
+                                color: "from-sky-500 via-blue-600 to-slate-900",
+                                img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=2070"
+                            },
+                            {
+                                title: "Pharmacy",
+                                icon: <Heart className="w-8 h-8" />,
+                                desc: "Real-time inventory and prescription tracking.",
+                                color: "from-teal-500 via-emerald-600 to-slate-900",
+                                img: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=2069"
+                            },
+                            {
+                                title: "Telemedicine",
+                                icon: <Play className="w-8 h-8" />,
+                                desc: "Integrated remote consultation platform.",
+                                color: "from-violet-500 via-fuchsia-600 to-slate-900",
+                                img: "https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80&w=2070"
+                            },
+                            {
+                                title: "Analytics",
+                                icon: <ArrowRight className="w-8 h-8" />,
+                                desc: "Deep insights into hospital performance.",
+                                color: "from-slate-600 via-slate-800 to-black",
+                                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070"
+                            }
+                        ].map((feature, index) => (
+                            <div
+                                key={index}
+                                className="relative flex-1 hover:flex-[4] transition-all duration-500 ease-in-out group overflow-hidden rounded-2xl cursor-pointer border border-slate-200 hover:border-blue-400/50 shadow-sm hover:shadow-blue-900/20"
                             >
-                                <motion.div
-                                    className="relative bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 rounded-3xl overflow-hidden h-[550px]"
-                                    style={{
-                                        transformStyle: "preserve-3d",
-                                        boxShadow: "0 30px 80px rgba(59, 130, 246, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset"
-                                    }}
-                                    whileHover={{
-                                        rotateY: 5,
-                                        rotateX: 5,
-                                        scale: 1.05,
-                                        z: 50,
-                                        boxShadow: "0 50px 100px rgba(59, 130, 246, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2) inset"
-                                    }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                >
-                                    {/* Animated gradient overlay */}
-                                    <motion.div
-                                        className="absolute inset-0 opacity-30"
-                                        style={{
-                                            background: "linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)",
-                                            backgroundSize: "200% 200%",
-                                        }}
-                                        animate={{
-                                            backgroundPosition: ["0% 0%", "100% 100%"],
-                                        }}
-                                        transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+                                {/* Background Image with Overlay */}
+                                <div className="absolute inset-0">
+                                    <img
+                                        src={feature.img}
+                                        alt={feature.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
+                                    <div className={`absolute inset-0 bg-gradient-to-b ${feature.color} opacity-90 group-hover:opacity-80 transition-opacity duration-500`} />
+                                </div>
 
-                                    {/* 3D Image container */}
-                                    <motion.div 
-                                        className="relative h-64 overflow-hidden"
-                                        style={{ transform: "translateZ(20px)" }}
-                                    >
-                                        <motion.img 
-                                            src="https://images.unsplash.com/photo-1580281658629-81a6502edc31"
-                                            alt="Pharmacy"
-                                            className="w-full h-full object-cover"
-                                            whileHover={{ scale: 1.2 }}
-                                            transition={{ duration: 0.6 }}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/50 to-transparent"></div>
-                                        
-                                        {/* Floating icon */}
-                                        <motion.div 
-                                            className="absolute bottom-6 left-6"
-                                            style={{ transform: "translateZ(40px)" }}
-                                            whileHover={{ y: -10 }}
-                                        >
-                                            <motion.div 
-                                                className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-4 shadow-2xl"
-                                                animate={{ 
-                                                    rotate: [0, 5, -5, 0],
-                                                    scale: [1, 1.05, 1]
-                                                }}
-                                                transition={{ duration: 4, repeat: Infinity }}
-                                            >
-                                                <Activity className="w-10 h-10 text-blue-600" />
-                                            </motion.div>
-                                            <motion.h3 
-                                                className="text-4xl font-black text-white drop-shadow-2xl"
-                                                animate={{ textShadow: ["0 0 20px rgba(255,255,255,0.5)", "0 0 40px rgba(255,255,255,0.8)", "0 0 20px rgba(255,255,255,0.5)"] }}
-                                                transition={{ duration: 2, repeat: Infinity }}
-                                            >
-                                                Pharmacy
-                                            </motion.h3>
-                                        </motion.div>
-                                    </motion.div>
+                                {/* Content Container */}
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
+                                    {/* Collapsed State: Rotated Text */}
+                                    <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 delay-100 group-hover:delay-0">
+                                        <div className="transform -rotate-90 whitespace-nowrap lg:rotate-[-90deg] rotate-0">
+                                            <span className="text-xl font-bold tracking-widest uppercase opacity-90 drop-shadow-md">{feature.title}</span>
+                                        </div>
+                                    </div>
 
-                                    {/* Content with 3D depth */}
-                                    <motion.div 
-                                        className="p-8 relative"
-                                        style={{ transform: "translateZ(30px)" }}
-                                    >
-                                        <motion.p 
-                                            className="text-blue-50 mb-6 text-lg font-medium"
-                                            initial={{ opacity: 0 }}
-                                            whileInView={{ opacity: 1 }}
-                                            transition={{ delay: 0.3 }}
-                                        >
-                                            Comprehensive medication management system
-                                        </motion.p>
-                                        <ul className="space-y-4">
-                                            {["Stock Management", "Batch & Expiry Alerts", "Auto Medicine Refill"].map((item, idx) => (
-                                                <motion.li
-                                                    key={idx}
-                                                    className="flex items-center gap-3 text-white font-medium"
-                                                    initial={{ opacity: 0, x: -20 }}
-                                                    whileInView={{ opacity: 1, x: 0 }}
-                                                    transition={{ delay: 0.4 + idx * 0.1 }}
-                                                    whileHover={{ x: 10, scale: 1.05 }}
-                                                >
-                                                    <motion.div
-                                                        whileHover={{ rotate: 360, scale: 1.2 }}
-                                                        transition={{ duration: 0.5 }}
-                                                    >
-                                                        <Check className="w-6 h-6 text-yellow-300 flex-shrink-0 drop-shadow-lg" />
-                                                    </motion.div>
-                                                    <span>{item}</span>
-                                                </motion.li>
-                                            ))}
-                                        </ul>
-                                    </motion.div>
-
-                                    {/* Glowing edges */}
-                                    <div className="absolute inset-0 rounded-3xl border-2 border-white/20 pointer-events-none"></div>
-                                    <motion.div
-                                        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100"
-                                        style={{
-                                            background: "radial-gradient(circle at center, transparent 40%, rgba(255,255,255,0.1) 100%)"
-                                        }}
-                                        transition={{ duration: 0.3 }}
-                                    />
-                                </motion.div>
-
-                                {/* 3D Shadow */}
-                                <motion.div
-                                    className="absolute inset-0 bg-blue-900/30 rounded-3xl blur-2xl -z-10"
-                                    initial={{ scale: 0.8, opacity: 0 }}
-                                    whileInView={{ scale: 1, opacity: 1 }}
-                                    whileHover={{ scale: 1.1, opacity: 0.8 }}
-                                    transition={{ duration: 0.3 }}
-                                    style={{ transform: "translateZ(-50px) translateY(20px)" }}
-                                />
-                            </motion.div>
-
-                            {/* 2. Laboratory Card 🔬 - MYTHIC 3D */}
-                            <motion.div
-                                className="group relative cursor-pointer"
-                                initial={{ opacity: 0, y: 100, rotateX: -15 }}
-                                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                                transition={{ delay: 0.2, duration: 0.8, type: "spring" }}
-                                style={{ perspective: 1000 }}
-                            >
-                                <motion.div
-                                    className="relative bg-gradient-to-br from-green-500 via-emerald-600 to-teal-700 rounded-3xl overflow-hidden h-[550px]"
-                                    style={{
-                                        transformStyle: "preserve-3d",
-                                        boxShadow: "0 30px 80px rgba(34, 197, 94, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset"
-                                    }}
-                                    whileHover={{
-                                        rotateY: -5,
-                                        rotateX: 5,
-                                        scale: 1.05,
-                                        z: 50,
-                                        boxShadow: "0 50px 100px rgba(34, 197, 94, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2) inset"
-                                    }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                >
-                                    <motion.div
-                                        className="absolute inset-0 opacity-30"
-                                        style={{
-                                            background: "linear-gradient(-45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)",
-                                            backgroundSize: "200% 200%",
-                                        }}
-                                        animate={{
-                                            backgroundPosition: ["0% 0%", "100% 100%"],
-                                        }}
-                                        transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }}
-                                    />
-
-                                    <motion.div 
-                                        className="relative h-64 overflow-hidden"
-                                        style={{ transform: "translateZ(20px)" }}
-                                    >
-                                        <motion.img 
-                                            src="https://images.unsplash.com/photo-1581090464777-8d45a7bb86f2"
-                                            alt="Laboratory"
-                                            className="w-full h-full object-cover"
-                                            whileHover={{ scale: 1.2 }}
-                                            transition={{ duration: 0.6 }}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-green-900 via-green-900/50 to-transparent"></div>
-                                        
-                                        <motion.div 
-                                            className="absolute bottom-6 left-6"
-                                            style={{ transform: "translateZ(40px)" }}
-                                            whileHover={{ y: -10 }}
-                                        >
-                                            <motion.div 
-                                                className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-4 shadow-2xl"
-                                                animate={{ 
-                                                    rotate: [0, -5, 5, 0],
-                                                    scale: [1, 1.05, 1]
-                                                }}
-                                                transition={{ duration: 5, repeat: Infinity }}
-                                            >
-                                                <Stethoscope className="w-10 h-10 text-green-600" />
-                                            </motion.div>
-                                            <motion.h3 
-                                                className="text-4xl font-black text-white drop-shadow-2xl"
-                                                animate={{ textShadow: ["0 0 20px rgba(255,255,255,0.5)", "0 0 40px rgba(255,255,255,0.8)", "0 0 20px rgba(255,255,255,0.5)"] }}
-                                                transition={{ duration: 2.5, repeat: Infinity }}
-                                            >
-                                                Laboratory
-                                            </motion.h3>
-                                        </motion.div>
-                                    </motion.div>
-
-                                    <motion.div 
-                                        className="p-8 relative"
-                                        style={{ transform: "translateZ(30px)" }}
-                                    >
-                                        <motion.p 
-                                            className="text-green-50 mb-6 text-lg font-medium"
-                                            initial={{ opacity: 0 }}
-                                            whileInView={{ opacity: 1 }}
-                                            transition={{ delay: 0.3 }}
-                                        >
-                                            Advanced diagnostic & testing solutions
-                                        </motion.p>
-                                        <ul className="space-y-4">
-                                            {["Auto Test Reports", "Sample Tracking", "Analyzer Integration"].map((item, idx) => (
-                                                <motion.li
-                                                    key={idx}
-                                                    className="flex items-center gap-3 text-white font-medium"
-                                                    initial={{ opacity: 0, x: -20 }}
-                                                    whileInView={{ opacity: 1, x: 0 }}
-                                                    transition={{ delay: 0.4 + idx * 0.1 }}
-                                                    whileHover={{ x: 10, scale: 1.05 }}
-                                                >
-                                                    <motion.div
-                                                        whileHover={{ rotate: 360, scale: 1.2 }}
-                                                        transition={{ duration: 0.5 }}
-                                                    >
-                                                        <Check className="w-6 h-6 text-yellow-300 flex-shrink-0 drop-shadow-lg" />
-                                                    </motion.div>
-                                                    <span>{item}</span>
-                                                </motion.li>
-                                            ))}
-                                        </ul>
-                                    </motion.div>
-
-                                    <div className="absolute inset-0 rounded-3xl border-2 border-white/20 pointer-events-none"></div>
-                                    <motion.div
-                                        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100"
-                                        style={{
-                                            background: "radial-gradient(circle at center, transparent 40%, rgba(255,255,255,0.1) 100%)"
-                                        }}
-                                        transition={{ duration: 0.3 }}
-                                    />
-                                </motion.div>
-
-                                <motion.div
-                                    className="absolute inset-0 bg-green-900/30 rounded-3xl blur-2xl -z-10"
-                                    initial={{ scale: 0.8, opacity: 0 }}
-                                    whileInView={{ scale: 1, opacity: 1 }}
-                                    whileHover={{ scale: 1.1, opacity: 0.8 }}
-                                    transition={{ duration: 0.3 }}
-                                    style={{ transform: "translateZ(-50px) translateY(20px)" }}
-                                />
-                            </motion.div>
-
-                            {/* 3. OPD Card 🩺 - MYTHIC 3D */}
-                            <motion.div
-                                className="group relative cursor-pointer"
-                                initial={{ opacity: 0, y: 100, rotateX: -15 }}
-                                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                                transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
-                                style={{ perspective: 1000 }}
-                            >
-                                <motion.div
-                                    className="relative bg-gradient-to-br from-purple-500 via-violet-600 to-fuchsia-700 rounded-3xl overflow-hidden h-[550px]"
-                                    style={{
-                                        transformStyle: "preserve-3d",
-                                        boxShadow: "0 30px 80px rgba(168, 85, 247, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset"
-                                    }}
-                                    whileHover={{
-                                        rotateY: 5,
-                                        rotateX: -5,
-                                        scale: 1.05,
-                                        z: 50,
-                                        boxShadow: "0 50px 100px rgba(168, 85, 247, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2) inset"
-                                    }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                >
-                                    <motion.div
-                                        className="absolute inset-0 opacity-30"
-                                        style={{
-                                            background: "linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)",
-                                            backgroundSize: "200% 200%",
-                                        }}
-                                        animate={{
-                                            backgroundPosition: ["0% 0%", "100% 100%"],
-                                        }}
-                                        transition={{ duration: 3.5, repeat: Infinity, repeatType: "reverse" }}
-                                    />
-
-                                    <motion.div 
-                                        className="relative h-64 overflow-hidden"
-                                        style={{ transform: "translateZ(20px)" }}
-                                    >
-                                        <motion.img 
-                                            src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a2"
-                                            alt="OPD System"
-                                            className="w-full h-full object-cover"
-                                            whileHover={{ scale: 1.2 }}
-                                            transition={{ duration: 0.6 }}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-purple-900 via-purple-900/50 to-transparent"></div>
-                                        
-                                        <motion.div 
-                                            className="absolute bottom-6 left-6"
-                                            style={{ transform: "translateZ(40px)" }}
-                                            whileHover={{ y: -10 }}
-                                        >
-                                            <motion.div 
-                                                className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-4 shadow-2xl"
-                                                animate={{ 
-                                                    rotate: [0, 5, -5, 0],
-                                                    scale: [1, 1.1, 1]
-                                                }}
-                                                transition={{ duration: 4.5, repeat: Infinity }}
-                                            >
-                                                <Heart className="w-10 h-10 text-purple-600" />
-                                            </motion.div>
-                                            <motion.h3 
-                                                className="text-4xl font-black text-white drop-shadow-2xl"
-                                                animate={{ textShadow: ["0 0 20px rgba(255,255,255,0.5)", "0 0 40px rgba(255,255,255,0.8)", "0 0 20px rgba(255,255,255,0.5)"] }}
-                                                transition={{ duration: 2.2, repeat: Infinity }}
-                                            >
-                                                OPD System
-                                            </motion.h3>
-                                        </motion.div>
-                                    </motion.div>
-
-                                    <motion.div 
-                                        className="p-8 relative"
-                                        style={{ transform: "translateZ(30px)" }}
-                                    >
-                                        <motion.p 
-                                            className="text-purple-50 mb-6 text-lg font-medium"
-                                            initial={{ opacity: 0 }}
-                                            whileInView={{ opacity: 1 }}
-                                            transition={{ delay: 0.3 }}
-                                        >
-                                            Streamlined outpatient department management
-                                        </motion.p>
-                                        <ul className="space-y-4">
-                                            {["Appointment Booking", "Queue Management", "Visit History"].map((item, idx) => (
-                                                <motion.li
-                                                    key={idx}
-                                                    className="flex items-center gap-3 text-white font-medium"
-                                                    initial={{ opacity: 0, x: -20 }}
-                                                    whileInView={{ opacity: 1, x: 0 }}
-                                                    transition={{ delay: 0.4 + idx * 0.1 }}
-                                                    whileHover={{ x: 10, scale: 1.05 }}
-                                                >
-                                                    <motion.div
-                                                        whileHover={{ rotate: 360, scale: 1.2 }}
-                                                        transition={{ duration: 0.5 }}
-                                                    >
-                                                        <Check className="w-6 h-6 text-yellow-300 flex-shrink-0 drop-shadow-lg" />
-                                                    </motion.div>
-                                                    <span>{item}</span>
-                                                </motion.li>
-                                            ))}
-                                        </ul>
-                                    </motion.div>
-
-                                    <div className="absolute inset-0 rounded-3xl border-2 border-white/20 pointer-events-none"></div>
-                                    <motion.div
-                                        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100"
-                                        style={{
-                                            background: "radial-gradient(circle at center, transparent 40%, rgba(255,255,255,0.1) 100%)"
-                                        }}
-                                        transition={{ duration: 0.3 }}
-                                    />
-                                </motion.div>
-
-                                <motion.div
-                                    className="absolute inset-0 bg-purple-900/30 rounded-3xl blur-2xl -z-10"
-                                    initial={{ scale: 0.8, opacity: 0 }}
-                                    whileInView={{ scale: 1, opacity: 1 }}
-                                    whileHover={{ scale: 1.1, opacity: 0.8 }}
-                                    transition={{ duration: 0.3 }}
-                                    style={{ transform: "translateZ(-50px) translateY(20px)" }}
-                                />
-                            </motion.div>
-                        </div>
+                                    {/* Expanded State: Full Content */}
+                                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 delay-0 group-hover:delay-200 flex flex-col items-center text-center">
+                                        <div className="p-4 bg-white/20 backdrop-blur-md rounded-full mb-4 border border-white/30 shadow-lg">
+                                            {feature.icon}
+                                        </div>
+                                        <h3 className="text-2xl font-bold mb-2 tracking-tight drop-shadow-lg">{feature.title}</h3>
+                                        <p className="text-blue-50 max-w-xs leading-relaxed drop-shadow-md font-medium">{feature.desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                </section>
-                {/* End Flip Card Section */}
-                
-                <section className="container mx-auto px-4 mb-24">
-                    <motion.h2
-                        className="text-5xl font-black text-center mb-20 bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800 bg-clip-text text-transparent"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ type: "spring", stiffness: 80, damping: 15 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                    >
-                        Traditional vs. MoviCloud
-                    </motion.h2>
-
-                    <motion.div
-                        className="max-w-6xl mx-auto"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.3 }}
-                        viewport={{ once: true }}
-                    >
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                            <motion.div
-                                className="bg-white/90 backdrop-blur-lg rounded-3xl p-10 border border-red-200 shadow-2xl relative overflow-hidden"
-                                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 35px 60px -15px rgba(239, 68, 68, 0.25)" }}
-                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                            >
-                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-pink-400"></div>
-
-                                <h3 className="text-3xl font-bold mb-8 text-red-500 flex items-center gap-4">
-                                    <motion.div whileHover={{ rotate: 180, scale: 1.2 }} transition={{ type: "spring", stiffness: 500 }} >
-                                        <X className="w-8 h-8" />
-                                    </motion.div>
-                                    Legacy Systems
-                                </h3>
-                                <ul className="space-y-5">
-                                    {[
-                                        "Fragmented patient records",
-                                        "Manual appointment scheduling",
-                                        "Delayed communication",
-                                        "Limited data security"
-                                    ].map((item, index) => (
-                                        <motion.li
-                                            key={index}
-                                            className="flex items-start gap-4 text-slate-600 text-lg"
-                                            initial={{ opacity: 0, x: -30 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: index * 0.15, type: "spring" }}
-                                            viewport={{ once: true }}
-                                            whileHover={{ x: 5 }}
-                                        >
-                                            <X className="w-6 h-6 text-red-400 mt-0.5 flex-shrink-0" />
-                                            <span>{item}</span>
-                                        </motion.li>
-                                    ))}
-                                </ul>
-                            </motion.div>
-
-                            <motion.div
-                                className="bg-gradient-to-br from-blue-500/15 to-cyan-500/10 backdrop-blur-lg rounded-3xl p-10 border border-blue-300 shadow-2xl relative overflow-hidden"
-                                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 35px 60px -15px rgba(59, 130, 246, 0.35)" }}
-                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                            >
-                                <motion.div
-                                    className="absolute top-0 right-0 w-40 h-40 bg-blue-400/20 rounded-full -translate-y-20 translate-x-20 blur-3xl"
-                                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                />
-                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-cyan-400"></div>
-
-                                <h3 className="text-3xl font-bold mb-8 text-blue-600 flex items-center gap-4 relative z-10">
-                                    <motion.div whileHover={{ scale: 1.3, rotate: 360 }} transition={{ type: "spring", stiffness: 500 }} >
-                                        <Check className="w-8 h-8" />
-                                    </motion.div>
-                                    MoviCloud Hospital
-                                </h3>
-                                <ul className="space-y-5 relative z-10">
-                                    {[
-                                        "Unified electronic health records",
-                                        "AI-powered scheduling & alerts",
-                                        "Secure, real-time messaging",
-                                        "Advanced data encryption"
-                                    ].map((item, index) => (
-                                        <motion.li
-                                            key={index}
-                                            className="flex items-start gap-4 text-slate-700 text-lg font-medium"
-                                            initial={{ opacity: 0, x: 30 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: index * 0.15, type: "spring" }}
-                                            viewport={{ once: true }}
-                                            whileHover={{ x: 5 }}
-                                        >
-                                            <Check className="w-6 h-6 text-blue-500 mt-0.5 flex-shrink-0" />
-                                            <span>{item}</span>
-                                        </motion.li>
-                                    ))}
-                                </ul>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                </section>
-
-                <section className="py-24 container mx-auto px-4">
-                    <motion.div
-                        className="bg-gradient-to-br from-blue-500/20 via-cyan-500/15 to-indigo-500/10 backdrop-blur-xl rounded-3xl p-16 text-center border border-blue-300/50 shadow-2xl max-w-6xl mx-auto relative overflow-hidden"
-                        initial={{ opacity: 0, scale: 0.9, y: 50 }}
-                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ type: "spring", stiffness: 80, damping: 20 }}
-                        viewport={{ once: true }}
-                    >
-                        <motion.div
-                            className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400"
-                            animate={{ scaleX: [0, 1, 0], transformOrigin: ["0%", "50%", "100%"] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                        />
-
-                        <div className="absolute -top-32 -right-32 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl"></div>
-                        <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-cyan-400/20 rounded-full blur-3xl"></div>
-
-                        <motion.h2
-                            className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800 bg-clip-text text-transparent"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3, type: "spring" }}
-                            viewport={{ once: true }}
-                        >
-                            Modernize Your Healthcare Facility
-                        </motion.h2>
-
-                        <motion.p
-                            className="text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5, type: "spring" }}
-                            viewport={{ once: true }}
-                        >
-                            Join top hospitals using MoviCloud to enhance patient care, streamline operations, and ensure compliance with the latest healthcare standards.
-                        </motion.p>
-
-                        <motion.div
-                            variants={buttonHoverVariants}
-                            initial="rest"
-                            whileHover="hover"
-                            whileTap="tap"
-                        >
-                            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white font-black text-xl px-14 py-8 rounded-2xl shadow-2xl">
-                                <motion.span
-                                    whileHover={{ scale: 1.1, x: 5 }}
-                                    transition={{ type: "spring", stiffness: 500 }}
-                                    className="flex items-center"
-                                >
-                                    Request a Demo
-                                    <ArrowRight className="w-6 h-6 ml-3" />
-                                </motion.span>
-                            </Button>
-                        </motion.div>
-                    </motion.div>
-                </section>
-            </main>
+                </div>
+            </section>
 
             <Footer />
         </div>

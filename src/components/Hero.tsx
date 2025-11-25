@@ -55,7 +55,7 @@ export const Hero = () => {
               </span>
 
               <span className="block text-[#21C4A3] text-2xl md:text-3xl font-semibold mt-2">
-                with  AI Advance analytics
+               Powered by Advanced AI Analytics
               </span>
             </motion.h1>
 
@@ -116,11 +116,11 @@ export const Hero = () => {
             }}
             className="flex justify-center md:justify-end"
           >
-           <img
-  src="/Hero2.png"
-  className="w-full max-w-3xl"
-  alt="Hero"
-/>
+            <img
+              src="/Hero2.png"
+              className="w-full max-w-3xl"
+              alt="Hero"
+            />
           </motion.div>
         </div>
       </section>
