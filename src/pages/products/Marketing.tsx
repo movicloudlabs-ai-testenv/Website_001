@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, Variants, Transition, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Check, Megaphone, BarChart3, Search, Share2, Mail, Calendar, TrendingUp } from 'lucide-react';
 import Navigation from '../../components/Navigation';
+import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
 import marketingDashboard from '../../assets/marketing-dashboard.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -468,6 +469,7 @@ const Marketing = () => {
         </div>
       </section>
 
+      <DemoCTA />
       <Footer />
     </div>
   );

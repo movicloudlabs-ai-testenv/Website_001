@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, Variants, Transition, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Check, ShieldPlus, MapPin, Gauge, Battery, Zap, Package, Truck } from 'lucide-react';
 import Navigation from '../../components/Navigation';
+import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
 import transportDashboard from '../../assets/transport-dashboard.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -468,6 +469,7 @@ const Transport = () => {
         </div>
       </section>
 
+      <DemoCTA />
       <Footer />
     </div>
   );

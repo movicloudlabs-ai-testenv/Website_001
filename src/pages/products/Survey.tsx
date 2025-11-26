@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, Variants, Transition, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Check, BarChart, Brain, MessageSquare, FileText, Share2, Download, TrendingUp } from 'lucide-react';
 import Navigation from '../../components/Navigation';
+import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
 import surveyDashboard from '../../assets/survey-dashboard.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -468,6 +469,7 @@ const Survey = () => {
         </div>
       </section>
 
+      <DemoCTA />
       <Footer />
     </div>
   );

@@ -282,14 +282,9 @@ export const Navigation = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <div className="flex items-center space-x-2 ml-4">
-              <Link to="/demo">
-                <Button variant="outline" className="font-heading text-base">Get a Demo</Button>
-              </Link>
-               <Link to="/contact">
-                 <Button className="bg-gradient-primary font-heading text-base">Contact Us</Button>
-               </Link>
-             </div>
+            <Link to="/contact">
+              <Button className="bg-gradient-primary font-heading text-base">Contact Us</Button>
+            </Link>
           </div>
 
           {/* MOBILE MENU BUTTON */}
@@ -300,34 +295,30 @@ export const Navigation = () => {
       </div>
 
       {/* ---------------------- MOBILE MENU ---------------------- */}
-      {isOpen && (
-        <div className="md:hidden pb-4 space-y-4 bg-background animate-fade-in px-4 border-t">
-          <Link to="/" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
-            Home
-          </Link>
-          <Link to="/products" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
-            Industries
-          </Link>
-          <Link to="/career" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
-            Career
-          </Link>
-          <div className="flex items-center space-x-2 ml-4">
-  <Link to="/demo">
-    <Button variant="outline" className="font-heading text-base">
-      Get a Demo
-    </Button>
-  </Link>
+      {
+        isOpen && (
+          <div className="md:hidden pb-4 space-y-4 bg-background animate-fade-in px-4 border-t">
+            <Link to="/" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
+              Home
+            </Link>
+            <Link to="/products" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
+              Industries
+            </Link>
+            <Link to="/career" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
+              Career
+            </Link>
+            <div className="flex items-center space-x-2 ml-4">
+              <Link to="/contact">
+                <Button className="bg-gradient-primary font-heading text-base">
+                  Contact Us
+                </Button>
+              </Link>
+            </div>
 
-  <Link to="/contact">
-    <Button className="bg-gradient-primary font-heading text-base">
-      Contact Us
-    </Button>
-  </Link>
-</div>
-
-        </div>
-      )}
-    </nav>
+          </div>
+        )
+      }
+    </nav >
   );
 };
 

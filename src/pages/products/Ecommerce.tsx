@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion, Variants, Transition, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Check, Package, LineChart, Zap, Globe, RefreshCw, Truck, TrendingUp } from 'lucide-react';
 import Navigation from '../../components/Navigation';
+import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
 import ecommerceDashboard from '../../assets/ecommerce-dashboard.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -468,6 +470,7 @@ const Ecommerce = () => {
         </div>
       </section>
 
+      <DemoCTA />
       <Footer />
     </div>
   );

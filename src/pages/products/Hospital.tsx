@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, Variants, Transition, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Check, ShieldPlus, Heart, Activity } from 'lucide-react';
 import Navigation from '../../components/Navigation';
+import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
 import hms1 from '../../assets/hms1.png';
 import hms2 from '../../assets/hms2.png';
@@ -471,6 +472,7 @@ const Hospital = () => {
                 </div>
             </section>
 
+            <DemoCTA />
             <Footer />
         </div>
     );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, Variants, Transition, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Check, GraduationCap, BookOpen, Users, Clock, CreditCard, Library, Shield } from 'lucide-react';
 import Navigation from '../../components/Navigation';
+import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
 import schoolDashboard from '../../assets/school-dashboard.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -468,6 +469,7 @@ const School = () => {
         </div>
       </section>
 
+      <DemoCTA />
       <Footer />
     </div>
   );

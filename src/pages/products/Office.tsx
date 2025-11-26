@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, Variants, Transition, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Check, Users, Target, Building2, FileText, Calendar, GitBranch, TrendingUp } from 'lucide-react';
 import Navigation from '../../components/Navigation';
+import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
 import officeDashboard from '../../assets/office-dashboard.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -468,6 +469,7 @@ const Office = () => {
         </div>
       </section>
 
+      <DemoCTA />
       <Footer />
     </div>
   );
