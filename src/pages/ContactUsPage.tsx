@@ -64,12 +64,12 @@ const ContactUs = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans selection:bg-teal-100 selection:text-teal-900">
+        <div className="min-h-screen bg-slate-50 font-sans selection:bg-sky-100 selection:text-sky-900">
             <Navigation />
 
             {/* Hero Section - Compacted */}
             <section className="relative pt-24 pb-10 lg:pt-32 lg:pb-12 overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-100/40 via-slate-50/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-100/40 via-slate-50/20 to-transparent pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10">
                     <motion.div
@@ -100,7 +100,7 @@ const ContactUs = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
                             >
-                                <h3 className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2 font-sans">Contact Sales</h3>
+                                <h3 className="text-xs font-bold text-sky-600 uppercase tracking-wider mb-2 font-sans">Contact Sales</h3>
                                 <h2 className="text-2xl font-bold text-slate-900 mb-4 font-display">Ready to transform your business?</h2>
                                 <p className="text-slate-600 mb-6 text-sm leading-relaxed font-sans">
                                     Speak with our enterprise experts to discover how MoviCloud can optimize your operations with AI-driven analytics.
@@ -108,13 +108,13 @@ const ContactUs = () => {
 
                                 <div className="space-y-4">
                                     <div className="flex items-start gap-3">
-                                        <div className="p-2 bg-teal-50 rounded-lg text-teal-600">
+                                        <div className="p-2 bg-sky-50 rounded-lg text-sky-600">
                                             <MessageSquare className="w-5 h-5" />
                                         </div>
                                         <div>
                                             <h4 className="font-semibold text-slate-900 text-sm font-heading">Sales Inquiry</h4>
                                             <p className="text-slate-500 text-xs mb-0.5 font-sans">For enterprise plans and custom solutions.</p>
-                                            <a href="mailto:sales@movicloud.com" className="text-teal-600 text-sm font-medium hover:text-teal-700 hover:underline font-sans">sales@movicloud.com</a>
+                                            <a href="mailto:sales@movicloud.com" className="text-sky-600 text-sm font-medium hover:text-sky-700 hover:underline font-sans">sales@movicloud.com</a>
                                         </div>
                                     </div>
 
@@ -150,7 +150,7 @@ const ContactUs = () => {
                                 className="p-5 bg-slate-100 rounded-xl border border-slate-200"
                             >
                                 <div className="flex items-center gap-2 mb-1">
-                                    <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                                    <CheckCircle2 className="w-4 h-4 text-sky-600" />
                                     <span className="font-semibold text-slate-900 text-sm font-heading">Trusted by Industry Leaders</span>
                                 </div>
                                 <p className="text-xs text-slate-600 font-sans">
@@ -169,14 +169,14 @@ const ContactUs = () => {
                             >
                                 {submitted ? (
                                     <div className="text-center py-16">
-                                        <div className="w-14 h-14 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <div className="w-14 h-14 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                             <CheckCircle2 className="w-7 h-7" />
                                         </div>
                                         <h3 className="text-xl font-bold text-slate-900 mb-2 font-display">Message Sent!</h3>
                                         <p className="text-slate-600 text-sm font-sans">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
                                         <button
                                             onClick={() => setSubmitted(false)}
-                                            className="mt-6 text-teal-600 font-medium hover:underline text-sm font-sans"
+                                            className="mt-6 text-sky-600 font-medium hover:underline text-sm font-sans"
                                         >
                                             Send another message
                                         </button>
@@ -193,7 +193,7 @@ const ContactUs = () => {
                                                     required
                                                     value={formData.firstName}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                    className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all text-sm font-sans"
                                                     placeholder="Jane"
                                                 />
                                             </div>
@@ -206,7 +206,7 @@ const ContactUs = () => {
                                                     required
                                                     value={formData.lastName}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                    className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all text-sm font-sans"
                                                     placeholder="Doe"
                                                 />
                                             </div>
@@ -221,7 +221,7 @@ const ContactUs = () => {
                                                 required
                                                 value={formData.email}
                                                 onChange={handleInputChange}
-                                                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all text-sm font-sans"
                                                 placeholder="jane@company.com"
                                             />
                                         </div>
@@ -236,7 +236,7 @@ const ContactUs = () => {
                                                     required
                                                     value={formData.company}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                    className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all text-sm font-sans"
                                                     placeholder="Acme Inc."
                                                 />
                                             </div>
@@ -248,7 +248,7 @@ const ContactUs = () => {
                                                     name="phone"
                                                     value={formData.phone}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                    className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all text-sm font-sans"
                                                     placeholder="+1 (555) 000-0000"
                                                 />
                                             </div>
@@ -261,7 +261,7 @@ const ContactUs = () => {
                                                 name="type"
                                                 value={formData.type}
                                                 onChange={handleInputChange}
-                                                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all appearance-none text-sm font-sans"
+                                                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all appearance-none text-sm font-sans"
                                             >
                                                 <option value="sales">Sales Inquiry</option>
                                                 <option value="support">Product Support</option>
@@ -279,7 +279,7 @@ const ContactUs = () => {
                                                 rows={3}
                                                 value={formData.message}
                                                 onChange={handleInputChange}
-                                                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none text-sm font-sans"
+                                                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all resize-none text-sm font-sans"
                                                 placeholder="Tell us about your project needs..."
                                             />
                                         </div>
@@ -287,7 +287,7 @@ const ContactUs = () => {
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-lg shadow-lg shadow-teal-600/20 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed text-sm font-sans"
+                                            className="w-full py-3 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-lg shadow-lg shadow-sky-600/20 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed text-sm font-sans"
                                         >
                                             {isSubmitting ? (
                                                 <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -324,13 +324,13 @@ const ContactUs = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="p-5 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-teal-500/50 transition-colors group"
+                                className="p-5 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-sky-500/50 transition-colors group"
                             >
-                                <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-500/20 group-hover:text-teal-400 transition-all">
+                                <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-500/20 group-hover:text-sky-400 transition-all">
                                     <MapPin className="w-5 h-5" />
                                 </div>
                                 <h3 className="text-lg font-bold mb-1 font-heading">{office.city}</h3>
-                                <p className="text-teal-400 text-xs font-medium mb-3 font-sans">{office.country}</p>
+                                <p className="text-sky-400 text-xs font-medium mb-3 font-sans">{office.country}</p>
                                 <div className="space-y-1.5 text-slate-400 text-xs font-sans">
                                     <p>{office.address}</p>
                                     <p>{office.phone}</p>
