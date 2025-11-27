@@ -55,7 +55,7 @@ export const Hero = () => {
               </span>
 
               <span className="block text-[#21C4A3] text-2xl md:text-3xl font-semibold mt-2">
-               Powered by Advanced AI Analytics
+                Powered by Advanced AI Analytics
               </span>
             </motion.h1>
 
@@ -66,9 +66,8 @@ export const Hero = () => {
               transition={{ duration: 1, delay: 0.3 }}
               className="font-inter text-lg md:text-xl text-[#6B7280] max-w-xl leading-relaxed"
             >
-              MoviCloud Labs specializes in building powerful cloud-based enterprise systems
-              that boost efficiency across industries. With strong predictive analytics & AI,
-              we deliver solutions that intelligently optimize your operations.
+              Building Intelligent Enterprise Solutions Powered by Advanced Analytics and AI
+              MoviCloud Labs is your trusted partner for next-generation digital transformation. We design secure, scalable, and custom cloud environments that drive innovation and efficiency. Leveraging deep expertise in predictive analytics and AI, we build smart, cloud-native enterprise platforms that intelligently optimize operations and accelerate business performance.
             </motion.p>
 
             {/* BUTTONS */}
