@@ -4,11 +4,14 @@ import { ArrowRight, Play, Check, Package, LineChart, Zap, Globe, RefreshCw, Tru
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import ecommerceDashboard from '../../assets/ecommerce-dashboard.jpg';
+import ec1 from '../../assets/EC1.png';
+import ec2 from '../../assets/EC 2.png';
+import ec3 from '../../assets/EC 3.png';
+import ec4 from '../../assets/EC 4.png';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
 
-const heroImages = [ecommerceDashboard, ecommerceDashboard, ecommerceDashboard, ecommerceDashboard];
+const heroImages = [ec1, ec2, ec3, ec4];
 
 const itemTransition: Transition = {
   type: "spring",

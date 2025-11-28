@@ -4,11 +4,14 @@ import { ArrowRight, Play, Check, BarChart, Brain, MessageSquare, FileText, Shar
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import surveyDashboard from '../../assets/survey-dashboard.jpg';
+import survey1 from '../../assets/survey.png';
+import survey2 from '../../assets/survey2.png';
+import survey3 from '../../assets/survey3.png';
+import survey4 from '../../assets/survey4.png';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
 
-const heroImages = [surveyDashboard, surveyDashboard, surveyDashboard, surveyDashboard];
+const heroImages = [survey1, survey2, survey3, survey4];
 
 const itemTransition: Transition = {
   type: "spring",
