@@ -10,6 +10,12 @@ import ec3 from '../../assets/EC 3.png';
 import ec4 from '../../assets/EC 4.png';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
+import img1 from '../../assets/ecommerce/img1.png';
+import img2 from '../../assets/ecommerce/img2.png';
+import img3 from '../../assets/ecommerce/img3.png';
+import img4 from '../../assets/ecommerce/img4.png';
+import img5 from '../../assets/ecommerce/img5.png';
+import img6 from '../../assets/ecommerce/img6.png';
 
 const heroImages = [ec1, ec2, ec3, ec4];
 
@@ -327,42 +333,42 @@ const Ecommerce = () => {
                 icon: <Package className="w-8 h-8" />,
                 desc: "Manage catalogs, inventory, orders, returns, and fulfillment seamlessly.",
                 color: "from-teal-600 via-emerald-700 to-slate-900",
-                img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2070"
+                img: img1
               },
               {
                 title: "Payment & Checkout Engine",
                 icon: <LineChart className="w-8 h-8" />,
                 desc: "Fast, secure checkout with multi-payment support and improved conversion rates.",
                 color: "from-cyan-500 via-teal-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070"
+                img: img2
               },
               {
                 title: "Sales & Conversion Analytics",
                 icon: <Zap className="w-8 h-8" />,
                 desc: "Real-time insights on product performance, funnel metrics, and revenue breakdown.",
                 color: "from-emerald-500 via-green-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1566576912906-600aceeb7aef?auto=format&fit=crop&q=80&w=2087"
+                img: img3
               },
               {
                 title: "Inventory Forecasting & Demand Trends",
                 icon: <Globe className="w-8 h-8" />,
                 desc: "Predict stock levels and avoid overstock or stockouts using advanced analytics.",
                 color: "from-blue-500 via-cyan-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2070"
+                img: img4
               },
               {
                 title: "AI Product Recommendations",
                 icon: <RefreshCw className="w-8 h-8" />,
                 desc: "Boost sales with personalized recommendations powered by user behavior and browsing history.",
                 color: "from-teal-500 via-cyan-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=2076"
+                img: img5
               },
               {
                 title: "AI Fraud Detection",
                 icon: <Truck className="w-8 h-8" />,
                 desc: "Machine learning flags suspicious orders and payment anomalies instantly.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=2070"
+                img: img6
               }
             ].map((feature, index) => (
               <div

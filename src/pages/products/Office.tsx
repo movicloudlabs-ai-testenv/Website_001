@@ -10,6 +10,12 @@ import office3 from '../../assets/office3.png';
 import office4 from '../../assets/office4.png';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
+import img1 from '../../assets/office/img1.png';
+import img2 from '../../assets/office/img2.png';
+import img3 from '../../assets/office/img3.png';
+import img4 from '../../assets/office/img4.png';
+import img5 from '../../assets/office/img5.png';
+import img6 from '../../assets/office/img6.png';
 
 const heroImages = [office2, office1, office4, office3];
 
@@ -327,42 +333,42 @@ const Office = () => {
                 icon: <Users className="w-8 h-8" />,
                 desc: "Assign, track, and complete tasks with transparent workflows and role-based access.",
                 color: "from-purple-600 via-violet-700 to-slate-900",
-                img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
+                img: img1
               },
               {
                 title: "Workspace Resource Booking",
                 icon: <Target className="w-8 h-8" />,
                 desc: "Book meeting rooms, equipment, and shared spaces in one click.",
                 color: "from-pink-500 via-rose-600 to-slate-900",
-                img: "https://images.unsplash.com/  photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015"
+                img: img2
               },
               {
                 title: "Time Utilization Insights",
                 icon: <Building2 className="w-8 h-8" />,
                 desc: "Visualize team performance, task completion rates, and workload distribution.",
                 color: "from-indigo-500 via-purple-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2069"
+                img: img3
               },
               {
                 title: "Process Efficiency Reports",
                 icon: <GitBranch className="w-8 h-8" />,
                 desc: "Track policy compliance and measure process bottlenecks with actionable analytics.",
                 color: "from-fuchsia-500 via-purple-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=2070"
+                img: img4
               },
               {
                 title: "AI Task Prioritization Assistant",
                 icon: <FileText className="w-8 h-8" />,
                 desc: "AI ranks tasks based on deadlines, dependencies, and workload to boost efficiency.",
                 color: "from-violet-500 via-indigo-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&q=80&w=2032"
+                img: img5
               },
               {
                 title: "Smart Chatbot for Support",
                 icon: <Calendar className="w-8 h-8" />,
                 desc: "Employees get instant answers to HR, IT, and policy queries via an AI assistant.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=2068"
+                img: img6
               }
             ].map((feature, index) => (
               <div

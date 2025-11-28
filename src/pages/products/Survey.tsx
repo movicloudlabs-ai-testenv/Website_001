@@ -10,6 +10,12 @@ import survey3 from '../../assets/survey3.png';
 import survey4 from '../../assets/survey4.png';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
+import img1 from '../../assets/survey/img1.png';
+import img2 from '../../assets/survey/img2.png';
+import img3 from '../../assets/survey/img3.png';
+import img4 from '../../assets/survey/img4.png';
+import img5 from '../../assets/survey/img5.png';
+import img6 from '../../assets/survey/img6.png';
 
 const heroImages = [survey1, survey2, survey3, survey4];
 
@@ -327,42 +333,42 @@ const Survey = () => {
                 icon: <Brain className="w-8 h-8" />,
                 desc: "Create engaging surveys using customizable templates and drag-and-drop tools.",
                 color: "from-indigo-600 via-violet-700 to-slate-900",
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070"
+                img: img1
               },
               {
                 title: "Real-Time Response Collection",
                 icon: <BarChart className="w-8 h-8" />,
                 desc: "Capture responses instantly through links, QR codes, and mobile forms.",
                 color: "from-blue-500 via-indigo-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015"
+                img: img2
               },
               {
                 title: "Sentiment & Feedback Analytics",
                 icon: <MessageSquare className="w-8 h-8" />,
                 desc: "Heatmaps and charts showing customer emotions, trends, and pain points.",
                 color: "from-violet-500 via-purple-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2070"
+                img: img3
               },
               {
                 title: "Comparative Survey Insights",
                 icon: <FileText className="w-8 h-8" />,
                 desc: "Compare responses across teams, branches, products, or time periods.",
                 color: "from-indigo-500 via-blue-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=2070"
+                img: img4
               },
               {
                 title: "AI Response Summarizer",
                 icon: <Share2 className="w-8 h-8" />,
                 desc: "Automatically generates key takeaways, themes, and insights from open responses.",
                 color: "from-blue-600 via-cyan-700 to-slate-900",
-                img: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=2070"
+                img: img5
               },
               {
                 title: "Predictive Satisfaction Scoring",
                 icon: <Download className="w-8 h-8" />,
-                desc: "AI estimates customer satisfaction and churn risk based on survey beha",
+                desc: "AI estimates customer satisfaction and churn risk based on survey behavior.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&q=80&w=2074"
+                img: img6
               }
             ].map((feature, index) => (
               <div

@@ -10,6 +10,12 @@ import Hotel3 from '../../assets/Hotel3.png';
 import Hotel4 from '../../assets/Hotel4.jpg';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
+import img1 from '../../assets/hotel/img1.png';
+import img2 from '../../assets/hotel/img2.png';
+import img3 from '../../assets/hotel/img3.png';
+import img4 from '../../assets/hotel/img4.png';
+import img5 from '../../assets/hotel/img5.png';
+import img6 from '../../assets/hotel/img6.png';
 
 const heroImages = [Hotel1, Hotel2, Hotel3, Hotel4];
 
@@ -327,42 +333,42 @@ const Hotel = () => {
                 icon: <HotelIcon className="w-8 h-8" />,
                 desc: "Manage direct, OTA, and walk-in reservations seamlessly with dynamic room allocation.",
                 color: "from-amber-600 via-orange-700 to-slate-900",
-                img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=2070"
+                img: img1
               },
               {
                 title: "Guest Experience Management",
                 icon: <Star className="w-8 h-8" />,
                 desc: "Check-ins, requests, concierge services, and billing—all handled from a unified interface.",
                 color: "from-orange-500 via-amber-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=2070"
+                img: img2
               },
               {
                 title: "Occupancy & Revenue Dashboards",
                 icon: <DollarSign className="w-8 h-8" />,
                 desc: "Track RevPAR, occupancy rate, booking trends, and OTA performance to grow revenue.",
                 color: "from-yellow-500 via-amber-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=2072"
+                img: img3
               },
               {
                 title: "F&B and Inventory Cost Control",
                 icon: <Bed className="w-8 h-8" />,
                 desc: "Analytics on menu profitability, consumption patterns, and wastage reduction.",
                 color: "from-amber-500 via-orange-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=2070"
+                img: img4
               },
               {
                 title: "AI Demand Forecasting",
                 icon: <Globe className="w-8 h-8" />,
                 desc: "Predict peak seasons, guest trends, and optimal pricing strategies for higher profits..",
                 color: "from-orange-500 via-red-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=2021"
+                img: img5
               },
               {
                 title: "AI Guest Personalization",
                 icon: <Calendar className="w-8 h-8" />,
-                desc: "Recommends room upgrades, services, and offers based on guest behavior and",
+                desc: "Recommends room upgrades, services, and offers based on guest behavior and preferences.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=2070"
+                img: img6
               }
             ].map((feature, index) => (
               <div

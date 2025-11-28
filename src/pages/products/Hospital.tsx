@@ -10,6 +10,12 @@ import hms3 from '../../assets/hms3.png';
 import hms4 from '../../assets/hms4.png';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
+import img1 from '../../assets/hospital/img1.jpg';
+import img2 from '../../assets/hospital/img2.jpg';
+import img3 from '../../assets/hospital/img3.jpg';
+import img4 from '../../assets/hospital/img4.jpeg';
+import img5 from '../../assets/hospital/img5.jpeg';
+import img6 from '../../assets/hospital/img6.jpeg';
 
 const heroImages = [hms1, hms2, hms3, hms4];
 
@@ -327,42 +333,42 @@ const Hospital = () => {
                                 icon: <Activity className="w-8 h-8" />,
                                 desc: "Centralized EMR with instant access to patient history, allergies, diagnostics, and treatment plans—reducing paperwork and medical errors.",
                                 color: "from-blue-600 via-indigo-700 to-slate-900",
-                                img: "https://www.freepik.com/free-photo/doctor-writing-about-routine-medical-checkup_22894399.htm#fromView=search&page=1&position=0&uuid=b444596a-fc16-4ce9-a633-e418d650dd19&query=Digital+Patient+Records"
+                                img: img1
                             },
                             {
                                 title: "Appointment & Bed Management",
                                 icon: <Check className="w-8 h-8" />,
                                 desc: "Smart scheduling and real-time bed availability ensure smooth patient flow and optimized resource usage.",
                                 color: "from-indigo-500 via-purple-600 to-slate-900",
-                                img: "https://images.unsplash.com/photo-1619975101918-6d27886e8c6a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9zcGl0YWwlMjBCZWQlMjBNYW5hZ2VtZW50fGVufDB8fDB8fHww"
+                                img: img2
                             },
                             {
                                 title: "Revenue & Resource Optimization",
                                 icon: <ShieldPlus className="w-8 h-8" />,
                                 desc: "Predictive analytics identify revenue leaks, under-utilized departments, and high-performing service units.",
                                 color: "from-sky-500 via-blue-600 to-slate-900",
-                                img: "https://plus.unsplash.com/premium_photo-1681842975607-f3721c013f38?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG9zcGl0YWwlMjByZXNvdXJjZXxlbnwwfHwwfHx8MA%3D%3D"
+                                img: img3
                             },
                             {
                                 title: "Clinical & Operational Dashboards",
                                 icon: <Heart className="w-8 h-8" />,
                                 desc: "Track admissions, discharges, referrals, lab performance, and billing using real-time dashboards for improved outcomes.",
                                 color: "from-teal-500 via-emerald-600 to-slate-900",
-                                img: "https://plus.unsplash.com/premium_photo-1664303503818-a6fab2dcfd91?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bmljYWwlMjAlMjYlMjBPcGVyYXRpb25hbCUyMERhc2hib2FyZHMlMjBDbGluaWNhbCUyMCUyNiUyME9wZXJhdGlvbmFsJTIwRGFzaGJvYXJkc3xlbnwwfHwwfHx8MA%3D%3D "
+                                img: img4
                             },
                             {
                                 title: "AI Diagnosis Assist",
                                 icon: <Play className="w-8 h-8" />,
                                 desc: "AI suggests probable diagnoses based on symptoms, patient history, and test data—helping clinicians make faster decisions.",
                                 color: "from-violet-500 via-fuchsia-600 to-slate-900",
-                                img: "https://media.istockphoto.com/id/2148178472/photo/hispanic-programmers-collaborating-on-software-development-in-a-modern-office-setting.webp?a=1&b=1&s=612x612&w=0&k=20&c=cOn7tCfq87FzKSSp1Vn2j0b0c8Puw0eKD-GY6JKexJU="
+                                img: img5
                             },
                             {
                                 title: "Predictive Patient Risk Scoring",
                                 icon: <ArrowRight className="w-8 h-8" />,
                                 desc: "Machine-learning models flag high-risk patients for complications, readmissions, or emergencies.",
                                 color: "from-slate-600 via-slate-800 to-black",
-                                img: "https://plus.unsplash.com/premium_photo-1681995236840-0305713eebdc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWRpY3RpdmUlMjBQYXRpZW50JTIwUmlzayUyMFNjb3JpbmclMjBQcmVkaWN0aXZlJTIwUGF0aWVudCUyMFJpc2slMjBTY29yaW5nfGVufDB8fDB8fHww"
+                                img: img6
                             }
                         ]
                             .map((feature, index) => (

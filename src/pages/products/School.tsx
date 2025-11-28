@@ -10,6 +10,12 @@ import school3 from '../../assets/school3.jpg';
 import school4 from '../../assets/school4.jpg';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
+import img1 from '../../assets/school/img1.png';
+import img2 from '../../assets/school/img2.png';
+import img3 from '../../assets/school/img3.png';
+import img4 from '../../assets/school/img4.png';
+import img5 from '../../assets/school/img5.png';
+import img6 from '../../assets/school/img6.png';
 
 const heroImages = [school1, school2, school3, school4];
 
@@ -327,42 +333,42 @@ const School = () => {
                 icon: <GraduationCap className="w-8 h-8" />,
                 desc: "Digitized student profiles with grades, attendance, timetables, and performance.",
                 color: "from-orange-600 via-amber-700 to-slate-900",
-                img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=2070"
+                img: img1
               },
               {
                 title: "Exam & Attendance Automation",
                 icon: <BookOpen className="w-8 h-8" />,
                 desc: "Fast attendance marking and automated exam scheduling with instant results.",
                 color: "from-amber-500 via-yellow-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=2022"
+                img: img2
               },
               {
                 title: "Student Performance Analytics",
                 icon: <Users className="w-8 h-8" />,
                 desc: "Identify top performers, slow learners, and subject-wise trends for better interventions.",
                 color: "from-yellow-500 via-orange-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1577896334614-501d260d4ec2?auto=format&fit=crop&q=80&w=2050"
+                img: img3
               },
               {
                 title: "Fee Management & Collection Insights",
                 icon: <Clock className="w-8 h-8" />,
                 desc: "Track pending fees, payment patterns, and financial health of the institution.",
                 color: "from-orange-500 via-red-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&q=80&w=2070"
+                img: img4
               },
               {
                 title: "AI Learning Path Recommendations",
                 icon: <CreditCard className="w-8 h-8" />,
                 desc: "Suggests personalized study plans based on learning pace and performance history.",
                 color: "from-amber-600 via-orange-700 to-slate-900",
-                img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=2070"
+                img: img5
               },
               {
                 title: "AI Attendance Anomaly Detection",
                 icon: <Library className="w-8 h-8" />,
                 desc: "Flags unusual absence patterns to help institutions prevent dropouts early.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=2070"
+                img: img6
               }
             ].map((feature, index) => (
               <div

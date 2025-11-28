@@ -10,6 +10,12 @@ import Digital3 from '../../assets/Digital3.jpg';
 import Digital4 from '../../assets/Digital4.jpg';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
+import img1 from '../../assets/marketing/img1.png';
+import img2 from '../../assets/marketing/img2.png';
+import img3 from '../../assets/marketing/img3.png';
+import img4 from '../../assets/marketing/img4.png';
+import img5 from '../../assets/marketing/img5.png';
+import img6 from '../../assets/marketing/img6.png';
 
 const heroImages = [Digital1, Digital2, Digital3, Digital4];
 
@@ -327,42 +333,42 @@ const Marketing = () => {
                 icon: <Megaphone className="w-8 h-8" />,
                 desc: "Plan, execute, and track marketing campaigns across email, social, and web channels",
                 color: "from-pink-600 via-rose-700 to-slate-900",
-                img: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=2031"
+                img: img1
               },
               {
                 title: "Lead & Contact Management",
                 icon: <BarChart3 className="w-8 h-8" />,
                 desc: "Track leads from first contact to conversion with automated nurturing workflows.",
                 color: "from-purple-500 via-pink-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070"
+                img: img2
               },
               {
                 title: "Performance Dashboards",
                 icon: <Search className="w-8 h-8" />,
                 desc: "Unified view of CPC, CTR, ROAS, conversions, and attribution across all platforms.",
                 color: "from-fuchsia-500 via-purple-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=2074"
+                img: img3
               },
               {
                 title: "Customer Journey & Funnel Analytics",
                 icon: <Share2 className="w-8 h-8" />,
                 desc: "Identify drop-offs and optimize conversions with end-to-end funnel reports.",
                 color: "from-pink-500 via-purple-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1974"
+                img: img4
               },
               {
                 title: "AI Content Generator",
                 icon: <Mail className="w-8 h-8" />,
                 desc: "Automatically generates social posts, email templates, and ad copy based on brand tone.",
                 color: "from-rose-500 via-pink-600 to-slate-900",
-                img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1470"
+                img: img5
               },
               {
                 title: "AI Ad Optimization Engine",
                 icon: <Calendar className="w-8 h-8" />,
                 desc: "Real-time bid adjustments, audience optimization, and creative suggestions to maximize ROI.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=2068"
+                img: img6
               }
             ].map((feature, index) => (
               <div
