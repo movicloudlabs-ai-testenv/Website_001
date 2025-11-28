@@ -4,10 +4,13 @@ import { ArrowRight, Play, Check, GraduationCap, BookOpen, Users, Clock, CreditC
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import schoolDashboard from '../../assets/school-dashboard.jpg';
+import school1 from '../../assets/school1.jpg';
+import school2 from '../../assets/school2.jpg';
+import school3 from '../../assets/school3.jpg';
+import school4 from '../../assets/school4.jpg';
 import { useNavigate } from 'react-router-dom';
 
-const heroImages = [schoolDashboard, schoolDashboard, schoolDashboard, schoolDashboard];
+const heroImages = [school1, school2, school3, school4];
 
 const itemTransition: Transition = {
   type: "spring",
@@ -304,7 +307,7 @@ const School = () => {
 
             {/* Right Image */}
             <motion.div
-              className="relative lg:h-[600px] flex items-center justify-center lg:justify-end"
+              className="relative lg:h-[650px] flex items-center justify-center lg:justify-end"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
@@ -312,7 +315,7 @@ const School = () => {
               <div className="relative w-full max-w-2xl">
                 {/* Main Image Container */}
                 <div
-                  className="relative rounded-3xl shadow-2xl shadow-orange-900/10 border-4 border-white aspect-[4/3] w-full p-3 bg-white"
+                  className="relative rounded-3xl shadow-2xl shadow-orange-900/10 border-4 border-white aspect-[4/3] w-full p-8 bg-white"
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
@@ -325,7 +328,7 @@ const School = () => {
                         initial={{ opacity: 0 }}
                         animate={{
                           opacity: 1,
-                          scale: isHovered ? 1.25 : 1.1
+                          scale: isHovered ? 1.05 : 1
                         }}
                         exit={{ opacity: 0 }}
                         transition={{

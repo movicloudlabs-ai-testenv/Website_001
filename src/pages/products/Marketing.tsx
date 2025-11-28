@@ -4,10 +4,13 @@ import { ArrowRight, Play, Check, Megaphone, BarChart3, Search, Share2, Mail, Ca
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import marketingDashboard from '../../assets/marketing-dashboard.jpg';
+import Digital1 from '../../assets/Digital1.jpg';
+import Digital2 from '../../assets/Digital2.jpg';
+import Digital3 from '../../assets/Digital3.jpg';
+import Digital4 from '../../assets/Digital4.jpg';
 import { useNavigate } from 'react-router-dom';
 
-const heroImages = [marketingDashboard, marketingDashboard, marketingDashboard, marketingDashboard];
+const heroImages = [Digital1, Digital2, Digital3, Digital4];
 
 const itemTransition: Transition = {
   type: "spring",
@@ -304,7 +307,7 @@ const Marketing = () => {
 
             {/* Right Image */}
             <motion.div
-              className="relative lg:h-[600px] flex items-center justify-center lg:justify-end"
+              className="relative lg:h-[650px] flex items-center justify-center lg:justify-end"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
@@ -312,7 +315,7 @@ const Marketing = () => {
               <div className="relative w-full max-w-2xl">
                 {/* Main Image Container */}
                 <div
-                  className="relative rounded-3xl shadow-2xl shadow-pink-900/10 border-4 border-white aspect-[4/3] w-full p-3 bg-white"
+                  className="relative rounded-3xl shadow-2xl shadow-pink-900/10 border-4 border-white aspect-[4/3] w-full p-8 bg-white"
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
@@ -325,7 +328,7 @@ const Marketing = () => {
                         initial={{ opacity: 0 }}
                         animate={{
                           opacity: 1,
-                          scale: isHovered ? 1.25 : 1.1
+                          scale: isHovered ? 1.05 : 1
                         }}
                         exit={{ opacity: 0 }}
                         transition={{
