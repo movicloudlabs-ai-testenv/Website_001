@@ -14,7 +14,7 @@ const StampBadge = () => {
                     mass: 1,
                     delay: 0.2
                 }}
-                className="relative w-40 h-40 flex items-center justify-center"
+                className="relative w-52 h-52 flex items-center justify-center animate-spin-rotate"
             >
                 <img
                     src="/Stamp.png"

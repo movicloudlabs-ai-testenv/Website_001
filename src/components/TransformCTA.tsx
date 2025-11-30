@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export const TransformCTA = () => {
     return (
-        <section className="py-24 relative overflow-hidden bg-white">
+        <section className="py-16 md:py-24 relative overflow-hidden bg-white">
             {/* Light Theme Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00A4C7]/10 rounded-full blur-[120px]" />

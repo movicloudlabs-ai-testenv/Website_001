@@ -26,7 +26,7 @@ export const Hero = () => {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative w-full bg-white py-20">
+      <section className="relative w-full bg-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
           {/* LEFT SIDE */}
@@ -41,7 +41,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="font-inter font-bold leading-[1.15] tracking-tight text-[#0C2340] text-5xl md:text-6xl lg:text-7xl"
+              className="font-inter font-bold leading-[1.15] tracking-tight text-[#0C2340] text-4xl md:text-6xl lg:text-7xl"
             >
               <span className="block">Building</span>
 
@@ -75,12 +75,12 @@ export const Hero = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-row gap-4 pt-2"
+              className="flex flex-col sm:flex-row gap-4 pt-2"
             >
               <Link to="/products">
                 <Button
                   size="lg"
-                  className="font-inter text-lg px-8 rounded-full bg-[#00A4C7] hover:bg-[#0090AF] text-white shadow"
+                  className="font-inter text-lg w-full sm:w-auto px-8 rounded-full bg-[#00A4C7] hover:bg-[#0090AF] text-white shadow"
                 >
                   Explore Our Products
                   <ArrowRight className="ml-2" />
@@ -91,7 +91,7 @@ export const Hero = () => {
               <Link to="/demo">
                 <Button
                   size="lg"
-                  className="font-inter text-lg px-8 rounded-full bg-[#0C2340] hover:bg-[#071729] text-white shadow"
+                  className="font-inter text-lg w-full sm:w-auto px-8 rounded-full bg-[#0C2340] hover:bg-[#071729] text-white shadow"
                 >
                   Book a Demo
                 </Button>

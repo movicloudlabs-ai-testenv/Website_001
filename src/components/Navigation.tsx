@@ -28,7 +28,9 @@ import {
   ClipboardList,
   Megaphone,
   ArrowRight,
+  ChevronDown,
 } from "lucide-react";
+import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 /* ----------------------------- ITEM COMPONENT ----------------------------- */
@@ -72,6 +74,43 @@ ListItem.displayName = "ListItem";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
+  const toggleSubmenu = (menu: string) => {
+    setOpenSubmenu(openSubmenu === menu ? null : menu);
+  };
+
+  const industries = [
+    { title: "Hospital Management", href: "/products/hospital", icon: <Stethoscope className="w-4 h-4" /> },
+    { title: "Transport Management", href: "/products/transport", icon: <Truck className="w-4 h-4" /> },
+    { title: "Office / Work Management", href: "/products/office", icon: <Briefcase className="w-4 h-4" /> },
+    { title: "School & Alumni", href: "/products/school", icon: <GraduationCap className="w-4 h-4" /> },
+    { title: "E-commerce Inventory", href: "/products/ecommerce", icon: <ShoppingCart className="w-4 h-4" /> },
+    { title: "Hotel & Hospitality", href: "/products/hotel", icon: <Hotel className="w-4 h-4" /> },
+    { title: "Survey System", href: "/products/survey", icon: <ClipboardList className="w-4 h-4" /> },
+    { title: "Marketing Suite", href: "/products/marketing", icon: <Megaphone className="w-4 h-4" /> },
+  ];
+
+  const services = [
+    { title: "Web Development", href: "#", icon: <Code className="w-4 h-4" /> },
+    { title: "Mobile Development", href: "#", icon: <Smartphone className="w-4 h-4" /> },
+    { title: "Cloud Solutions", href: "#", icon: <Cloud className="w-4 h-4" /> },
+    { title: "Security Solutions", href: "#", icon: <ShieldCheck className="w-4 h-4" /> },
+    { title: "Maintenance", href: "#", icon: <Wrench className="w-4 h-4" /> },
+    { title: "AI & Automation", href: "#", icon: <Cpu className="w-4 h-4" /> },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-border">
@@ -294,30 +333,142 @@ export const Navigation = () => {
         </div>
       </div>
 
-      {/* ---------------------- MOBILE MENU ---------------------- */}
-      {
-        isOpen && (
-          <div className="md:hidden pb-4 space-y-4 bg-background animate-fade-in px-4 border-t">
-            <Link to="/" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
+      {/* ---------------------- MOBILE MENU OVERLAY & SIDEBAR ---------------------- */}
+      {/* Overlay */}
+      <div
+        className={cn(
+          "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity duration-300 md:hidden",
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Sidebar */}
+      <div
+        className={cn(
+          "fixed top-0 right-0 h-full w-[80%] max-w-sm bg-background z-50 shadow-2xl transition-transform duration-300 ease-in-out md:hidden flex flex-col",
+          isOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between p-4 border-b">
+          <span className="font-bold font-heading text-lg">Menu</span>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="w-6 h-6 text-slate-600" />
+          </button>
+        </div>
+
+        {/* Scrollable Content */}
+        <div className="flex-1 overflow-y-auto py-4">
+          <nav className="flex flex-col px-4 space-y-2">
+            <Link
+              to="/"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 font-heading font-medium text-lg text-slate-800"
+            >
               Home
             </Link>
-            <Link to="/products" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
-              Industries
-            </Link>
-            <Link to="/career" onClick={() => setIsOpen(false)} className="block py-2 hover:text-primary">
-              Career
-            </Link>
-            <div className="flex items-center space-x-2 ml-4">
-              <Link to="/contact">
-                <Button className="bg-gradient-primary font-heading text-base">
-                  Contact Us
-                </Button>
-              </Link>
+
+            {/* Industries Accordion */}
+            <div className="space-y-1">
+              <button
+                onClick={() => toggleSubmenu("industries")}
+                className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 font-heading font-medium text-lg text-slate-800 transition-colors"
+              >
+                <span>Industries</span>
+                <ChevronDown
+                  className={cn(
+                    "w-5 h-5 text-slate-400 transition-transform duration-200",
+                    openSubmenu === "industries" && "rotate-180"
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  "overflow-hidden transition-all duration-300 ease-in-out",
+                  openSubmenu === "industries" ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                )}
+              >
+                <div className="pl-4 pr-2 pb-2 space-y-1">
+                  {industries.map((item, idx) => (
+                    <Link
+                      key={idx}
+                      to={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-blue-50 text-slate-600 hover:text-blue-600 transition-colors"
+                    >
+                      <div className="text-blue-500 bg-blue-50/50 p-1.5 rounded-md">
+                        {item.icon}
+                      </div>
+                      <span className="text-sm font-medium">{item.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
 
-          </div>
-        )
-      }
+            {/* Services Accordion */}
+            <div className="space-y-1">
+              <button
+                onClick={() => toggleSubmenu("services")}
+                className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 font-heading font-medium text-lg text-slate-800 transition-colors"
+              >
+                <span>Services</span>
+                <ChevronDown
+                  className={cn(
+                    "w-5 h-5 text-slate-400 transition-transform duration-200",
+                    openSubmenu === "services" && "rotate-180"
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  "overflow-hidden transition-all duration-300 ease-in-out",
+                  openSubmenu === "services" ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+                )}
+              >
+                <div className="pl-4 pr-2 pb-2 space-y-1">
+                  {services.map((item, idx) => (
+                    <Link
+                      key={idx}
+                      to={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-blue-50 text-slate-600 hover:text-blue-600 transition-colors"
+                    >
+                      <div className="text-blue-500 bg-blue-50/50 p-1.5 rounded-md">
+                        {item.icon}
+                      </div>
+                      <span className="text-sm font-medium">{item.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <Link
+              to="/career"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 font-heading font-medium text-lg text-slate-800"
+            >
+              Career
+            </Link>
+          </nav>
+        </div>
+
+        {/* Footer */}
+        <div className="p-4 border-t bg-slate-50">
+          <Link to="/contact" onClick={() => setIsOpen(false)}>
+            <Button className="w-full bg-gradient-primary font-heading text-base py-6 shadow-lg shadow-blue-500/20">
+              Contact Us
+            </Button>
+          </Link>
+        </div>
+      </div>
     </nav >
   );
 };

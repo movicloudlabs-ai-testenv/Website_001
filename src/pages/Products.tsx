@@ -73,11 +73,11 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
-      <main className="pt-24 pb-12">
+
+      <main className="pt-20 pb-8 md:pt-24 md:pb-12">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Our <span className="bg-gradient-primary bg-clip-text text-transparent">Product Site</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -87,7 +87,7 @@ const Products = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {products.map((product, index) => (
-              <div 
+              <div
                 key={product.title}
                 className="animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}

@@ -60,7 +60,7 @@ const DemoPage = () => {
             <Navigation />
 
             {/* Hero Section */}
-            <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-16 overflow-hidden">
+            <section className="relative pt-20 pb-8 lg:pt-32 lg:pb-16 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-100/40 via-slate-50/20 to-transparent pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10">
@@ -94,7 +94,7 @@ const DemoPage = () => {
             {/* Main Content Grid */}
             <section className="pb-20">
                 <div className="container mx-auto px-6">
-                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                    <div className="grid lg:grid-cols-12 gap-8 lg:gap-20 items-start">
 
                         {/* Left Column: Value Proposition & Steps */}
                         <div className="lg:col-span-5 space-y-12">
