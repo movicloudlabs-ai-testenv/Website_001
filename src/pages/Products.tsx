@@ -1,14 +1,14 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
-import hospitalImg from "@/assets/hospital-dashboard.jpg";
-import transportImg from "@/assets/transport-dashboard.jpg";
-import officeImg from "@/assets/office-dashboard.jpg";
-import schoolImg from "@/assets/school-dashboard.jpg";
-import ecommerceImg from "@/assets/ecommerce-dashboard.jpg";
-import hotelImg from "@/assets/hotel-dashboard.jpg";
-import surveyImg from "@/assets/survey-dashboard.jpg";
-import marketingImg from "@/assets/marketing-dashboard.jpg";
+import hospitalImg from "@/assets/hospital-dashboard.webp";
+import transportImg from "@/assets/transport-dashboard.webp";
+import officeImg from "@/assets/office-dashboard.webp";
+import schoolImg from "@/assets/school-dashboard.webp";
+import ecommerceImg from "@/assets/ecommerce-dashboard.webp";
+import hotelImg from "@/assets/hotel-dashboard.webp";
+import surveyImg from "@/assets/survey-dashboard.webp";
+import marketingImg from "@/assets/marketing-dashboard.webp";
 
 const products = [
   {

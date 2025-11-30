@@ -12,7 +12,7 @@ export const Footer = () => {
               <div className="flex items-center space-x-2">
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
                   <img
-                    src="/logo1.jpg"
+                    src="/logo1.webp"
                     alt="MoviCloud Logo"
                     className="w-full h-full object-contain"
                   />

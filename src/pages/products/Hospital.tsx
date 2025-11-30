@@ -4,18 +4,18 @@ import { ArrowRight, Play, Check, ShieldPlus, Heart, Activity } from 'lucide-rea
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import hms1 from '../../assets/hms1.png';
-import hms2 from '../../assets/hms2.png';
-import hms3 from '../../assets/hms3.png';
-import hms4 from '../../assets/hms4.png';
+import hms1 from '../../assets/hms1.webp';
+import hms2 from '../../assets/hms2.webp';
+import hms3 from '../../assets/hms3.webp';
+import hms4 from '../../assets/hms4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/hospital/img1.jpg';
-import img2 from '../../assets/hospital/img2.jpg';
-import img3 from '../../assets/hospital/img3.jpg';
-import img4 from '../../assets/hospital/img4.jpeg';
-import img5 from '../../assets/hospital/img5.jpeg';
-import img6 from '../../assets/hospital/img6.jpeg';
+import img1 from '../../assets/hospital/img1.webp';
+import img2 from '../../assets/hospital/img2.webp';
+import img3 from '../../assets/hospital/img3.webp';
+import img4 from '../../assets/hospital/img4.webp';
+import img5 from '../../assets/hospital/img5.webp';
+import img6 from '../../assets/hospital/img6.webp';
 
 const heroImages = [hms1, hms2, hms3, hms4];
 
@@ -152,7 +152,7 @@ const Hospital = () => {
                     <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-blue-200/40 via-indigo-50/20 to-transparent" />
 
                     {/* Subtle Overlay Pattern */}
-                    <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
+                    <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] mix-blend-multiply" />
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">

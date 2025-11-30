@@ -4,18 +4,18 @@ import { ArrowRight, Play, Check, Megaphone, BarChart3, Search, Share2, Mail, Ca
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import Digital1 from '../../assets/Digital1.jpg';
-import Digital2 from '../../assets/Digital2.jpg';
-import Digital3 from '../../assets/Digital3.jpg';
-import Digital4 from '../../assets/Digital4.jpg';
+import Digital1 from '../../assets/Digital1.webp';
+import Digital2 from '../../assets/Digital2.webp';
+import Digital3 from '../../assets/Digital3.webp';
+import Digital4 from '../../assets/Digital4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/marketing/img1.png';
-import img2 from '../../assets/marketing/img2.png';
-import img3 from '../../assets/marketing/img3.png';
-import img4 from '../../assets/marketing/img4.png';
-import img5 from '../../assets/marketing/img5.png';
-import img6 from '../../assets/marketing/img6.png';
+import img1 from '../../assets/marketing/img1.webp';
+import img2 from '../../assets/marketing/img2.webp';
+import img3 from '../../assets/marketing/img3.webp';
+import img4 from '../../assets/marketing/img4.webp';
+import img5 from '../../assets/marketing/img5.webp';
+import img6 from '../../assets/marketing/img6.webp';
 
 const heroImages = [Digital1, Digital2, Digital3, Digital4];
 
@@ -152,7 +152,7 @@ const Marketing = () => {
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-purple-200/40 via-fuchsia-50/20 to-transparent" />
 
           {/* Subtle Overlay Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] mix-blend-multiply" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">

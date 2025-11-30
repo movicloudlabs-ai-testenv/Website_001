@@ -10,12 +10,12 @@ import ec3 from '../../assets/EC 3.webp';
 import ec4 from '../../assets/EC 4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/ecommerce/img1.png';
-import img2 from '../../assets/ecommerce/img2.png';
-import img3 from '../../assets/ecommerce/img3.png';
-import img4 from '../../assets/ecommerce/img4.png';
-import img5 from '../../assets/ecommerce/img5.png';
-import img6 from '../../assets/ecommerce/img6.png';
+import img1 from '../../assets/ecommerce/img1.webp';
+import img2 from '../../assets/ecommerce/img2.webp';
+import img3 from '../../assets/ecommerce/img3.webp';
+import img4 from '../../assets/ecommerce/img4.webp';
+import img5 from '../../assets/ecommerce/img5.webp';
+import img6 from '../../assets/ecommerce/img6.webp';
 
 const heroImages = [ec1, ec2, ec3, ec4];
 
@@ -152,7 +152,7 @@ const Ecommerce = () => {
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-cyan-200/40 via-emerald-50/20 to-transparent" />
 
           {/* Subtle Overlay Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] mix-blend-multiply" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">

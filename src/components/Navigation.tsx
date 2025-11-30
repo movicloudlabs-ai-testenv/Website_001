@@ -138,7 +138,7 @@ export const Navigation = () => {
           {/* LOGO */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="/logo1.jpg" className="w-full h-full object-contain" alt="MoviCloud Logo" />
+              <img src="/logo1.webp" className="w-full h-full object-contain" alt="MoviCloud Logo" />
             </div>
             <div className="flex flex-col">
               <span className="font-bold font-heading text-lg leading-none">MoviCloud Labs</span>

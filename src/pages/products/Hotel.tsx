@@ -4,18 +4,18 @@ import { ArrowRight, Play, Check, Hotel as HotelIcon, Star, DollarSign, Bed, Glo
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import Hotel1 from '../../assets/Hotel1.png';
-import Hotel2 from '../../assets/Hotel2.png';
-import Hotel3 from '../../assets/Hotel3.png';
-import Hotel4 from '../../assets/Hotel4.jpg';
+import Hotel1 from '../../assets/Hotel1.webp';
+import Hotel2 from '../../assets/Hotel2.webp';
+import Hotel3 from '../../assets/Hotel3.webp';
+import Hotel4 from '../../assets/Hotel4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/hotel/img1.png';
-import img2 from '../../assets/hotel/img2.png';
-import img3 from '../../assets/hotel/img3.png';
-import img4 from '../../assets/hotel/img4.png';
-import img5 from '../../assets/hotel/img5.png';
-import img6 from '../../assets/hotel/img6.png';
+import img1 from '../../assets/hotel/img1.webp';
+import img2 from '../../assets/hotel/img2.webp';
+import img3 from '../../assets/hotel/img3.webp';
+import img4 from '../../assets/hotel/img4.webp';
+import img5 from '../../assets/hotel/img5.webp';
+import img6 from '../../assets/hotel/img6.webp';
 
 const heroImages = [Hotel1, Hotel2, Hotel3, Hotel4];
 
@@ -152,7 +152,7 @@ const Hotel = () => {
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-orange-200/40 via-yellow-50/20 to-transparent" />
 
           {/* Subtle Overlay Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] mix-blend-multiply" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">

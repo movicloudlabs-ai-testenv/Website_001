@@ -4,18 +4,18 @@ import { ArrowRight, Play, Check, BarChart, Brain, MessageSquare, FileText, Shar
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import survey1 from '../../assets/survey.png';
-import survey2 from '../../assets/survey2.png';
-import survey3 from '../../assets/survey3.png';
-import survey4 from '../../assets/survey4.png';
+import survey1 from '../../assets/survey.webp';
+import survey2 from '../../assets/survey2.webp';
+import survey3 from '../../assets/survey3.webp';
+import survey4 from '../../assets/survey4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/survey/img1.png';
-import img2 from '../../assets/survey/img2.png';
-import img3 from '../../assets/survey/img3.png';
-import img4 from '../../assets/survey/img4.png';
-import img5 from '../../assets/survey/img5.png';
-import img6 from '../../assets/survey/img6.png';
+import img1 from '../../assets/survey/img1.webp';
+import img2 from '../../assets/survey/img2.webp';
+import img3 from '../../assets/survey/img3.webp';
+import img4 from '../../assets/survey/img4.webp';
+import img5 from '../../assets/survey/img5.webp';
+import img6 from '../../assets/survey/img6.webp';
 
 const heroImages = [survey1, survey2, survey3, survey4];
 
@@ -152,7 +152,7 @@ const Survey = () => {
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-blue-200/40 via-violet-50/20 to-transparent" />
 
           {/* Subtle Overlay Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] mix-blend-multiply" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">

@@ -10,7 +10,7 @@ export const TransformCTA = () => {
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00A4C7]/10 rounded-full blur-[120px]" />
                 <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#39D98A]/10 rounded-full blur-[120px]" />
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] opacity-[0.03]" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">

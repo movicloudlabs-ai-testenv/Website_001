@@ -4,18 +4,18 @@ import { ArrowRight, Play, Check, GraduationCap, BookOpen, Users, Clock, CreditC
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import school1 from '../../assets/school1.jpg';
-import school2 from '../../assets/school2.jpg';
-import school3 from '../../assets/school3.jpg';
-import school4 from '../../assets/school4.jpg';
+import school1 from '../../assets/school1.webp';
+import school2 from '../../assets/school2.webp';
+import school3 from '../../assets/school3.webp';
+import school4 from '../../assets/school4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/school/img1.png';
-import img2 from '../../assets/school/img2.png';
-import img3 from '../../assets/school/img3.png';
-import img4 from '../../assets/school/img4.png';
-import img5 from '../../assets/school/img5.png';
-import img6 from '../../assets/school/img6.png';
+import img1 from '../../assets/school/img1.webp';
+import img2 from '../../assets/school/img2.webp';
+import img3 from '../../assets/school/img3.webp';
+import img4 from '../../assets/school/img4.webp';
+import img5 from '../../assets/school/img5.webp';
+import img6 from '../../assets/school/img6.webp';
 
 const heroImages = [school1, school2, school3, school4];
 
@@ -152,7 +152,7 @@ const School = () => {
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-yellow-200/40 via-amber-50/20 to-transparent" />
 
           {/* Subtle Overlay Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] mix-blend-multiply" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">

@@ -4,18 +4,18 @@ import { ArrowRight, Play, Check, ShieldPlus, MapPin, Gauge, Battery, Zap, Packa
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
-import transport1 from '../../assets/transport1.png';
-import transport2 from '../../assets/transport2.png';
-import transport3 from '../../assets/transport3.png';
-import transport4 from '../../assets/transport4.png';
+import transport1 from '../../assets/transport1.webp';
+import transport2 from '../../assets/transport2.webp';
+import transport3 from '../../assets/transport3.webp';
+import transport4 from '../../assets/transport4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/transport/img1.jpeg';
-import img2 from '../../assets/transport/img2.jpeg';
-import img3 from '../../assets/transport/img3.jpeg';
-import img4 from '../../assets/transport/img4.jpeg';
-import img5 from '../../assets/transport/img5.jpeg';
-import img6 from '../../assets/transport/img6.jpeg';
+import img1 from '../../assets/transport/img1.webp';
+import img2 from '../../assets/transport/img2.webp';
+import img3 from '../../assets/transport/img3.webp';
+import img4 from '../../assets/transport/img4.webp';
+import img5 from '../../assets/transport/img5.webp';
+import img6 from '../../assets/transport/img6.webp';
 
 const heroImages = [transport1, transport2, transport3, transport4];
 
@@ -152,7 +152,7 @@ const Transport = () => {
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-emerald-200/40 via-lime-50/20 to-transparent" />
 
           {/* Subtle Overlay Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] mix-blend-multiply" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
