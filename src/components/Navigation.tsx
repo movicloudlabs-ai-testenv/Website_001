@@ -337,7 +337,7 @@ export const Navigation = () => {
       {/* Overlay */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity duration-300 md:hidden",
+          "fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] transition-opacity duration-300 md:hidden",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
         onClick={() => setIsOpen(false)}
@@ -347,7 +347,7 @@ export const Navigation = () => {
       {/* Sidebar */}
       <div
         className={cn(
-          "fixed top-0 right-0 h-full w-[80%] max-w-sm bg-background z-50 shadow-2xl transition-transform duration-300 ease-in-out md:hidden flex flex-col",
+          "fixed top-0 right-0 h-full w-[80%] max-w-sm bg-background z-[60] shadow-2xl transition-transform duration-300 ease-in-out md:hidden flex flex-col",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -374,6 +374,14 @@ export const Navigation = () => {
               Home
             </Link>
 
+            <Link
+              to="/"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 font-heading font-medium text-lg text-slate-800"
+            >
+              About
+            </Link>
+
             {/* Industries Accordion */}
             <div className="space-y-1">
               <button
@@ -394,7 +402,7 @@ export const Navigation = () => {
                   openSubmenu === "industries" ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                 )}
               >
-                <div className="pl-4 pr-2 pb-2 space-y-1">
+                <div className="pl-6 pr-2 pb-2 space-y-1">
                   {industries.map((item, idx) => (
                     <Link
                       key={idx}
@@ -432,7 +440,7 @@ export const Navigation = () => {
                   openSubmenu === "services" ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
                 )}
               >
-                <div className="pl-4 pr-2 pb-2 space-y-1">
+                <div className="pl-6 pr-2 pb-2 space-y-1">
                   {services.map((item, idx) => (
                     <Link
                       key={idx}
