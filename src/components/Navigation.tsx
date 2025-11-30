@@ -374,13 +374,6 @@ export const Navigation = () => {
               Home
             </Link>
 
-            <Link
-              to="/"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 font-heading font-medium text-lg text-slate-800"
-            >
-              About
-            </Link>
 
             {/* Industries Accordion */}
             <div className="space-y-1">
