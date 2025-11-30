@@ -10,12 +10,11 @@ import ec3 from '../../assets/EC 3.webp';
 import ec4 from '../../assets/EC 4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/ecommerce/img1.webp';
-import img2 from '../../assets/ecommerce/img2.webp';
-import img3 from '../../assets/ecommerce/img3.webp';
-import img4 from '../../assets/ecommerce/img4.webp';
-import img5 from '../../assets/ecommerce/img5.webp';
-import img6 from '../../assets/ecommerce/img6.webp';
+
+// Dynamic image imports for product cards
+const productImages = [1, 2, 3, 4, 5, 6].map((num) => {
+  return new URL(`../../assets/ecommerce/img${num}.webp`, import.meta.url).href;
+});
 
 const heroImages = [ec1, ec2, ec3, ec4];
 
@@ -333,42 +332,42 @@ const Ecommerce = () => {
                 icon: <Package className="w-8 h-8" />,
                 desc: "Manage catalogs, inventory, orders, returns, and fulfillment seamlessly.",
                 color: "from-teal-600 via-emerald-700 to-slate-900",
-                img: img1
+                img: productImages[0]
               },
               {
                 title: "Payment & Checkout Engine",
                 icon: <LineChart className="w-8 h-8" />,
                 desc: "Fast, secure checkout with multi-payment support and improved conversion rates.",
                 color: "from-cyan-500 via-teal-600 to-slate-900",
-                img: img2
+                img: productImages[1]
               },
               {
                 title: "Sales & Conversion Analytics",
                 icon: <Zap className="w-8 h-8" />,
                 desc: "Real-time insights on product performance, funnel metrics, and revenue breakdown.",
                 color: "from-emerald-500 via-green-600 to-slate-900",
-                img: img3
+                img: productImages[2]
               },
               {
                 title: "Inventory Forecasting & Demand Trends",
                 icon: <Globe className="w-8 h-8" />,
                 desc: "Predict stock levels and avoid overstock or stockouts using advanced analytics.",
                 color: "from-blue-500 via-cyan-600 to-slate-900",
-                img: img4
+                img: productImages[3]
               },
               {
                 title: "AI Product Recommendations",
                 icon: <RefreshCw className="w-8 h-8" />,
                 desc: "Boost sales with personalized recommendations powered by user behavior and browsing history.",
                 color: "from-teal-500 via-cyan-600 to-slate-900",
-                img: img5
+                img: productImages[4]
               },
               {
                 title: "AI Fraud Detection",
                 icon: <Truck className="w-8 h-8" />,
                 desc: "Machine learning flags suspicious orders and payment anomalies instantly.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: img6
+                img: productImages[5]
               }
             ].map((feature, index) => (
               <div

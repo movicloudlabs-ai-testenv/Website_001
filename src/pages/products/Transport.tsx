@@ -10,12 +10,10 @@ import transport3 from '../../assets/transport3.webp';
 import transport4 from '../../assets/transport4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/transport/img1.webp';
-import img2 from '../../assets/transport/img2.webp';
-import img3 from '../../assets/transport/img3.webp';
-import img4 from '../../assets/transport/img4.webp';
-import img5 from '../../assets/transport/img5.webp';
-import img6 from '../../assets/transport/img6.webp';
+
+const productImages = [1, 2, 3, 4, 5, 6].map((num) => {
+  return new URL(`../../assets/transport/img${num}.webp`, import.meta.url).href;
+});
 
 const heroImages = [transport1, transport2, transport3, transport4];
 
@@ -333,42 +331,42 @@ const Transport = () => {
                 icon: <MapPin className="w-8 h-8" />,
                 desc: "Plan and assign routes effortlessly with centralized vehicle and driver management.",
                 color: "from-green-600 via-emerald-700 to-slate-900",
-                img: img1
+                img: productImages[0]
               },
               {
                 title: "Live GPS Tracking",
                 icon: <Gauge className="w-8 h-8" />,
                 desc: "Monitor vehicle movement, speed, and route deviations in real time",
                 color: "from-emerald-500 via-green-600 to-slate-900",
-                img: img2
+                img: productImages[1]
               },
               {
                 title: "Route Efficiency Analytics",
                 icon: <ShieldPlus className="w-8 h-8" />,
                 desc: "Visual reports on fuel consumption, idle time, and best-performing routes to reduce operational costs.",
                 color: "from-teal-500 via-cyan-600 to-slate-900",
-                img: img3
+                img: productImages[2]
               },
               {
                 title: "Maintenance & Breakdown Insights",
                 icon: <Battery className="w-8 h-8" />,
                 desc: "Analyze breakdown trends, spare-part usage, and maintenance frequency",
                 color: "from-lime-500 via-green-600 to-slate-900",
-                img: img4
+                img: productImages[3]
               },
               {
                 title: "AI Route Optimization",
                 icon: <Truck className="w-8 h-8" />,
                 desc: "AI recommends the fastest, safest, and most fuel-efficient routes based on real-time traffic and historical patterns.",
                 color: "from-green-500 via-teal-600 to-slate-900",
-                img: img5
+                img: productImages[4]
               },
               {
                 title: "Predictive Vehicle Maintenance",
                 icon: <Package className="w-8 h-8" />,
                 desc: "Machine learning forecasts part failure and maintenance needs before breakdowns occur.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: img6
+                img: productImages[5]
               }
             ].map((feature, index) => (
               <div

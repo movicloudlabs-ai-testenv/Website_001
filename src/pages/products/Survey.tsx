@@ -10,12 +10,10 @@ import survey3 from '../../assets/survey3.webp';
 import survey4 from '../../assets/survey4.webp';
 import { useNavigate } from 'react-router-dom';
 import StampBadge from '../../components/StampBadge';
-import img1 from '../../assets/survey/img1.webp';
-import img2 from '../../assets/survey/img2.webp';
-import img3 from '../../assets/survey/img3.webp';
-import img4 from '../../assets/survey/img4.webp';
-import img5 from '../../assets/survey/img5.webp';
-import img6 from '../../assets/survey/img6.webp';
+
+const productImages = [1, 2, 3, 4, 5, 6].map((num) => {
+  return new URL(`../../assets/survey/img${num}.webp`, import.meta.url).href;
+});
 
 const heroImages = [survey1, survey2, survey3, survey4];
 
@@ -333,42 +331,42 @@ const Survey = () => {
                 icon: <Brain className="w-8 h-8" />,
                 desc: "Create engaging surveys using customizable templates and drag-and-drop tools.",
                 color: "from-indigo-600 via-violet-700 to-slate-900",
-                img: img1
+                img: productImages[0]
               },
               {
                 title: "Real-Time Response Collection",
                 icon: <BarChart className="w-8 h-8" />,
                 desc: "Capture responses instantly through links, QR codes, and mobile forms.",
                 color: "from-blue-500 via-indigo-600 to-slate-900",
-                img: img2
+                img: productImages[1]
               },
               {
                 title: "Sentiment & Feedback Analytics",
                 icon: <MessageSquare className="w-8 h-8" />,
                 desc: "Heatmaps and charts showing customer emotions, trends, and pain points.",
                 color: "from-violet-500 via-purple-600 to-slate-900",
-                img: img3
+                img: productImages[2]
               },
               {
                 title: "Comparative Survey Insights",
                 icon: <FileText className="w-8 h-8" />,
                 desc: "Compare responses across teams, branches, products, or time periods.",
                 color: "from-indigo-500 via-blue-600 to-slate-900",
-                img: img4
+                img: productImages[3]
               },
               {
                 title: "AI Response Summarizer",
                 icon: <Share2 className="w-8 h-8" />,
                 desc: "Automatically generates key takeaways, themes, and insights from open responses.",
                 color: "from-blue-600 via-cyan-700 to-slate-900",
-                img: img5
+                img: productImages[4]
               },
               {
                 title: "Predictive Satisfaction Scoring",
                 icon: <Download className="w-8 h-8" />,
                 desc: "AI estimates customer satisfaction and churn risk based on survey behavior.",
                 color: "from-slate-600 via-slate-800 to-black",
-                img: img6
+                img: productImages[5]
               }
             ].map((feature, index) => (
               <div
