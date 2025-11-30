@@ -50,15 +50,15 @@
 
 @keyframes spin-rotate {
   0% {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
 
   50% {
-    transform: rotate(180deg);
+    transform: rotateY(180deg);
   }
 
   100% {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
 }
 
@@ -119,31 +119,6 @@
 body {
   @apply font-sans;
 }
-
-/* In your global CSS file, if arbitrary values fail */
-.flip-card {
-  perspective: 1000px;
-}
-
-.flip-inner {
-  transition: transform 1000ms;
-  transform-style: preserve-3d;
-}
-
-.flip-front,
-.flip-back {
-  backface-visibility: hidden;
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-}
-
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-
-
 
 html {
   scroll-behavior: smooth;
