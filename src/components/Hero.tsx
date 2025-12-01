@@ -41,7 +41,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="font-inter font-bold leading-[1.15] tracking-tight text-[#0C2340] text-4xl md:text-6xl lg:text-7xl"
+              className="font-display font-bold leading-tight tracking-tight text-slate-900 text-5xl sm:text-6xl lg:text-7xl"
             >
               <span className="block">Building</span>
 
@@ -54,7 +54,7 @@ export const Hero = () => {
                 Intelligent Enterprise Solutions
               </span>
 
-              <span className="block text-[#21C4A3] text-2xl md:text-3xl font-semibold mt-2">
+              <span className="block text-[#21C4A3] text-2xl md:text-3xl font-semibold mt-2 font-heading">
                 Powered by Advanced AI Analytics
               </span>
             </motion.h1>
@@ -64,7 +64,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="font-inter text-lg md:text-xl text-[#6B7280] max-w-xl leading-relaxed"
+              className="font-sans text-lg sm:text-xl text-slate-600 max-w-xl leading-relaxed font-medium"
             >
 
               MoviCloud Labs is your trusted partner for next-generation digital transformation. We design secure, scalable, and custom cloud environments that drive innovation and efficiency. Leveraging deep expertise in predictive analytics and AI, we build smart, cloud-native enterprise platforms that intelligently optimize operations and accelerate business performance.
@@ -80,7 +80,7 @@ export const Hero = () => {
               <Link to="/products">
                 <Button
                   size="lg"
-                  className="font-inter text-lg w-full sm:w-auto px-8 rounded-full bg-[#00A4C7] hover:bg-[#0090AF] text-white shadow"
+                  className="font-sans font-semibold text-lg w-full sm:w-auto px-8 rounded-full bg-[#00A4C7] hover:bg-[#0090AF] text-white shadow"
                 >
                   Explore Our Products
                   <ArrowRight className="ml-2" />
@@ -91,7 +91,7 @@ export const Hero = () => {
               <Link to="/demo">
                 <Button
                   size="lg"
-                  className="font-inter text-lg w-full sm:w-auto px-8 rounded-full bg-[#0C2340] hover:bg-[#071729] text-white shadow"
+                  className="font-sans font-semibold text-lg w-full sm:w-auto px-8 rounded-full bg-[#0C2340] hover:bg-[#071729] text-white shadow"
                 >
                   Book a Demo
                 </Button>
@@ -141,7 +141,7 @@ export const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-2xl font-bold mb-4 text-foreground">
+            <h2 className="text-2xl font-bold mb-4 font-heading text-slate-900">
               Product Showcase: <span className="text-primary">Launching 2026</span>
             </h2>
 
@@ -168,7 +168,7 @@ export const Hero = () => {
                     src={`/icons/products/${item}.webp`}
                     className="w-16 h-16 rounded-full"
                   />
-                  <p className="text-sm font-medium capitalize">
+                  <p className="text-sm font-medium capitalize font-heading text-slate-700">
                     {item.replace("-", " ")}
                   </p>
                 </motion.div>

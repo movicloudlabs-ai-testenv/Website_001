@@ -48,7 +48,7 @@ const ListItem = React.forwardRef<
           className={cn(
             "block select-none space-y-1 rounded-xl p-3 leading-none no-underline outline-none transition-all duration-200 border border-transparent",
             active
-              ? "bg-blue-50 border-blue-100 shadow-sm"
+              ? "bg-slate-50 border-slate-100 shadow-sm"
               : "hover:bg-slate-50 hover:shadow-sm hover:border-slate-100",
             className
           )}
@@ -60,7 +60,7 @@ const ListItem = React.forwardRef<
                 className={cn(
                   "p-2 rounded-lg transition-colors duration-300",
                   active
-                    ? "bg-[#2C6BED] text-white"
+                    ? "bg-gradient-primary text-white"
                     : "text-[#2C6BED] bg-blue-50 group-hover:bg-[#2C6BED] group-hover:text-white"
                 )}
               >
@@ -70,7 +70,7 @@ const ListItem = React.forwardRef<
             <div
               className={cn(
                 "text-base font-bold font-heading leading-none transition-colors",
-                active ? "text-[#2C6BED]" : "text-[#0E224B] group-hover:text-[#2C6BED]"
+                active ? "bg-gradient-primary bg-clip-text text-transparent" : "text-[#0E224B] group-hover:text-[#2C6BED]"
               )}
             >
               {title}
@@ -133,7 +133,7 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* LOGO */}
@@ -158,7 +158,7 @@ export const Navigation = () => {
                       className={cn(
                         navigationMenuTriggerStyle(),
                         "font-heading text-base",
-                        isActive("/") && "bg-accent text-accent-foreground"
+                        isActive("/") && "bg-gradient-primary text-white shadow-md"
                       )}
                     >
                       Home
@@ -170,7 +170,7 @@ export const Navigation = () => {
                   <NavigationMenuTrigger
                     className={cn(
                       "font-heading text-base",
-                      industries.some(i => isActive(i.href)) && "bg-accent text-accent-foreground"
+                      industries.some(i => isActive(i.href)) && "bg-gradient-primary text-white shadow-md"
                     )}
                   >
                     Products
@@ -273,7 +273,7 @@ export const Navigation = () => {
                       className={cn(
                         navigationMenuTriggerStyle(),
                         "font-heading text-base",
-                        isActive("/career") && "bg-accent text-accent-foreground"
+                        isActive("/career") && "bg-gradient-primary text-white shadow-md"
                       )}
                     >
                       Career
@@ -355,24 +355,24 @@ export const Navigation = () => {
                     {/* Industries Accordion */}
                     <motion.div variants={{ hidden: { x: -20, opacity: 0 }, visible: { x: 0, opacity: 1 } }} className="space-y-1">
                       <button
-                        onClick={() => toggleSubmenu("industries")}
+                        onClick={() => toggleSubmenu("products")}
                         className={cn(
                           "w-full flex items-center justify-between p-3.5 rounded-xl font-heading font-semibold text-lg transition-colors",
-                          openSubmenu === "industries" || industries.some(i => isActive(i.href))
+                          openSubmenu === "products" || industries.some(i => isActive(i.href))
                             ? "bg-slate-50 text-blue-600"
                             : "text-slate-800 hover:bg-slate-50"
                         )}
                       >
-                        <span>Industries</span>
+                        <span>Products</span>
                         <ChevronDown
                           className={cn(
                             "w-5 h-5 transition-transform duration-200",
-                            openSubmenu === "industries" ? "rotate-180 text-blue-500" : "text-slate-400"
+                            openSubmenu === "products" ? "rotate-180 text-blue-500" : "text-slate-400"
                           )}
                         />
                       </button>
                       <AnimatePresence>
-                        {openSubmenu === "industries" && (
+                        {openSubmenu === "products" && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}

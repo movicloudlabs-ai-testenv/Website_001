@@ -28,7 +28,16 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
   }
 }
 
@@ -114,10 +123,6 @@
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 16px;
-}
-
-body {
-  @apply font-sans;
 }
 
 html {
