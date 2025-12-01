@@ -172,7 +172,7 @@ export const Navigation = () => {
                       industries.some(i => isActive(i.href)) && "bg-accent text-accent-foreground"
                     )}
                   >
-                    Industries
+                    Products
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="!mt-0 !pt-0 rounded-none">
                     <div className="w-screen max-w-none p-0 overflow-hidden bg-white shadow-xl rounded-b-xl !mt-0">
