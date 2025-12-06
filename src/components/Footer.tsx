@@ -18,7 +18,7 @@ export const Footer = () => {
     {
       name: "Instagram",
       url: "https://www.instagram.com/movicloudlabs?igsh=MWY4YnVxMXNhdmQwbg%3D%3D&utm_source=qr",
-      icon: "/assets/icons/instagram.webp",
+      icon: "/assets/icons/instagram.webp?v=2",
     },
     {
       name: "WhatsApp",

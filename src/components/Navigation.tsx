@@ -137,12 +137,12 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* LOGO */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+          <Link to="/" className="flex items-center gap-2 -ml-2">
+            <div className="w-14 h-14 rounded-lg overflow-hidden flex items-center justify-center">
               <img src="/logo1.webp" className="w-full h-full object-contain" alt="MoviCloud Logo" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold font-heading text-lg leading-none">MoviCloud Labs</span>
+              <span className="font-bold font-heading text-2xl leading-none">MoviCloud Labs</span>
               <span className="text-xs text-muted-foreground">Intelligent Applications</span>
             </div>
           </Link>
