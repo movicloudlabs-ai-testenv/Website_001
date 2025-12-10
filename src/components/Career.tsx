@@ -73,7 +73,7 @@ const CareerPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans selection:bg-sky-100 selection:text-sky-900">
+    <div className="min-h-screen bg-slate-50 font-sans selection:bg-sky-100 selection:text-sky-900 scroll-smooth">
       <Navigation />
 
       {/* Hero Section - Consistent Light Theme */}
@@ -94,9 +94,10 @@ const CareerPage: React.FC = () => {
               </span>
               We are hiring
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight font-display">
-              Join the <span className="text-sky-600">MoviCloud</span> Team
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight font-display whitespace-nowrap">
+              Join the <span className="text-sky-600">MoviCloud Labs</span> teams
             </h1>
+
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-sans max-w-2xl mx-auto mb-10">
               Be part of a visionary team dedicated to redefining enterprise intelligence. We build technology that matters.
             </p>
@@ -107,7 +108,7 @@ const CareerPage: React.FC = () => {
                   View Open Roles
                 </Button>
               </a>
-              <a href="#culture">
+              <a href="#vacancies">
                 <Button variant="outline" className="h-12 px-8 border-slate-200 text-slate-700 hover:bg-slate-50 text-base font-medium rounded-lg">
                   Our Culture
                 </Button>
@@ -123,7 +124,7 @@ const CareerPage: React.FC = () => {
       <section id="culture" className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-display">Why Join MoviCloud?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-display">Why Join MoviCloud Labs?</h2>
             <p className="text-slate-600 max-w-2xl mx-auto font-sans">
               We foster an environment where creativity thrives and every voice is heard.
             </p>
@@ -185,6 +186,7 @@ const CareerPage: React.FC = () => {
                 Ready to make an impact? Explore our current openings.
               </p>
             </div>
+
             <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-white font-sans">
               View All Positions
             </Button>
@@ -216,16 +218,12 @@ const CareerPage: React.FC = () => {
                   {category.roles.map((role, rIndex) => (
                     <div key={rIndex} className="flex items-center justify-between text-sm text-slate-500 hover:text-sky-600 transition-colors group/role">
                       <span className="font-medium">{role}</span>
-                      <ArrowRight className="w-4 h-4 opacity-0 group-hover/role:opacity-100 -translate-x-2 group-hover/role:translate-x-0 transition-all text-sky-600" />
+
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-6 border-t border-slate-100">
-                  <span className="text-sky-600 text-sm font-bold group-hover:text-sky-700 flex items-center gap-2 transition-colors">
-                    View Department <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </div>
+
               </motion.div>
             ))}
           </div>

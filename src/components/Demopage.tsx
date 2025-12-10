@@ -56,12 +56,12 @@ const DemoPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans selection:bg-teal-100 selection:text-teal-900">
+        <div className="min-h-screen bg-blue-50 font-sans selection:bg-blue-100 selection:text-blue-900">
             <Navigation />
 
             {/* Hero Section */}
             <section className="relative pt-20 pb-8 lg:pt-32 lg:pb-16 overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-100/40 via-slate-50/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-blue-50/20 to-transparent pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10">
                     <motion.div
@@ -70,10 +70,10 @@ const DemoPage = () => {
                         transition={{ duration: 0.6 }}
                         className="text-center max-w-4xl mx-auto"
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-bold uppercase tracking-wider mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
                             <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                             </span>
                             Live Product Tour
                         </div>
@@ -82,7 +82,7 @@ const DemoPage = () => {
                         </h1>
                         <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-sans max-w-2xl mx-auto">
                             {productFromNav ? (
-                                <>Get a personalized look at <strong className="text-teal-600">{productFromNav}</strong>. Discover how our AI-driven platform can streamline your specific workflows.</>
+                                <>Get a personalized look at <strong className="text-blue-600">{productFromNav}</strong>. Discover how our AI-driven platform can streamline your specific workflows.</>
                             ) : (
                                 "Book a personalized demo to see how our intelligent enterprise solutions can transform your business operations with predictive analytics and automation."
                             )}
@@ -112,7 +112,7 @@ const DemoPage = () => {
                                             {index !== demoSteps.length - 1 && (
                                                 <div className="absolute left-5 top-10 bottom-[-20px] w-0.5 bg-slate-200" />
                                             )}
-                                            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white border-2 border-teal-100 flex items-center justify-center text-teal-600 shadow-sm z-10">
+                                            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white border-2 border-blue-200 flex items-center justify-center text-blue-600 shadow-sm z-10">
                                                 <step.icon className="w-5 h-5" />
                                             </div>
                                             <div>
@@ -147,12 +147,12 @@ const DemoPage = () => {
                             <div className="p-6 bg-slate-900 rounded-2xl text-white">
                                 <div className="flex items-start gap-4">
                                     <div className="p-3 bg-white/10 rounded-lg">
-                                        <PlayCircle className="w-6 h-6 text-teal-400" />
+                                        <PlayCircle className="w-6 h-6 text-blue-400" />
                                     </div>
                                     <div>
                                         <h4 className="font-bold font-heading mb-1">Not ready to book?</h4>
                                         <p className="text-sm text-slate-400 mb-3 font-sans">Watch a 2-minute product tour instead.</p>
-                                        <button className="text-sm font-bold text-teal-400 hover:text-teal-300 flex items-center gap-1 transition-colors">
+                                        <button className="text-sm font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors">
                                             Watch Video <ArrowRight className="w-4 h-4" />
                                         </button>
                                     </div>
@@ -167,11 +167,11 @@ const DemoPage = () => {
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 0.3 }}
-                                className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-6 md:p-10 sticky top-24"
+                                className="bg-white rounded-2xl shadow-xl shadow-blue-200/30 border border-blue-100 p-6 md:p-10 sticky top-24"
                             >
                                 {submitted ? (
                                     <div className="text-center py-20">
-                                        <div className="w-20 h-20 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                                        <div className="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
                                             <CheckCircle2 className="w-10 h-10" />
                                         </div>
                                         <h3 className="text-3xl font-bold text-slate-900 mb-4 font-display">You're all set!</h3>
@@ -180,7 +180,7 @@ const DemoPage = () => {
                                         </p>
                                         <Link
                                             to="/"
-                                            className="inline-flex items-center justify-center px-8 py-4 bg-teal-600 text-white font-bold rounded-xl hover:bg-teal-700 transition-colors font-sans shadow-lg shadow-teal-600/20"
+                                            className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors font-sans shadow-lg shadow-blue-600/20"
                                         >
                                             Return to Home
                                         </Link>
@@ -203,7 +203,7 @@ const DemoPage = () => {
                                                         required
                                                         value={formData.firstName}
                                                         onChange={handleInputChange}
-                                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm font-sans"
                                                         placeholder="Jane"
                                                     />
                                                 </div>
@@ -216,7 +216,7 @@ const DemoPage = () => {
                                                         required
                                                         value={formData.lastName}
                                                         onChange={handleInputChange}
-                                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm font-sans"
                                                         placeholder="Doe"
                                                     />
                                                 </div>
@@ -231,7 +231,7 @@ const DemoPage = () => {
                                                     required
                                                     value={formData.email}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm font-sans"
                                                     placeholder="jane@company.com"
                                                 />
                                             </div>
@@ -246,7 +246,7 @@ const DemoPage = () => {
                                                         required
                                                         value={formData.company}
                                                         onChange={handleInputChange}
-                                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm font-sans"
+                                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm font-sans"
                                                         placeholder="Acme Inc."
                                                     />
                                                 </div>
@@ -257,7 +257,7 @@ const DemoPage = () => {
                                                         name="employees"
                                                         value={formData.employees}
                                                         onChange={handleInputChange}
-                                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all appearance-none text-sm font-sans"
+                                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all appearance-none text-sm font-sans"
                                                     >
                                                         <option value="1-50">1-50 employees</option>
                                                         <option value="51-200">51-200 employees</option>
@@ -276,7 +276,7 @@ const DemoPage = () => {
                                                     rows={3}
                                                     value={formData.message}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none text-sm font-sans"
+                                                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none text-sm font-sans"
                                                     placeholder="I'm interested in..."
                                                 />
                                             </div>
@@ -284,7 +284,7 @@ const DemoPage = () => {
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-lg shadow-teal-600/20 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed text-base font-sans"
+                                                className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed text-base font-sans"
                                             >
                                                 {isSubmitting ? (
                                                     <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
