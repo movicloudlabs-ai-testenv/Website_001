@@ -156,21 +156,24 @@ const Hospital = () => {
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
                         {/* Left Content */}
                         <motion.div
-                            className="space-y-8"
+                            className="space-y-6"
                             initial="hidden"
                             animate="visible"
                             variants={containerVariants}
                         >
                             {/* Stamp + Header Flex Container */}
-                            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-8">
+                            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-0">
                                 {/* Royal Blue Rubber Stamp */}
-                                <StampBadge />
+                                <div className="-ml-6 sm:-ml-8 scale-90 sm:scale-100 origin-right">
+                                    <StampBadge text="HMS" className="text-blue-600" />
+                                </div>
 
                                 {/* Header Text */}
-                                <div className="text-center sm:text-left py-4">
+                                <div className="text-center sm:text-left z-10">
+                                    <span className="block text-sm font-bold text-blue-600 tracking-widest uppercase mb-0">Intelligence</span>
                                     <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight pb-2">
                                         Hospital{" "}
                                         <motion.span
@@ -196,13 +199,13 @@ const Hospital = () => {
 
                             <motion.p
                                 variants={itemVariants}
-                                className="text-lg sm:text-xl text-slate-600 max-w-lg leading-relaxed font-medium"
+                                className="text-lg sm:text-xl text-slate-600 max-w-lg leading-relaxed font-medium pl-2"
                             >
                                 Transform healthcare delivery with an AI-driven HMS that elevates clinical decision-making, simplifies hospital workflows, and unifies patient records. Deliver faster diagnosis, operational excellence, and a fully connected care ecosystem designed for modern, data-intelligent healthcare institutions.
                             </motion.p>
 
                             {/* Buttons */}
-                            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+                            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pl-2">
                                 <motion.button
                                     type="button"
                                     onClick={() => navigate('/demo', { state: { product: 'Hospital' } })}
@@ -244,7 +247,7 @@ const Hospital = () => {
 
                         {/* Right Image */}
                         <motion.div
-                            className="relative lg:h-[600px] flex items-center justify-center lg:justify-end"
+                            className="relative lg:h-[600px] flex items-center justify-center lg:justify-start pl-0 lg:pl-10"
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.2 }}

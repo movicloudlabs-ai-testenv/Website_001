@@ -154,21 +154,25 @@ const Transport = () => {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Header Row - Full Width */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Left Content */}
             <motion.div
-              className="space-y-8"
+              className="space-y-6"
               initial="hidden"
               animate="visible"
               variants={containerVariants}
             >
               {/* Stamp + Header Flex Container */}
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-8">
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-0">
                 {/* Green Rubber Stamp */}
-                <StampBadge />
+                <div className="-ml-6 sm:-ml-8 scale-90 sm:scale-100 origin-right">
+                  <StampBadge text="TWS" className="text-green-600" />
+                </div>
 
                 {/* Header Text */}
-                <div className="text-center sm:text-left py-4">
+                <div className="text-center sm:text-left">
+                  <span className="block text-sm font-bold text-green-600 tracking-widest uppercase mb-0">Smart</span>
                   <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight pb-2">
                     Transport{" "}
                     <motion.span
@@ -194,13 +198,13 @@ const Transport = () => {
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg sm:text-xl text-slate-600 max-w-lg leading-relaxed font-medium"
+                className="text-lg sm:text-xl text-slate-600 max-w-lg leading-relaxed font-medium pl-2"
               >
                 Optimize fleet operations with real-time GPS tracking, intelligent route planning, and predictive maintenance powered by advanced AI. Reduce costs, improve efficiency, and ensure timely deliveries.
               </motion.p>
 
               {/* Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pl-2">
                 <motion.button
                   type="button"
                   onClick={() => navigate('/demo', { state: { product: 'Transport' } })}
@@ -242,7 +246,7 @@ const Transport = () => {
 
             {/* Right Image */}
             <motion.div
-              className="relative lg:h-[600px] flex items-center justify-center lg:justify-end"
+              className="relative lg:h-[600px] flex items-center justify-center lg:justify-start pl-0 lg:pl-10"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}

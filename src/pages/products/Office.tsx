@@ -153,165 +153,166 @@ const Office = () => {
           <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.webp')] mix-blend-multiply" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left Content */}
-            <motion.div
-              className="space-y-8"
-              initial="hidden"
-              animate="visible"
-              variants={containerVariants}
-            >
-              {/* Stamp + Header Flex Container */}
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-8">
-                {/* Purple Rubber Stamp */}
-                <StampBadge />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          {/* Left Content */}
+          <motion.div
+            className="space-y-6"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+          >
+            {/* Stamp + Header Flex Container */}
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-0">
+              {/* Purple Rubber Stamp */}
+              <div className="-ml-6 sm:-ml-8 scale-90 sm:scale-100 origin-right">
+                <StampBadge text="OWMP" className="text-purple-600" />
+              </div>
 
-                {/* Header Text */}
-                <div className="text-center sm:text-left py-4">
-                  <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight pb-2">
-                    Office{" "}
-                    <motion.span
-                      animate={{ backgroundPosition: ["200% center", "-200% center"] }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 3,
-                        ease: "linear"
-                      }}
-                      className="pb-2 inline-block"
-                      style={{
-                        backgroundImage: "linear-gradient(110deg, #7e22ce 45%, #d8b4fe 50%, #7e22ce 55%)",
-                        backgroundSize: "250% auto",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
-                    >
-                      Management
-                    </motion.span>
-                  </h1>
-                </div>
-              </motion.div>
-
-              <motion.p
-                variants={itemVariants}
-                className="text-lg sm:text-xl text-slate-600 max-w-lg leading-relaxed font-medium"
-              >
-                Empower your team with intelligent task management, seamless collaboration, and AI-driven productivity insights. Streamline workflows and achieve your goals faster.
-              </motion.p>
-
-              {/* Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <motion.button
-                  type="button"
-                  onClick={() => navigate('/demo', { state: { product: 'Office' } })}
-                  variants={buttonHoverVariants}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="flex items-center gap-2 px-8 py-4 bg-purple-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/20"
-                >
-                  Request a Demo
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
-
-                <motion.button
-                  variants={secondaryButtonVariants}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="flex items-center gap-2 px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-semibold hover:bg-slate-50"
-                >
-                  <Play className="w-5 h-5 fill-current" />
-                  View Case Studies
-                </motion.button>
-                <motion.div variants={itemVariants} className="pt-8 flex items-center gap-6 text-slate-500">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-purple-500" />
-                    <span className="text-sm font-medium">Team Collaboration</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-purple-500" />
-                    <span className="text-sm font-medium">24/7 Support</span>
-                  </div>
-                </motion.div>
-              </motion.div>
-
-              {/* Trust Indicators */}
-
-            </motion.div>
-
-            {/* Right Image */}
-            <motion.div
-              className="relative lg:h-[600px] flex items-center justify-center lg:justify-end"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-            >
-              <div className="relative w-full max-w-2xl">
-                {/* Main Image Container */}
-                <div
-                  className="relative rounded-3xl shadow-2xl shadow-purple-900/10 border-4 border-white aspect-[4/3] w-full px-3 py-12 bg-white"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  <div className="relative w-full h-full rounded-2xl overflow-hidden isolation-isolate transform-gpu">
-                    <AnimatePresence mode="sync">
-                      <motion.img
-                        key={currentImageIndex}
-                        src={heroImages[currentImageIndex]}
-                        alt={`Office Dashboard Interface ${currentImageIndex + 1}`}
-                        initial={{ opacity: 0 }}
-                        animate={{
-                          opacity: 1,
-                          scale: isHovered ? 1.05 : 1
-                        }}
-                        exit={{ opacity: 0 }}
-                        transition={{
-                          opacity: { duration: 1.8, ease: "easeInOut" },
-                          scale: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }
-                        }}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        style={{ objectPosition: 'center' }}
-                      />
-                    </AnimatePresence>
-
-                    {/* Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/10 to-transparent pointer-events-none z-10" />
-                  </div>
-                </div>
-
-                {/* Floating Badge 1 - Productivity */}
-                <motion.div
-                  className="absolute -top-6 -left-6 md:-left-12 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 flex items-center gap-3 z-20"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <div className="p-2.5 bg-purple-100 rounded-xl">
-                    <TrendingUp className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Productivity</p>
-                    <p className="text-sm font-bold text-slate-900">+47% Boost</p>
-                  </div>
-                </motion.div>
-
-                {/* Floating Badge 2 - Goals */}
-                <motion.div
-                  className="absolute -bottom-8 -right-4 md:-right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 flex items-center gap-3 z-20"
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                >
-                  <div className="p-2.5 bg-pink-100 rounded-xl">
-                    <Target className="w-6 h-6 text-pink-500" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Goals</p>
-                    <p className="text-sm font-bold text-slate-900">Achieved</p>
-                  </div>
-                </motion.div>
+              {/* Header Text */}
+              <div className="text-center sm:text-left">
+                <span className="block text-sm font-bold text-purple-600 tracking-widest uppercase mb-0">Smart</span>
+                <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight pb-2">
+                  Office{" "}
+                  <motion.span
+                    animate={{ backgroundPosition: ["200% center", "-200% center"] }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 3,
+                      ease: "linear"
+                    }}
+                    className="pb-2 inline-block"
+                    style={{
+                      backgroundImage: "linear-gradient(110deg, #7e22ce 45%, #d8b4fe 50%, #7e22ce 55%)",
+                      backgroundSize: "250% auto",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    Management
+                  </motion.span>
+                </h1>
               </div>
             </motion.div>
-          </div>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-lg sm:text-xl text-slate-600 max-w-lg leading-relaxed font-medium pl-2"
+            >
+              Empower your team with intelligent task management, seamless collaboration, and AI-driven productivity insights. Streamline workflows and achieve your goals faster.
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pl-2">
+              <motion.button
+                type="button"
+                onClick={() => navigate('/demo', { state: { product: 'Office' } })}
+                variants={buttonHoverVariants}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
+                className="flex items-center gap-2 px-8 py-4 bg-purple-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/20"
+              >
+                Request a Demo
+                <ArrowRight className="w-5 h-5" />
+              </motion.button>
+
+              <motion.button
+                variants={secondaryButtonVariants}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
+                className="flex items-center gap-2 px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-semibold hover:bg-slate-50"
+              >
+                <Play className="w-5 h-5 fill-current" />
+                View Case Studies
+              </motion.button>
+              <motion.div variants={itemVariants} className="pt-8 flex items-center gap-6 text-slate-500">
+                <div className="flex items-center gap-2">
+                  <Check className="w-5 h-5 text-purple-500" />
+                  <span className="text-sm font-medium">Team Collaboration</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-5 h-5 text-purple-500" />
+                  <span className="text-sm font-medium">24/7 Support</span>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Trust Indicators */}
+
+          </motion.div>
+
+          {/* Right Image */}
+          <motion.div
+            className="relative lg:h-[600px] flex items-center justify-center lg:justify-start pl-0 lg:pl-10"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            <div className="relative w-full max-w-2xl">
+              {/* Main Image Container */}
+              <div
+                className="relative rounded-3xl shadow-2xl shadow-purple-900/10 border-4 border-white aspect-[4/3] w-full px-3 py-12 bg-white"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden isolation-isolate transform-gpu">
+                  <AnimatePresence mode="sync">
+                    <motion.img
+                      key={currentImageIndex}
+                      src={heroImages[currentImageIndex]}
+                      alt={`Office Dashboard Interface ${currentImageIndex + 1}`}
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        scale: isHovered ? 1.05 : 1
+                      }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        opacity: { duration: 1.8, ease: "easeInOut" },
+                        scale: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }
+                      }}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ objectPosition: 'center' }}
+                    />
+                  </AnimatePresence>
+
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/10 to-transparent pointer-events-none z-10" />
+                </div>
+              </div>
+
+              {/* Floating Badge 1 - Productivity */}
+              <motion.div
+                className="absolute -top-6 -left-6 md:-left-12 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 flex items-center gap-3 z-20"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="p-2.5 bg-purple-100 rounded-xl">
+                  <TrendingUp className="w-6 h-6 text-purple-600" />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Productivity</p>
+                  <p className="text-sm font-bold text-slate-900">+47% Boost</p>
+                </div>
+              </motion.div>
+
+              {/* Floating Badge 2 - Goals */}
+              <motion.div
+                className="absolute -bottom-8 -right-4 md:-right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 flex items-center gap-3 z-20"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
+                <div className="p-2.5 bg-pink-100 rounded-xl">
+                  <Target className="w-6 h-6 text-pink-500" />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Goals</p>
+                  <p className="text-sm font-bold text-slate-900">Achieved</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
