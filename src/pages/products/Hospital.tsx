@@ -166,10 +166,10 @@ const Hospital = () => {
                         >
                             {/* Stamp + Header Flex Container */}
                             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-0">
-                                {/* Royal Blue Rubber Stamp */}
-                                <div className="-ml-6 sm:-ml-8 scale-90 sm:scale-100 origin-right">
+                                <div className="-ml-6 sm:-ml-8-mt-29 scale-90 sm:scale-100 origin-right">
                                     <StampBadge text="HMS" className="text-blue-600" />
                                 </div>
+
 
                                 {/* Header Text */}
                                 <div className="text-center sm:text-left z-10">

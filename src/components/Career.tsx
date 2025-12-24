@@ -76,11 +76,11 @@ const CareerPage: React.FC = () => {
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-sky-100 selection:text-sky-900 scroll-smooth">
       <Navigation />
       {/* Hero Section - consistent Light Theme */}
-      <section className="relative pt-28 pb-10 lg:pt-32 lg:pb-12 overflow-hidden">
+      <section className="relative pt-20 pb-10 lg:pt-20 lg:pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-100/40 via-slate-50/20 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left Column: Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -96,11 +96,11 @@ const CareerPage: React.FC = () => {
                 We are hiring
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-1.5 tracking-tight font-display">
+              <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight font-display">
                 Join the <span className="text-sky-600">MoviCloud Labs</span> team
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-sans max-w-2xl mb-3">
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-sans max-w-2xl mb-8">
                 We’re redefining what products can be, turning advanced analytics and AI into seamless, impactful experiences for every user.
               </p>
 

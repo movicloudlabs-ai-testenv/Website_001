@@ -171,9 +171,9 @@ const School = () => {
 
                 {/* Header Text */}
                 <div className="text-center sm:text-left py-4">
-                  <span className="block text-sm font-bold text-orange-600 tracking-widest uppercase mb-0">Smart</span>
+                  <span className="block text-sm font-bold text-orange-600 tracking-widest uppercase mb-0">NextGen</span>
                   <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight pb-2">
-                    School{" "}
+                    Education {" "}
                     <motion.span
                       animate={{ backgroundPosition: ["200% center", "-200% center"] }}
                       transition={{

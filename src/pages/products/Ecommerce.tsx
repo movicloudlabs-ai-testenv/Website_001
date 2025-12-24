@@ -174,7 +174,7 @@ const Ecommerce = () => {
                 <div className="text-center sm:text-left relative z-20">
                   <span className="block text-sm font-bold text-teal-600 tracking-widest uppercase mb-0">E-Commerce </span>
                   <h1 className="font-display text-5xl sm:text-6xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight pb-2">
-                    <span className="whitespace-nowrap">Inventory </span>{" "}
+                    <span className="whitespace-nowrap">Warehouse </span>{" "}
                     <motion.span
                       animate={{ backgroundPosition: ["200% center", "-200% center"] }}
                       transition={{
@@ -190,7 +190,7 @@ const Ecommerce = () => {
                         WebkitTextFillColor: "transparent",
                       }}
                     >
-                      Warehouse Solution
+                      Solution
                     </motion.span>
                   </h1>
                 </div>
