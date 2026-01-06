@@ -4,6 +4,9 @@ import { ArrowRight, Play, Check, Package, LineChart, Zap, Globe, RefreshCw, Tru
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
+import { SEO } from '../../components/SEO';
+import { createProductSchema, createBreadcrumbSchema } from '../../lib/schema';
+import { productSEO } from '../../lib/productSEO';
 import ec1 from '../../assets/EC1.webp';
 import ec2 from '../../assets/EC 2.webp';
 import ec3 from '../../assets/EC 3.webp';
@@ -138,8 +141,35 @@ const Ecommerce = () => {
     );
   }
 
+  const seo = productSEO.ecommerce;
+  const productSchema = createProductSchema({
+    name: seo.productName,
+    description: seo.productDescription,
+    url: "/products/ecommerce",
+    category: seo.category
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: "E-commerce Inventory", url: "/products/ecommerce" }
+  ]);
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [productSchema, breadcrumbSchema]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-teal-100 selection:text-teal-900">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical="/products/ecommerce"
+        keywords={seo.keywords}
+        ogType="product"
+        jsonLd={combinedSchema}
+      />
       <Navigation />
 
       {/* Hero Section */}

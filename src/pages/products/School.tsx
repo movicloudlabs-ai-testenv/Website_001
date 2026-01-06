@@ -4,6 +4,9 @@ import { ArrowRight, Play, Check, GraduationCap, BookOpen, Users, Clock, CreditC
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
+import { SEO } from '../../components/SEO';
+import { createProductSchema, createBreadcrumbSchema } from '../../lib/schema';
+import { productSEO } from '../../lib/productSEO';
 import school1 from '../../assets/school1.webp';
 import school2 from '../../assets/school2.webp';
 import school3 from '../../assets/school3.webp';
@@ -137,8 +140,35 @@ const School = () => {
     );
   }
 
+  const seo = productSEO.school;
+  const productSchema = createProductSchema({
+    name: seo.productName,
+    description: seo.productDescription,
+    url: "/products/school",
+    category: seo.category
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: "School Management", url: "/products/school" }
+  ]);
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [productSchema, breadcrumbSchema]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-orange-100 selection:text-orange-900">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical="/products/school"
+        keywords={seo.keywords}
+        ogType="product"
+        jsonLd={combinedSchema}
+      />
       <Navigation />
 
       {/* Hero Section */}

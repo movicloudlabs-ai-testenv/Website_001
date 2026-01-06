@@ -4,6 +4,9 @@ import { ArrowRight, Play, Check, Hotel as HotelIcon, Star, DollarSign, Bed, Glo
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
+import { SEO } from '../../components/SEO';
+import { createProductSchema, createBreadcrumbSchema } from '../../lib/schema';
+import { productSEO } from '../../lib/productSEO';
 import Hotel1 from '../../assets/Hotel1.webp';
 import Hotel2 from '../../assets/Hotel2.webp';
 import Hotel3 from '../../assets/Hotel3.webp';
@@ -139,8 +142,35 @@ const Hotel = () => {
     );
   }
 
+  const seo = productSEO.hotel;
+  const productSchema = createProductSchema({
+    name: seo.productName,
+    description: seo.productDescription,
+    url: "/products/hotel",
+    category: seo.category
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: "Hotel Management", url: "/products/hotel" }
+  ]);
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [productSchema, breadcrumbSchema]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-amber-100 selection:text-amber-900">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical="/products/hotel"
+        keywords={seo.keywords}
+        ogType="product"
+        jsonLd={combinedSchema}
+      />
       <Navigation />
 
       {/* Hero Section */}

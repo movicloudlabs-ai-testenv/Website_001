@@ -4,6 +4,9 @@ import { ArrowRight, Play, Check, BarChart, Brain, MessageSquare, FileText, Shar
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
+import { SEO } from '../../components/SEO';
+import { createProductSchema, createBreadcrumbSchema } from '../../lib/schema';
+import { productSEO } from '../../lib/productSEO';
 import survey1 from '../../assets/survey.webp';
 import survey2 from '../../assets/survey2.webp';
 import survey3 from '../../assets/survey3.webp';
@@ -137,8 +140,35 @@ const Survey = () => {
     );
   }
 
+  const seo = productSEO.survey;
+  const productSchema = createProductSchema({
+    name: seo.productName,
+    description: seo.productDescription,
+    url: "/products/survey",
+    category: seo.category
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: "Survey System", url: "/products/survey" }
+  ]);
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [productSchema, breadcrumbSchema]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-indigo-100 selection:text-indigo-900">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical="/products/survey"
+        keywords={seo.keywords}
+        ogType="product"
+        jsonLd={combinedSchema}
+      />
       <Navigation />
 
       {/* Hero Section */}

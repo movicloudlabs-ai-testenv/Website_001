@@ -4,6 +4,9 @@ import { ArrowRight, Play, Check, Users, Target, Building2, FileText, Calendar, 
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
+import { SEO } from '../../components/SEO';
+import { createProductSchema, createBreadcrumbSchema } from '../../lib/schema';
+import { productSEO } from '../../lib/productSEO';
 import office1 from '../../assets/office1.webp';
 import office2 from '../../assets/office2.webp';
 import office3 from '../../assets/office3.webp';
@@ -137,8 +140,35 @@ const Office = () => {
     );
   }
 
+  const seo = productSEO.office;
+  const productSchema = createProductSchema({
+    name: seo.productName,
+    description: seo.productDescription,
+    url: "/products/office",
+    category: seo.category
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: "Office Management", url: "/products/office" }
+  ]);
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [productSchema, breadcrumbSchema]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-purple-100 selection:text-purple-900">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical="/products/office"
+        keywords={seo.keywords}
+        ogType="product"
+        jsonLd={combinedSchema}
+      />
       <Navigation />
 
       {/* Hero Section */}

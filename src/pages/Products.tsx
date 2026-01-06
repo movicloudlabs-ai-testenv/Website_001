@@ -1,6 +1,8 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
+import { SEO } from "@/components/SEO";
+import { createBreadcrumbSchema } from "@/lib/schema";
 import hospitalImg from "@/assets/hospital-dashboard.webp";
 import transportImg from "@/assets/transport-dashboard.webp";
 import officeImg from "@/assets/office-dashboard.webp";
@@ -70,8 +72,20 @@ const products = [
 ];
 
 const Products = () => {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" }
+  ]);
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="AI-Powered Enterprise Management Systems | MoviCloud Labs Products"
+        description="Explore MoviCloud Labs' suite of intelligent enterprise solutions: Hospital Management, Transport Management, Hotel Management, E-commerce Inventory, School Administration, Office Management, Survey Systems, and Digital Marketing platforms with AI analytics."
+        canonical="/products"
+        keywords="hospital management system, transport management software, hotel management, ecommerce inventory management, school administration software, office management, survey software, digital marketing platform, enterprise solutions"
+        jsonLd={breadcrumbSchema}
+      />
       <Navigation />
 
       <main className="pt-20 pb-8 md:pt-24 md:pb-12">

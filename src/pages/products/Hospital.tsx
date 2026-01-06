@@ -4,6 +4,8 @@ import { ArrowRight, Play, Check, ShieldPlus, Heart, Activity } from 'lucide-rea
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
+import { SEO } from '../../components/SEO';
+import { createProductSchema, createBreadcrumbSchema } from '../../lib/schema';
 import hms1 from '../../assets/hms1.webp';
 import hms2 from '../../assets/hms2.webp';
 import hms3 from '../../assets/hms3.webp';
@@ -139,8 +141,35 @@ const Hospital = () => {
         );
     }
 
+    const productSchema = createProductSchema({
+        name: "Hospital Management System - AI-Powered Healthcare Platform",
+        description: "Comprehensive AI-powered Hospital Management System with patient analytics, appointment scheduling, intelligent resource allocation, clinical workflows, and real-time decision-making support for healthcare providers.",
+        url: "/products/hospital",
+        image: "https://movicloudlabs.com/assets/hms1.webp",
+        category: "HealthcareApplication"
+    });
+
+    const breadcrumbSchema = createBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Products", url: "/products" },
+        { name: "Hospital Management", url: "/products/hospital" }
+    ]);
+
+    const combinedSchema = {
+        "@context": "https://schema.org",
+        "@graph": [productSchema, breadcrumbSchema]
+    };
+
     return (
         <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-blue-100 selection:text-blue-900">
+            <SEO
+                title="AI Hospital Management System | Healthcare Software | MoviCloud Labs"
+                description="Transform healthcare delivery with MoviCloud Labs' AI-powered Hospital Management System. Features include patient analytics, appointment scheduling, clinical workflows, resource allocation, and real-time decision support for hospitals and clinics."
+                canonical="/products/hospital"
+                keywords="hospital management system, healthcare software, patient management, clinical workflows, hospital automation, medical records management, appointment scheduling, AI healthcare, hospital ERP, medical practice management"
+                ogType="product"
+                jsonLd={combinedSchema}
+            />
             <Navigation />
 
             {/* Hero Section */}

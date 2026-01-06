@@ -4,6 +4,9 @@ import { ArrowRight, Play, Check, ShieldPlus, MapPin, Gauge, Battery, Zap, Packa
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
+import { SEO } from '../../components/SEO';
+import { createProductSchema, createBreadcrumbSchema } from '../../lib/schema';
+import { productSEO } from '../../lib/productSEO';
 import transport1 from '../../assets/transport1.webp';
 import transport2 from '../../assets/transport2.webp';
 import transport3 from '../../assets/transport3.webp';
@@ -137,8 +140,35 @@ const Transport = () => {
     );
   }
 
+  const seo = productSEO.transport;
+  const productSchema = createProductSchema({
+    name: seo.productName,
+    description: seo.productDescription,
+    url: "/products/transport",
+    category: seo.category
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: "Transport Management", url: "/products/transport" }
+  ]);
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [productSchema, breadcrumbSchema]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-green-100 selection:text-green-900">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical="/products/transport"
+        keywords={seo.keywords}
+        ogType="product"
+        jsonLd={combinedSchema}
+      />
       <Navigation />
 
       {/* Hero Section */}

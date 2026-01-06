@@ -4,6 +4,9 @@ import { ArrowRight, Play, Check, Megaphone, BarChart3, Search, Share2, Mail, Ca
 import Navigation from '../../components/Navigation';
 import DemoCTA from '../../components/DemoCTA';
 import { Footer } from '../../components/Footer';
+import { SEO } from '../../components/SEO';
+import { createProductSchema, createBreadcrumbSchema } from '../../lib/schema';
+import { productSEO } from '../../lib/productSEO';
 import Digital1 from '../../assets/Digital1.webp';
 import Digital2 from '../../assets/Digital2.webp';
 import Digital3 from '../../assets/Digital3.webp';
@@ -139,8 +142,35 @@ const Marketing = () => {
     );
   }
 
+  const seo = productSEO.marketing;
+  const productSchema = createProductSchema({
+    name: seo.productName,
+    description: seo.productDescription,
+    url: "/products/marketing",
+    category: seo.category
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: "Marketing Suite", url: "/products/marketing" }
+  ]);
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [productSchema, breadcrumbSchema]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 overflow-hidden font-sans selection:bg-pink-100 selection:text-pink-900">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical="/products/marketing"
+        keywords={seo.keywords}
+        ogType="product"
+        jsonLd={combinedSchema}
+      />
       <Navigation />
 
       {/* Hero Section */}
