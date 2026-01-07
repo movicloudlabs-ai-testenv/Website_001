@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { getAssetPath } from "@/lib/utils";
 import {
   Users,
   Lightbulb,
@@ -116,7 +117,7 @@ const CareerPage: React.FC = () => {
               <div className="w-full max-w-lg">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-slate-200">
                   <img
-                    src="/career/hero.webp"
+                    src={getAssetPath("/career/hero.webp")}
                     alt="MoviCloud Labs Office"
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />

@@ -1,29 +1,31 @@
+import { getAssetPath } from "@/lib/utils";
+
 export const Footer = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/company/movicloud-labs-pvt-ltd/",
-      icon: "/assets/icons/linkedin.webp",
+      icon: getAssetPath("/assets/icons/linkedin.webp"),
     },
     {
       name: "X",
       url: "https://x.com/movicloudlabs?s=11",
-      icon: "/assets/icons/x.webp",
+      icon: getAssetPath("/assets/icons/x.webp"),
     },
     {
       name: "Facebook",
       url: "https://www.facebook.com/share/1FutXy6hCH/?mibextid=wwXIfr",
-      icon: "/assets/icons/facebook.webp",
+      icon: getAssetPath("/assets/icons/facebook.webp"),
     },
     {
       name: "Instagram",
       url: "https://www.instagram.com/movicloudlabs?igsh=MWY4YnVxMXNhdmQwbg%3D%3D&utm_source=qr",
-      icon: "/assets/icons/instagram.webp?v=2",
+      icon: getAssetPath("/assets/icons/instagram.webp?v=2"),
     },
     {
       name: "WhatsApp",
       url: "https://wa.me/919600701007",
-      icon: "/assets/icons/whatsapp.webp",
+      icon: getAssetPath("/assets/icons/whatsapp.webp"),
     },
   ];
 

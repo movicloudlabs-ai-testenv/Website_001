@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { getAssetPath } from '@/lib/utils';
 
 interface StampBadgeProps {
     text?: string;
@@ -23,7 +24,7 @@ const StampBadge = ({ text, className = "text-teal-800" }: StampBadgeProps) => {
                 className="w-52 flex items-center justify-center animate-spin-rotate"
             >
                 <img
-                    src="/Stamp.webp"
+                    src={getAssetPath("/Stamp.webp")}
                     alt="Official Stamp"
                     className="w-full h-full object-contain drop-shadow-md"
                 />

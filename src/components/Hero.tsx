@@ -119,7 +119,7 @@ export const Hero = () => {
             className="flex justify-center md:justify-end"
           >
             <img
-              src="/Hero.webp"
+              src={getAssetPath("/Hero.webp")}
               className="w-full h-auto object-contain"
               alt="Hero"
             />
@@ -165,7 +165,7 @@ export const Hero = () => {
                   className="flex flex-col items-center space-y-2"
                 >
                   <img
-                    src={`/icons/products/${item}.webp`}
+                    src={getAssetPath(`/icons/products/${item}.webp`)}
                     className="w-16 h-16 rounded-full"
                   />
                   <p className="text-sm font-medium capitalize font-heading text-slate-700">
@@ -185,7 +185,7 @@ export const Hero = () => {
             className="relative flex items-center justify-center"
           >
             <img
-              src="/launch-bg.webp"
+              src={getAssetPath("/launch-bg.webp")}
               alt="Launching 2026"
               className="w-full max-w-[380px] h-auto object-contain opacity-90"
             />
