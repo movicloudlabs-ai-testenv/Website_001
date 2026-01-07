@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Shield, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { getAssetPath } from "@/lib/utils";
 
 export const Hero = () => {
 
