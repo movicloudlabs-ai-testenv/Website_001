@@ -166,7 +166,7 @@ const CareerPage: React.FC = () => {
         </div>
       </section>
 
-
+      {/*ddddddddd*/}
 
       {/* Vacancies Section - Light Theme with Sky Accents */}
       <section id="vacancies" className="py-12 lg:py-16 bg-slate-50">

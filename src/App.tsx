@@ -39,7 +39,7 @@ const App = () => (
         <Toaster />
         <Sonner />
 
-        <BrowserRouter basename="/Website_001">
+        <BrowserRouter>
           <ScrollToTop />
           <Routes>
           {/* Home */}

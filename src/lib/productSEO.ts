@@ -1,5 +1,14 @@
 // SEO metadata for each product page
 export const productSEO = {
+  hospital: {
+    title: "Hospital Management System | Healthcare Software | MoviCloud Labs",
+    description: "Transform healthcare operations with MoviCloud Labs' AI-powered Hospital Management System. Features patient records, appointment scheduling, billing, pharmacy management, clinical workflows, and comprehensive analytics for modern healthcare facilities.",
+    keywords: "hospital management system, healthcare software, medical practice management, patient records, appointment scheduling, hospital ERP, clinical workflows, EMR software, healthcare analytics, hospital administration",
+    productName: "Hospital Management System - AI-Powered Healthcare Solution",
+    productDescription: "Comprehensive AI-powered hospital management solution with patient records, appointment scheduling, billing, pharmacy management, clinical workflows, electronic medical records, and real-time analytics for healthcare facilities.",
+    category: "HealthcareApplication"
+  },
+  
   transport: {
     title: "AI Transport Management System | Fleet Tracking Software | MoviCloud Labs",
     description: "Optimize fleet operations with MoviCloud Labs' AI-powered Transport Management System. Features real-time GPS tracking, intelligent route planning, predictive maintenance, fuel optimization, and comprehensive fleet analytics for logistics companies.",

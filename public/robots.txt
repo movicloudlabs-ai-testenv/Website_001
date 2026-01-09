@@ -1,8 +1,30 @@
+# MoviCloud Labs - Robots.txt
+# Updated: 2026-01-08
+
+# Allow all major search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 0
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,8 +32,23 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
-# Sitemap
+User-agent: WhatsApp
+Allow: /
+
+# Default for all other crawlers
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Disallow admin or private areas (if any in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
 Sitemap: https://movicloudlabs.com/sitemap.xml
+
+# Host preference (for canonicalization)
+Host: https://movicloudlabs.com

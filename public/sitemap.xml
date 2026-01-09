@@ -5,15 +5,15 @@
   <!-- Homepage -->
   <url>
     <loc>https://movicloudlabs.com/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-01-08</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- Products Listing -->
   <url>
     <loc>https://movicloudlabs.com/products</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -21,65 +21,65 @@
   <!-- Hospital Management -->
   <url>
     <loc>https://movicloudlabs.com/products/hospital</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- Transport Management -->
   <url>
     <loc>https://movicloudlabs.com/products/transport</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- Office Management -->
   <url>
     <loc>https://movicloudlabs.com/products/office</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- School Management -->
   <url>
     <loc>https://movicloudlabs.com/products/school</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- E-commerce Management -->
   <url>
     <loc>https://movicloudlabs.com/products/ecommerce</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- Hotel Management -->
   <url>
     <loc>https://movicloudlabs.com/products/hotel</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- Survey System -->
   <url>
     <loc>https://movicloudlabs.com/products/survey</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- Marketing Suite -->
   <url>
     <loc>https://movicloudlabs.com/products/marketing</loc>
-    <lastmod>2026-01-06</lastmod>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- Contact Page -->
