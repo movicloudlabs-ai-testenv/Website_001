@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight, MessageSquare, Building2, Globe, CheckCircle2, Send, Briefcase, Megaphone } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { useForm, ValidationError } from '@formspree/react';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -15,21 +16,11 @@ const ContactUs = () => {
         type: "sales"
     });
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
+    const [state, handleSubmit] = useForm("xlgozaeo");
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setSubmitted(true);
     };
 
     const offices = [
@@ -178,19 +169,13 @@ const ContactUs = () => {
                             transition={{ duration: 0.5, delay: 0.3 }}
                             className="bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-100 p-4 md:p-6"
                         >
-                            {submitted ? (
+                            {state.succeeded ? (
                                 <div className="text-center py-12">
                                     <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mx-auto mb-3">
                                         <CheckCircle2 className="w-6 h-6" />
                                     </div>
                                     <h3 className="text-lg font-bold text-slate-900 mb-2 font-display">Message Sent!</h3>
                                     <p className="text-slate-600 text-sm font-sans">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
-                                    <button
-                                        onClick={() => setSubmitted(false)}
-                                        className="mt-4 text-sky-600 font-medium hover:underline text-sm font-sans"
-                                    >
-                                        Send another message
-                                    </button>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-2">
@@ -235,6 +220,7 @@ const ContactUs = () => {
                                             className="w-full px-3 py-1.5 rounded-md bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-200 outline-none transition-all text-sm font-sans"
                                             placeholder="jane@company.com"
                                         />
+                                        <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
                                     </div>
 
                                     <div className="grid md:grid-cols-2 gap-3">
@@ -293,14 +279,15 @@ const ContactUs = () => {
                                             className="w-full px-3 py-1.5 rounded-md bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-200 outline-none transition-all resize-none text-sm font-sans"
                                             placeholder="Tell us about your project needs..."
                                         />
+                                        <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
                                     </div>
 
                                     <button
                                         type="submit"
-                                        disabled={isSubmitting}
+                                        disabled={state.submitting}
                                         className="w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-lg shadow-md shadow-sky-600/20 transition-all transform hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed text-sm font-sans"
                                     >
-                                        {isSubmitting ? (
+                                        {state.submitting ? (
                                             <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                         ) : (
                                             <>
