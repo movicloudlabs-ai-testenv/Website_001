@@ -34,8 +34,17 @@ export const Footer = () => {
       <footer className="bg-card border-t border-border mt-12 md:mt-24">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col items-center space-y-6">
-            <p className="text-sm text-muted-foreground text-center">
-              &copy; 2025 MoviCloud Labs Private Limited. All rights reserved.
+            <p className="text-sm text-muted-foreground text-center flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+              <span>&copy; 2025 MoviCloud Labs Private Limited. All rights reserved.</span>
+              <span className="hidden sm:inline text-muted-foreground/30">|</span>
+              <a
+                href={getAssetPath("/privacy-policy.pdf")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#2C6BED] hover:underline transition-colors font-medium text-xs sm:text-sm"
+              >
+                Privacy Policy
+              </a>
             </p>
 
             <div className="flex justify-center items-center gap-4">

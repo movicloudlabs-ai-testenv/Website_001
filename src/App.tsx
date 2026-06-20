@@ -22,8 +22,6 @@ import Marketing from "./pages/products/Marketing";
 import ContactUs from "./pages/ContactUsPage";
 import CareerPage from "./components/Career";
 import DemoPage from "./components/Demopage";
-import LoginPage from "./pages/LoginPage";
-import PortalPage from "./pages/PortalPage";
 
 
 
@@ -60,8 +58,7 @@ const App = () => (
           <Route path="/career" element={<CareerPage />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/demo" element={<DemoPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/portal" element={<PortalPage />} />
+
 
 
           {/* 404 Page */}

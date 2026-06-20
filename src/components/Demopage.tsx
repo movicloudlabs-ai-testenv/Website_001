@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation';
 // Footer removed
 
 import { useLocation, Link } from 'react-router-dom';
+import { getAssetPath } from '@/lib/utils';
 
 const DemoPage = () => {
     const location = useLocation();
@@ -329,8 +330,17 @@ const DemoPage = () => {
             {/* Inline Compact Footer */}
             <div className="flex-shrink-0 bg-white border-t border-slate-100 py-1.5 z-20">
                 <div className="container mx-auto px-6 flex flex-row items-center justify-between">
-                    <p className="text-[10px] text-slate-400 font-medium">
-                        &copy; 2025 MoviCloud Labs.
+                    <p className="text-[10px] text-slate-400 font-medium flex items-center gap-2">
+                        <span>&copy; 2025 MoviCloud Labs.</span>
+                        <span className="text-slate-200">|</span>
+                        <a 
+                            href={getAssetPath("/privacy-policy.pdf")} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:text-blue-600 transition-colors font-semibold"
+                        >
+                            Privacy Policy
+                        </a>
                     </p>
                     <div className="flex items-center gap-3">
                         {socialLinks.map((social) => (

@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, ArrowRight, MessageSquare, Building2, Globe, Check
 import Navigation from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { useForm, ValidationError } from '@formspree/react';
+import { getAssetPath } from '@/lib/utils';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -304,8 +305,17 @@ const ContactUs = () => {
             </div>
 
             {/* Minimal Footer for Single Screen */}
-            <div className="py-2 text-center text-[10px] text-slate-400 border-t border-slate-200 bg-white/50">
-                © 2025 MoviCloud Labs. All rights reserved.
+            <div className="py-2 text-center text-[10px] text-slate-400 border-t border-slate-200 bg-white/50 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
+                <span>&copy; 2025 MoviCloud Labs. All rights reserved.</span>
+                <span className="hidden sm:inline text-slate-200">|</span>
+                <a 
+                    href={getAssetPath("/privacy-policy.pdf")} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-sky-600 transition-colors font-medium hover:underline"
+                >
+                    Privacy Policy
+                </a>
             </div>
         </div >
     );

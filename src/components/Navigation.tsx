@@ -285,11 +285,6 @@ export const Navigation = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Link to="/login">
-              <Button variant="ghost" className="font-heading text-base text-slate-700 hover:text-blue-600 hover:bg-slate-50">
-                Login
-              </Button>
-            </Link>
             <Link to="/contact">
               <Button className="bg-gradient-primary font-heading text-base">Contact Us</Button>
             </Link>
@@ -499,11 +494,6 @@ export const Navigation = () => {
 
                 {/* Footer */}
                 <div className="flex-none p-5 border-t border-slate-100/50 bg-slate-50/50 backdrop-blur-sm flex flex-col gap-3">
-                  <Link to="/login" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="w-full border-slate-200 text-slate-700 font-heading text-base py-6 rounded-xl hover:bg-slate-50 active:scale-[0.98] transition-all">
-                      Login
-                    </Button>
-                  </Link>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     <Button className="w-full bg-[#2C6BED] hover:bg-[#2356bd] text-white font-heading text-base py-6 shadow-lg shadow-blue-500/20 rounded-xl transition-all active:scale-[0.98]">
                       Contact Us
